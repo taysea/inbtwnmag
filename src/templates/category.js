@@ -5,7 +5,7 @@ import { Card } from "../components/Card"
 
 import Layout from "../components/layout"
 // import SEO from "../components"
-import { PartialWidthSection } from "../sections/PartialWidth"
+import { PartialWidthSection } from "../layouts"
 
 function CategoryTemplate({ data: { allContentfulBlog }, pageContext }) {
   return (
