@@ -13,7 +13,7 @@ import { customTheme } from "../theme"
 
 // import Header from "./header"
 // import "./layout.css"
-import { Navigation } from "./Navigation"
+import { NavBar } from "."
 import { Footer } from "."
 
 const Layout = ({ children }) => {
@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
     <Grommet theme={customTheme} full>
       <>
         {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
-        <Navigation />
+        <NavBar />
         <Box as="main">{children}</Box>
         <Footer />
       </>
