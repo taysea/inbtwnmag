@@ -1,12 +1,15 @@
 import React from "react"
 // import { Link } from "gatsby"
 import { Box, Anchor, Button, Header, Image } from "grommet"
-import { PartialWidthSection } from "../sections/PartialWidth"
+import { PartialWidthSection } from "../layouts/PartialWidth"
 import { Instagram, Search } from "grommet-icons"
 import logo from "../assets/inbtwn.png"
 
 export const Navigation = () => (
-  <Box border={{ side: "bottom", color: "light-3" }}>
+  <Box
+    border={{ side: "bottom", color: "light-3" }}
+    margin={{ bottom: "large" }}
+  >
     <PartialWidthSection marginBottom="none">
       <Header height="xsmall">
         <Anchor href="/">

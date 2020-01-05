@@ -1,5 +1,6 @@
 export * from "./Card"
 export * from "./Footer"
+export * from "./HeroFeature"
 export * from "./Navigation"
 export * from "./Styled"
 export * from "./seo"

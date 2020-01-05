@@ -16,26 +16,24 @@ export const HalfWidthCard = ({
           <Image fit="cover" src={titleImage.file.url} margin="none" />
         </Box>
       </CardAnchor>
-      <Box gap="small">
-        <Text textAlign="center">
-          <Anchor
-            href={`/categories/${tags}`.toLowerCase()}
-            size="small"
-            color="#00C781"
-          >
-            {tags}
-          </Anchor>
-        </Text>
+      <Box gap="small" align="center">
+        <Anchor
+          href={`/categories/${tags}`.toLowerCase()}
+          size="small"
+          color="#00C781"
+        >
+          {tags}
+        </Anchor>
 
         <CardTitle
           slug={slug}
           title={title}
           align="center"
-          level={3}
           textAlign="center"
+          level={3}
         />
 
-        <Text size="small" textAlign="center" color="dark-3">
+        <Text size="small" color="dark-3">
           by {author.fullName} — 5 hours ago
         </Text>
       </Box>
