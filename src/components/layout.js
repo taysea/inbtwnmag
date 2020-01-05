@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
   return (
     <Grommet theme={customTheme} full>
       <>
-        <Box gap="small">
+        <Box>
           {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
           <Navigation />
           <main>{children}</main>

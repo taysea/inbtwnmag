@@ -1,9 +1,13 @@
 import React from "react"
-import { Text } from "grommet"
-import { CardAnchor } from "./CardImage"
+import { Box, Heading, Text } from "grommet"
+import { CardAnchor } from "./Card"
 
-export const CardTitle = ({ slug, title }) => (
-  <CardAnchor href={slug}>
-    <Text weight="bold">{title}</Text>
-  </CardAnchor>
+export const CardTitle = ({ slug, title, level, textAlign, ...rest }) => (
+  <Box {...rest}>
+    <CardAnchor href={slug} color="dark-1">
+      <Heading level={level || 4} margin="none" textAlign={textAlign}>
+        {title}
+      </Heading>
+    </CardAnchor>
+  </Box>
 )

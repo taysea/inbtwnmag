@@ -7,7 +7,7 @@ export const Category = category => (
     <Anchor
       href={`/categories/${category}`.toLowerCase()}
       size="small"
-      color="#EF777E"
+      color="#00C781"
     >
       {category}
     </Anchor>

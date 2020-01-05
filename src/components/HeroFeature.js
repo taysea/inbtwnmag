@@ -39,29 +39,28 @@ export const HeroFeature = ({
     </Box>
     <Box gridArea="content">
       <Box gap="small" margin={{ bottom: "large" }}>
-        <Text size="small">
-          Blog /{" "}
-          <Anchor href={tags.toLowerCase()} size="small" color="#EF777E">
-            {tags}
-          </Anchor>
-        </Text>
-
         <CardAnchor href={slug} color="dark-1">
-          <Heading level={1} margin="none">
+          <Text weight="bold" size="2.75em">
             {title}
-          </Heading>
+          </Text>
         </CardAnchor>
         <BodyText size="small">{description}</BodyText>
-        <Text size="small" weight="bold">
-          by {author.fullName}
+        {/* <Anchor color="#EF777E" size="small" href={slug}>
+          <Box direction="row" align="center">
+            <Text size="small">Read the interview</Text>
+            <FormNext color="#EF777E" />
+          </Box>
+        </Anchor> */}
+      </Box>
+      <Box flex="grow" justify="end">
+        <Text size="xsmall" color="dark-3">
+          by {author.fullName} /{" "}
+          <Anchor href={tags.toLowerCase()} color="#00C781">
+            {tags}
+          </Anchor>{" "}
+          — 4 hours ago
         </Text>
       </Box>
-      <Anchor color="#EF777E" size="small">
-        <Box direction="row" align="center">
-          <Text size="small">Read the interview</Text>
-          <FormNext color="#EF777E" />
-        </Box>
-      </Anchor>
     </Box>
   </Grid>
 )

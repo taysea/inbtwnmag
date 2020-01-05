@@ -4,12 +4,13 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Anchor, Box, Heading, Image, Text } from "grommet"
 import { PartialWidthSection } from "../sections/PartialWidth"
+import { CardFooter, Card } from "../components/Card"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 import { BodyText } from "../components/Styled"
 
 const Bold = ({ children }) => (
-  <Text weight="bold" color="dark-1">
+  <Text weight="bold" color="#222">
     {children}
   </Text>
 )
@@ -21,34 +22,29 @@ function BlogTemplate({ data }) {
         title={data.contentfulBlog.seo.title}
         description={data.contentfulBlog.seo.description}
       />
-      <Box height="500px" margin={{ bottom: "medium" }}>
+      <PartialWidthSection pad={{ top: "medium" }} marginBottom="large">
+        <Box width="large" gap="small" margin="auto" pad={{ top: "medium" }}>
+          <Box gap="medium" align="center">
+            <Text weight="bold" size="2.5em" textAlign="center">
+              {data.contentfulBlog.title}
+            </Text>
+            <CardFooter
+              author={data.contentfulBlog.author}
+              tags={data.contentfulBlog.tags}
+            />
+          </Box>
+        </Box>
+      </PartialWidthSection>
+      <Box height="80vh" margin={{ bottom: "medium" }}>
         <Image src={data.contentfulBlog.titleImage.file.url} fit="cover" />
       </Box>
-      <PartialWidthSection direction="row">
-        <Box width="large" margin="auto">
-          <Box gap="small" margin={{ bottom: "medium" }}>
-            <Text size="small">
-              Blog /{" "}
-              <Anchor
-                href={`/categories/${data.contentfulBlog.tags}`.toLowerCase()}
-                size="small"
-                color="#EF777E"
-              >
-                {data.contentfulBlog.tags}
-              </Anchor>
-            </Text>
-            <Heading level={1} margin="none">
-              {data.contentfulBlog.title}
-            </Heading>
-            <Text size="small">
-              words by {data.contentfulBlog.author.fullName}
-            </Text>
-          </Box>
+      <PartialWidthSection>
+        <Box width="large" gap="small" margin="auto">
           <BodyText>
             {documentToReactComponents(data.contentfulBlog.body.json, {
-              renderMark: {
-                [MARKS.BOLD]: text => <Bold>{text}</Bold>,
-              },
+              // renderMark: {
+              //   [MARKS.BOLD]: text => <Bold>{text}</Bold>,
+              // },
               renderNode: {
                 [BLOCKS.EMBEDDED_ASSET]: (node, children) => (
                   <Box>
@@ -61,17 +57,9 @@ function BlogTemplate({ data }) {
               },
             })}
           </BodyText>
-          <Box gap="medium">
-            {data.contentfulBlog.assets &&
-              data.contentfulBlog.assets.map(({ file: { url } }) => (
-                <Box height="large">
-                  <Image src={url} fit="cover" />
-                </Box>
-              ))}
-          </Box>
-          <Box flex="grow" />
         </Box>
       </PartialWidthSection>
+      <Box height="30em" background="light-3" />
     </Layout>
   )
 }
@@ -94,11 +82,6 @@ export const query = graphql`
         json
       }
       titleImage {
-        file {
-          url
-        }
-      }
-      assets {
         file {
           url
         }

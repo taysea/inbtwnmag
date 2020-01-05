@@ -14,10 +14,9 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
       categoryQuery: allContentfulBlog {
-        edges {
-          node {
-            tags
-          }
+        group(field: tags) {
+          fieldValue
+          totalCount
         }
       }
     }
@@ -35,12 +34,14 @@ exports.createPages = ({ graphql, actions }) => {
         },
       })
     })
-    result.data.categoryQuery.edges.forEach(edge => {
+
+    result.data.categoryQuery.group.forEach(tag => {
       createPage({
-        path: `/categories/${edge.node.tags}`,
+        path: `/categories/${tag.fieldValue}`.toLowerCase(),
         component: categoryTemplate,
         context: {
-          tags: edge.node.tags,
+          tags: tag.fieldValue,
+          totalCount: tag.totalCount,
         },
       })
     })

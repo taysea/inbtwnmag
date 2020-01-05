@@ -10,7 +10,7 @@ export const CardAnchor = styled(Anchor)`
 export const CardImage = (slug, height, url) => (
   <CardAnchor href={slug} color="dark-1">
     <Box width="100%" height={height || "250px"}>
-      <Image fit="cover" src={url} margin="none" />
+      <Image fit="cover" src={console.log(url) || url} margin="none" />
     </Box>
   </CardAnchor>
 )

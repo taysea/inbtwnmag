@@ -3,11 +3,12 @@ import React from "react"
 import styled from "styled-components"
 import { Anchor, Box, Heading, Text, Image } from "grommet"
 import { BodyText } from "../Styled"
-import { CardImage, CardTitle, Category, Description } from "."
+import { CardFooter, CardTitle } from "."
 
 export const CardAnchor = styled(Anchor)`
   &:hover {
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-color: #ef777e;
   }
 `
 export const Card = ({
@@ -16,33 +17,15 @@ export const Card = ({
 }) => (
   <Box gap="small" margin={{ bottom: "medium" }}>
     <Box gap="small">
-      <CardAnchor href={slug} color="dark-1">
+      <CardAnchor href={slug} margin={{ bottom: "small" }}>
         <Box width="100%" height={height || "250px"}>
           <Image fit="cover" src={titleImage.file.url} margin="none" />
         </Box>
       </CardAnchor>
-      <Text size="small">
-        Blog /{" "}
-        <Anchor
-          href={`/categories/${tags}`.toLowerCase()}
-          size="small"
-          color="#EF777E"
-        >
-          {tags}
-        </Anchor>
-      </Text>
-      <CardAnchor color="dark-1" href={slug}>
-        <Heading level={3} margin="none">
-          {title}
-        </Heading>
-      </CardAnchor>
+      <CardTitle slug={slug} title={title} flex="grow" justify="end" />
     </Box>
 
     <BodyText size="small">{description}</BodyText>
-    <Box flex="grow" justify="end">
-      <Text size="small" weight="bold" color="dark-5">
-        {author.fullName}
-      </Text>
-    </Box>
+    <CardFooter author={author} tags={tags} />
   </Box>
 )

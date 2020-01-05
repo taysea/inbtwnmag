@@ -5,12 +5,13 @@ export const customTheme = deepMerge(grommet, {
   name: "my theme",
   global: {
     colors: {
+      "dark-1": "#222",
       text: {
-        light: "#000",
+        light: "#222",
       },
     },
     font: {
-      family: '"Avenir Next"',
+      family: '"Avenir Next", sans-serif',
     },
   },
 })

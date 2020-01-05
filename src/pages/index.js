@@ -1,18 +1,19 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, Grid, Heading } from "grommet"
+import { Box, Grid, Heading, Image } from "grommet"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { HeroFeature } from "../components/HeroFeature"
 import { Card } from "../components/Card/"
-import { HalfWidthCard } from "../components/HalfWidthCard"
+import { HalfWidthCard } from "../components/Card/HalfWidthCard"
 import { PartialWidthSection } from "../sections/PartialWidth"
+import { Picture } from "../images/people_banner.png"
 
 const IndexPage = ({ data: { main, hero, second } }) => (
   <Layout>
     <SEO title="Home" />
-    <PartialWidthSection>
+    <PartialWidthSection pad={{ top: "large" }}>
       <Box gap="medium">
         {hero.edges.map(({ node }) => (
           <HeroFeature
@@ -27,7 +28,9 @@ const IndexPage = ({ data: { main, hero, second } }) => (
         </Grid>
       </Box>
     </PartialWidthSection>
-    <Box height="30em" background="light-3" />
+    <Box height="30em">
+      <Image src={Picture} fit="cover" />
+    </Box>
     <PartialWidthSection>
       <Box align="center" pad={{ vertical: "medium" }}>
         <Heading level={3}>Trending posts</Heading>
