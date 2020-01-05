@@ -2,7 +2,7 @@ import React from "react"
 // import { Link } from "gatsby"
 import { Anchor, Box, Grid, Text, Image } from "grommet"
 // import { FormNext } from "grommet-icons"
-import { CardAnchor } from "./Card/Card"
+import { CardAnchor } from "./Card/CardTitle"
 import { BodyText } from "./Styled"
 
 export const HeroFeature = ({
@@ -31,11 +31,11 @@ export const HeroFeature = ({
     ]}
   >
     <Box gridArea="heroImage">
-      <CardAnchor href={slug}>
+      <Anchor href={slug}>
         <Box width="100%" height="500px">
           <Image fit="cover" src={titleImage.file.url} margin="none" />
         </Box>
-      </CardAnchor>
+      </Anchor>
     </Box>
     <Box gridArea="content">
       <Box gap="small" margin={{ bottom: "large" }}>
@@ -45,12 +45,6 @@ export const HeroFeature = ({
           </Text>
         </CardAnchor>
         <BodyText size="small">{description}</BodyText>
-        {/* <Anchor color="#EF777E" size="small" href={slug}>
-          <Box direction="row" align="center">
-            <Text size="small">Read the interview</Text>
-            <FormNext color="#EF777E" />
-          </Box>
-        </Anchor> */}
       </Box>
       <Box flex="grow" justify="end">
         <Text size="xsmall" color="dark-3">
