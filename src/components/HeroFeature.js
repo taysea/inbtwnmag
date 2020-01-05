@@ -1,7 +1,7 @@
 import React from "react"
 // import { Link } from "gatsby"
-import { Anchor, Box, Grid, Heading, Text, Image } from "grommet"
-import { FormNext } from "grommet-icons"
+import { Anchor, Box, Grid, Text, Image } from "grommet"
+// import { FormNext } from "grommet-icons"
 import { CardAnchor } from "./Card/Card"
 import { BodyText } from "./Styled"
 

@@ -8,12 +8,13 @@
 import React from "react"
 import PropTypes from "prop-types"
 // import { useStaticQuery, graphql } from "gatsby"
-import { Grommet, Box } from "grommet"
+import { Box, Grommet } from "grommet"
 import { customTheme } from "../theme"
 
 // import Header from "./header"
 // import "./layout.css"
 import { Navigation } from "./Navigation"
+import { Footer } from "."
 
 const Layout = ({ children }) => {
   // const data = useStaticQuery(graphql`
@@ -29,18 +30,10 @@ const Layout = ({ children }) => {
   return (
     <Grommet theme={customTheme} full>
       <>
-        <Box>
-          {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
-          <Navigation />
-          <main>{children}</main>
-        </Box>
-        <Box as="footer" background="dark-1" height="small">
-          <Box width="xlarge" margin="auto">
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </Box>
-        </Box>
+        {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
+        <Navigation />
+        <Box as="main">{children}</Box>
+        <Footer />
       </>
     </Grommet>
   )

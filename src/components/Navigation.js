@@ -1,6 +1,6 @@
 import React from "react"
 // import { Link } from "gatsby"
-import { Box, Anchor, Button, Image } from "grommet"
+import { Box, Anchor, Button, Header, Image } from "grommet"
 import { PartialWidthSection } from "../sections/PartialWidth"
 import { Instagram, Search } from "grommet-icons"
 import logo from "../assets/inbtwn.png"
@@ -8,7 +8,7 @@ import logo from "../assets/inbtwn.png"
 export const Navigation = () => (
   <Box border={{ side: "bottom", color: "light-3" }}>
     <PartialWidthSection marginBottom="none">
-      <Box justify="between" align="center" direction="row" height="xsmall">
+      <Header height="xsmall">
         <Anchor href="/">
           <Box width="125px">
             <Image src={logo} alt="inbtwn." fit="contain" margin="none" />
@@ -50,7 +50,7 @@ export const Navigation = () => (
           </Box>
           <Button icon={<Search size="1.25em" color="dark-1" />} plain />
         </Box>
-      </Box>
+      </Header>
     </PartialWidthSection>
   </Box>
 )

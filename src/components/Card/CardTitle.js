@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Heading, Text } from "grommet"
+import { Box, Heading } from "grommet"
 import { CardAnchor } from "./Card"
 
 export const CardTitle = ({ slug, title, level, textAlign, ...rest }) => (

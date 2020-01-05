@@ -2,18 +2,18 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Anchor, Box, Heading, Image, Text } from "grommet"
+import { Box, Image, Text } from "grommet"
 import { PartialWidthSection } from "../sections/PartialWidth"
-import { CardFooter, Card } from "../components/Card"
+import { CardFooter } from "../components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { BLOCKS, MARKS } from "@contentful/rich-text-types"
+import { BLOCKS } from "@contentful/rich-text-types"
 import { BodyText } from "../components/Styled"
 
-const Bold = ({ children }) => (
-  <Text weight="bold" color="#222">
-    {children}
-  </Text>
-)
+// const Bold = ({ children }) => (
+//   <Text weight="bold" color="#222">
+//     {children}
+//   </Text>
+// )
 
 function BlogTemplate({ data }) {
   return (

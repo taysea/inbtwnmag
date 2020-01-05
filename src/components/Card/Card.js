@@ -1,7 +1,7 @@
 import React from "react"
 // import { Link } from "gatsby"
 import styled from "styled-components"
-import { Anchor, Box, Heading, Text, Image } from "grommet"
+import { Anchor, Box, Image } from "grommet"
 import { BodyText } from "../Styled"
 import { CardFooter, CardTitle } from "."
 

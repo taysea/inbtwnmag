@@ -1,6 +1,7 @@
 import React from "react"
-import { Link } from "gatsby"
-import { Box, Text, Image } from "grommet"
+// import { Link } from "gatsby"
+import { Grid } from "grommet"
+import { Card } from "."
 
 export const Topic = ({ data: { allContentfulBlog } }) => (
   <Grid columns="30%" gap="medium" justify="center">

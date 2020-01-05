@@ -1,9 +1,8 @@
 import React from "react"
 // import { Link } from "gatsby"
 import styled from "styled-components"
-import { Anchor, Box, Heading, Text, Image } from "grommet"
+import { Anchor, Box, Text, Image } from "grommet"
 import { CardTitle } from "."
-import { BodyText } from "../Styled"
 
 export const CardAnchor = styled(Anchor)`
   &:hover {

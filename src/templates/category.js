@@ -1,10 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, Grid, Heading, Text } from "grommet"
-import { Card } from "../components/Card/"
+import { Box, Grid, Text } from "grommet"
+import { Card } from "../components/Card"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+// import SEO from "../components"
 import { PartialWidthSection } from "../sections/PartialWidth"
 
 function CategoryTemplate({ data: { allContentfulBlog }, pageContext }) {
