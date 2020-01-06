@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, Grid, Text, ResponsiveContext } from "grommet"
+import { Box, Grid, Heading, Text, ResponsiveContext } from "grommet"
 import { Card } from "../components/Card"
 
 import Layout from "../components/layout"
@@ -21,23 +21,23 @@ function CategoryTemplate({ data: { allContentfulBlog }, pageContext }) {
               >
                 <PartialWidthSection gap="medium">
                   <Box align="center">
-                    <Text size="2.5em" weight="bold">
+                    <Heading margin="small" level={1}>
                       {pageContext.tags}
-                    </Text>
+                    </Heading>
                   </Box>
                   <Box direction="row" justify="center">
                     <Box width="xsmall">
-                      <Text size="small" color="dark-3" weight="bold">
+                      <Text size="small" color="dark-2" weight="bold">
                         Previous
                       </Text>
                     </Box>
                     <Box flex="grow" basis="small" align="center">
-                      <Text size="small" color="dark-3" weight="bold">
+                      <Text size="small" color="dark-2" weight="bold">
                         1-20 out of {pageContext.totalCount}
                       </Text>
                     </Box>
                     <Box width="xsmall" align="end">
-                      <Text size="small" color="dark-3" weight="bold">
+                      <Text size="small" color="dark-2" weight="bold">
                         Next
                       </Text>
                     </Box>

@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, Grid, Heading, Image, ResponsiveContext } from "grommet"
+import { Box, Grid, Heading, ResponsiveContext } from "grommet"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -8,7 +8,7 @@ import { HeroFeature } from "../components/HeroFeature"
 import { Card } from "../components/Card/"
 import { HalfWidthCard } from "../components/Card/HalfWidthCard"
 import { PartialWidthSection } from "../layouts/PartialWidth"
-import { Picture } from "../images/people_banner.png"
+import { Purchase } from "../components"
 
 const IndexPage = ({ data: { main, hero, second } }) => {
   return (
@@ -25,6 +25,11 @@ const IndexPage = ({ data: { main, hero, second } }) => {
                     key={node.id}
                   />
                 ))}
+                {size === "small" && (
+                  <Box align="center" pad={{ vertical: "medium" }}>
+                    <Heading level={3}>Recent posts</Heading>
+                  </Box>
+                )}
                 <Grid
                   columns={{ count: size !== "small" ? 3 : 1, size: "auto" }}
                   gap="medium"
@@ -38,12 +43,12 @@ const IndexPage = ({ data: { main, hero, second } }) => {
                 </Grid>
               </Box>
             </PartialWidthSection>
-            <Box height="30em">
-              <Image src={Picture} fit="cover" />
-            </Box>
+            <Purchase />
             <PartialWidthSection>
               <Box align="center" pad={{ vertical: "medium" }}>
-                <Heading level={3}>Trending posts</Heading>
+                <Heading level={2} size="small">
+                  Trending posts
+                </Heading>
               </Box>
               <Grid
                 columns={{ count: size !== "small" ? 2 : 1, size: "auto" }}
@@ -82,6 +87,7 @@ export const query = graphql`
           tags
           title
           titleImage {
+            description
             file {
               url
             }
@@ -103,6 +109,7 @@ export const query = graphql`
           tags
           title
           titleImage {
+            description
             file {
               url
             }
@@ -123,6 +130,7 @@ export const query = graphql`
           tags
           title
           titleImage {
+            description
             file {
               url
             }

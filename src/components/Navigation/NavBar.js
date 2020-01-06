@@ -3,7 +3,7 @@ import React, { useContext } from "react"
 import { Box, Anchor, Header, Image, ResponsiveContext } from "grommet"
 import { PartialWidthSection } from "../../layouts/PartialWidth"
 import logo from "../../assets/inbtwn.png"
-import { MobileNav, Navigation } from "."
+import { MobileNav, Nav } from "."
 
 export const NavBar = () => {
   const size = useContext(ResponsiveContext)
@@ -19,7 +19,7 @@ export const NavBar = () => {
               <Image src={logo} alt="inbtwn." fit="contain" margin="none" />
             </Box>
           </Anchor>
-          {size !== "small" ? <Navigation /> : <MobileNav />}
+          {size !== "small" ? <Nav /> : <MobileNav />}
         </Header>
       </PartialWidthSection>
     </Box>

@@ -1,4 +1,4 @@
 export * from "./MobileNav"
-export * from "./Navigation"
+export * from "./Nav"
 export * from "./NavBar"
 export * from "./NavItems"

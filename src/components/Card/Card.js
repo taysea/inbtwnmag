@@ -9,12 +9,18 @@ export const Card = ({
   height,
 }) => {
   const size = useContext(ResponsiveContext)
+  console.log(titleImage)
   return (
     <Box gap="small" margin={{ bottom: "medium" }}>
       <Box gap="small">
         <Anchor href={slug} margin={{ bottom: "small" }}>
           <Box width="100%" height={height || "250px"}>
-            <Image fit="cover" src={titleImage.file.url} margin="none" />
+            <Image
+              fit="cover"
+              alt={titleImage.description}
+              src={titleImage.file.url}
+              margin="none"
+            />
           </Box>
         </Anchor>
         <CardTitle slug={slug} title={title} flex="grow" justify="end" />

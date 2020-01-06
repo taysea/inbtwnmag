@@ -20,7 +20,7 @@ export const HeroFeature = ({
 
   return (
     <Grid
-      rows={["500px", "auto"]}
+      rows={[size !== "small" ? "500px" : "medium", "auto"]}
       columns={[
         "auto",
         "auto",
@@ -51,8 +51,13 @@ export const HeroFeature = ({
     >
       <Box gridArea="heroImage">
         <Anchor href={slug}>
-          <Box width="100%" height="500px">
-            <Image fit="cover" src={titleImage.file.url} margin="none" />
+          <Box width="100%" height={size !== "small" ? "500px" : "medium"}>
+            <Image
+              alt={titleImage.description}
+              fit="cover"
+              src={titleImage.file.url}
+              margin="none"
+            />
           </Box>
         </Anchor>
       </Box>
@@ -66,9 +71,9 @@ export const HeroFeature = ({
           <BodyText size="small">{description}</BodyText>
         </Box>
         <Box flex="grow" justify="end">
-          <Text size="xsmall" color="dark-3">
+          <Text size="xsmall" color="dark-2">
             by {author.fullName} /{" "}
-            <Anchor href={tags.toLowerCase()} color="#00C781">
+            <Anchor href={tags.toLowerCase()} color="#094533">
               {tags}
             </Anchor>{" "}
             — 4 hours ago

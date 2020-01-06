@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { Anchor, Box, Heading } from "grommet"
+import { Anchor, Box, Text } from "grommet"
 
 export const CardAnchor = styled(Anchor)`
   &:hover {
@@ -8,17 +8,10 @@ export const CardAnchor = styled(Anchor)`
     text-decoration-color: #ef777e;
   }
 `
-export const CardTitle = ({ slug, title, level, textAlign, ...rest }) => (
+export const CardTitle = ({ slug, title, size, ...rest }) => (
   <Box {...rest}>
     <CardAnchor href={slug} color="dark-1">
-      <Heading
-        level={level || 2}
-        margin="none"
-        size="xsmall"
-        textAlign={textAlign}
-      >
-        {title}
-      </Heading>
+      <Text size={size || "large"}>{title}</Text>
     </CardAnchor>
   </Box>
 )
