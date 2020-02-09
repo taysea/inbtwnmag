@@ -5,6 +5,7 @@ import { Box, Text } from "grommet"
 
 export const CardAnchor = styled(Link)`
   font-weight: bold;
+  color: #000;
   text-decoration: none;
   :visited {
     color: inherit;
