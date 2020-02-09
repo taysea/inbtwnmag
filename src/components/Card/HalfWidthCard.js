@@ -10,7 +10,7 @@ export const HalfWidthCard = ({
 }) => (
   <Box gap="small" {...rest}>
     <Box gap="medium">
-      <CardAnchor href={slug} color="dark-1">
+      <CardAnchor to={slug}>
         <Box width="100%" height={height || "350px"}>
           <Image
             alt={titleImage.description}
