@@ -1,17 +1,23 @@
 import React from "react"
+import { Link } from "gatsby"
 import styled from "styled-components"
-import { Anchor, Box, Text } from "grommet"
+import { Box, Text } from "grommet"
 
-export const CardAnchor = styled(Anchor)`
+export const CardAnchor = styled(Link)`
+  font-weight: bold;
+  text-decoration: none;
+  :visited {
+    color: inherit;
+  }
   &:hover {
-    text-decoration: underline;
-    text-decoration-color: #ef777e;
+    text-decoration: underline dotted;
+    text-decoration-color: #094533;
   }
 `
 export const CardTitle = ({ slug, title, size, ...rest }) => (
-  <Box {...rest}>
-    <CardAnchor href={slug} color="dark-1">
+  <CardAnchor to={slug}>
+    <Box {...rest}>
       <Text size={size || "large"}>{title}</Text>
-    </CardAnchor>
-  </Box>
+    </Box>
+  </CardAnchor>
 )

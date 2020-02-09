@@ -1,11 +1,10 @@
 import React from "react"
-// import { Link } from "gatsby"
 import { Anchor, Box, Text, Image } from "grommet"
 import { CardTitle } from "."
 import { CardAnchor } from "./CardTitle"
 
 export const HalfWidthCard = ({
-  node: { title, author, slug, tags, titleImage },
+  node: { title, author, slug, tags, titleImage, createdAt },
   height,
   ...rest
 }) => (
@@ -33,7 +32,7 @@ export const HalfWidthCard = ({
         <CardTitle slug={slug} title={title} align="center" size="xlarge" />
 
         <Text size="small" color="dark-2">
-          by {author.fullName} — 5 hours ago
+          by {author.fullName} — {createdAt}
         </Text>
       </Box>
     </Box>

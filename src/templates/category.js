@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, Grid, Heading, Text, ResponsiveContext } from "grommet"
+import { Box, Grid, Heading, ResponsiveContext } from "grommet"
 import { Card } from "../components/Card"
 
 import Layout from "../components/layout"
@@ -25,7 +25,7 @@ function CategoryTemplate({ data: { allContentfulBlog }, pageContext }) {
                       {pageContext.tags}
                     </Heading>
                   </Box>
-                  <Box direction="row" justify="center">
+                  {/* <Box direction="row" justify="center">
                     <Box width="xsmall">
                       <Text size="small" color="dark-2" weight="bold">
                         Previous
@@ -41,7 +41,7 @@ function CategoryTemplate({ data: { allContentfulBlog }, pageContext }) {
                         Next
                       </Text>
                     </Box>
-                  </Box>
+                  </Box> */}
                 </PartialWidthSection>
               </Box>
               <PartialWidthSection>

@@ -1,11 +1,11 @@
 import React, { useContext } from "react"
-// import { Link } from "gatsby"
-import { Anchor, Box, Image, ResponsiveContext } from "grommet"
+import { Link } from "gatsby"
+import { Box, Image, ResponsiveContext } from "grommet"
 import { BodyText } from "../Styled"
 import { CardFooter, CardTitle } from "."
 
 export const Card = ({
-  node: { title, author, slug, description, tags, titleImage },
+  node: { title, author, slug, description, tags, titleImage, createdAt },
   height,
 }) => {
   const size = useContext(ResponsiveContext)
@@ -13,8 +13,12 @@ export const Card = ({
   return (
     <Box gap="small" margin={{ bottom: "medium" }}>
       <Box gap="small">
-        <Anchor href={slug} margin={{ bottom: "small" }}>
-          <Box width="100%" height={height || "250px"}>
+        <Link to={`/${slug}`}>
+          <Box
+            width="100%"
+            height={height || "250px"}
+            margin={{ bottom: "small" }}
+          >
             <Image
               fit="cover"
               alt={titleImage.description}
@@ -22,12 +26,12 @@ export const Card = ({
               margin="none"
             />
           </Box>
-        </Anchor>
-        <CardTitle slug={slug} title={title} flex="grow" justify="end" />
+        </Link>
+        <CardTitle slug={`/${slug}`} title={title} flex="grow" justify="end" />
       </Box>
 
       {size !== "small" && <BodyText size="small">{description}</BodyText>}
-      <CardFooter author={author} tags={tags} />
+      <CardFooter author={author} tags={tags} createdAt={createdAt} />
     </Box>
   )
 }

@@ -28,7 +28,7 @@ const Layout = ({ children }) => {
   // `)
 
   return (
-    <Grommet theme={customTheme} full>
+    <Grommet theme={customTheme} full style={{ height: "auto" }}>
       <>
         {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
         <NavBar />

@@ -31,6 +31,7 @@ exports.createPages = ({ graphql, actions }) => {
         component: blogTemplate,
         context: {
           slug: edge.node.slug,
+          tags: edge.node.tags,
         },
       })
     })

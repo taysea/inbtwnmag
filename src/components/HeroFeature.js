@@ -1,20 +1,12 @@
 import React, { useContext } from "react"
-// import { Link } from "gatsby"
-import {
-  Anchor,
-  Box,
-  Grid,
-  Heading,
-  Text,
-  Image,
-  ResponsiveContext,
-} from "grommet"
-// import { FormNext } from "grommet-icons"
+import { Link } from "gatsby"
+import { Box, Grid, Text, Image, ResponsiveContext } from "grommet"
 import { CardAnchor } from "./Card/CardTitle"
+import { CategoryLink } from "."
 import { BodyText } from "./Styled"
 
 export const HeroFeature = ({
-  node: { title, author, slug, description, tags, titleImage },
+  node: { title, author, slug, description, tags, titleImage, createdAt },
 }) => {
   const size = useContext(ResponsiveContext)
 
@@ -50,7 +42,7 @@ export const HeroFeature = ({
       ]}
     >
       <Box gridArea="heroImage">
-        <Anchor href={slug}>
+        <Link to={`${slug}`}>
           <Box width="100%" height={size !== "small" ? "500px" : "medium"}>
             <Image
               alt={titleImage.description}
@@ -59,24 +51,22 @@ export const HeroFeature = ({
               margin="none"
             />
           </Box>
-        </Anchor>
+        </Link>
       </Box>
       <Box gridArea="content">
         <Box gap="small" margin={{ bottom: "large" }}>
-          <CardAnchor href={slug} color="dark-1">
-            <Heading size="xxlarge" margin="none">
-              {title}
-            </Heading>
+          <CardAnchor to={slug}>
+            <Text size="2.5em">{title}</Text>
           </CardAnchor>
           <BodyText size="small">{description}</BodyText>
         </Box>
         <Box flex="grow" justify="end">
           <Text size="xsmall" color="dark-2">
             by {author.fullName} /{" "}
-            <Anchor href={tags.toLowerCase()} color="#094533">
+            <CategoryLink to={`/categories/${tags.toLowerCase()}`}>
               {tags}
-            </Anchor>{" "}
-            — 4 hours ago
+            </CategoryLink>{" "}
+            — {createdAt}
           </Text>
         </Box>
       </Box>

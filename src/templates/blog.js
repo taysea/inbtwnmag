@@ -17,7 +17,7 @@ const BlogTemplate = ({ data }) => (
     <ResponsiveContext.Consumer>
       {size => (
         <>
-          <PartialWidthSection pad={{ top: "medium" }} marginBottom="large">
+          <PartialWidthSection marginBottom="large">
             <Box
               width="large"
               gap="small"
@@ -31,6 +31,7 @@ const BlogTemplate = ({ data }) => (
                 <CardFooter
                   author={data.contentfulBlog.author}
                   tags={data.contentfulBlog.tags}
+                  createdAt={data.contentfulBlog.createdAt}
                 />
               </Box>
             </Box>
@@ -62,7 +63,6 @@ const BlogTemplate = ({ data }) => (
               </BodyText>
             </Box>
           </PartialWidthSection>
-          <Box height="30em" background="light-3" />
         </>
       )}
     </ResponsiveContext.Consumer>
@@ -82,7 +82,7 @@ export const query = graphql`
         fullName
         slug
       }
-      createdAt
+      createdAt(fromNow: true)
       body {
         json
       }

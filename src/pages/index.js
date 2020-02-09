@@ -97,11 +97,19 @@ export const query = graphql`
             fullName
             slug
           }
+          createdAt(fromNow: true)
         }
       }
     }
 
-    main: allContentfulBlog(limit: 6, skip: 1) {
+    main: allContentfulBlog(
+      limit: 6
+      filter: {
+        slug: {
+          ne: "sabrina-santiago-on-her-infatuation-with-rooftop-portraiture-and-street"
+        }
+      }
+    ) {
       edges {
         node {
           id
@@ -119,6 +127,7 @@ export const query = graphql`
             fullName
             slug
           }
+          createdAt(fromNow: true)
         }
       }
     }
@@ -140,6 +149,7 @@ export const query = graphql`
             fullName
             slug
           }
+          createdAt(fromNow: true)
         }
       }
     }
