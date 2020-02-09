@@ -8,7 +8,6 @@ import { HeroFeature } from "../components/HeroFeature"
 import { Card } from "../components/Card/"
 import { HalfWidthCard } from "../components/Card/HalfWidthCard"
 import { PartialWidthSection } from "../layouts/PartialWidth"
-import { Purchase } from "../components"
 
 const IndexPage = ({ data: { main, hero, second } }) => {
   return (
@@ -43,7 +42,6 @@ const IndexPage = ({ data: { main, hero, second } }) => {
                 </Grid>
               </Box>
             </PartialWidthSection>
-            <Purchase />
             <PartialWidthSection>
               <Box align="center" pad={{ vertical: "medium" }}>
                 <Heading level={2} size="small">
@@ -56,7 +54,7 @@ const IndexPage = ({ data: { main, hero, second } }) => {
               >
                 {second.edges.map(({ node }) => (
                   <HalfWidthCard
-                    node={{ ...node, slug: `blog/${node.slug}` }}
+                    node={{ ...node, slug: `/blog/${node.slug}` }}
                     key={node.id}
                     height="400px"
                     margin={{ bottom: "large" }}
@@ -131,7 +129,7 @@ export const query = graphql`
         }
       }
     }
-    second: allContentfulBlog(limit: 4) {
+    second: allContentfulBlog(limit: 4, skip: 7) {
       edges {
         node {
           id

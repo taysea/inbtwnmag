@@ -51,7 +51,7 @@ const BlogTemplate = ({ data }) => (
                   // },
                   renderNode: {
                     [BLOCKS.EMBEDDED_ASSET]: (node, children) => (
-                      <Box height={size === "small" ? "medium" : undefined}>
+                      <Box height={size === "small" ? "medium" : "large"}>
                         <Image
                           src={node.data.target.fields.file["en-US"].url}
                           fit="cover"

@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, Grid, Heading, ResponsiveContext } from "grommet"
+import { Box, Grid, ResponsiveContext, Text } from "grommet"
 import { Card } from "../components/Card"
 
 import Layout from "../components/layout"
@@ -17,9 +17,9 @@ function CategoryTemplate({ data: { allContentfulBlog }, pageContext }) {
               <Box align="center" border={{ side: "bottom", color: "light-3" }}>
                 <PartialWidthSection gap="medium">
                   <Box align="center">
-                    <Heading margin="small" level={1}>
+                    <Text as="h1" size="2.5em" margin="small">
                       {pageContext.tags}
-                    </Heading>
+                    </Text>
                   </Box>
                   {/* <Box direction="row" justify="center">
                     <Box width="xsmall">
@@ -81,6 +81,7 @@ export const query = graphql`
             fullName
             slug
           }
+          createdAt(fromNow: true)
         }
       }
     }
