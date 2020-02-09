@@ -2,6 +2,7 @@ const path = require(`path`)
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
+  const aboutTemplate = path.resolve(`src/templates/about.js`)
   const blogTemplate = path.resolve(`src/templates/blog.js`)
   const categoryTemplate = path.resolve(`src/templates/category.js`)
   return graphql(`
@@ -45,6 +46,11 @@ exports.createPages = ({ graphql, actions }) => {
           totalCount: tag.totalCount,
         },
       })
+    })
+
+    createPage({
+      path: `/about`,
+      component: aboutTemplate,
     })
   })
 }

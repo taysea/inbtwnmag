@@ -8,7 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 // import { useStaticQuery, graphql } from "gatsby"
-import { Box, Grommet } from "grommet"
+import { Box, Grommet, Main } from "grommet"
 import { customTheme } from "../theme"
 
 // import Header from "./header"
@@ -29,12 +29,12 @@ const Layout = ({ children }) => {
 
   return (
     <Grommet theme={customTheme} full style={{ height: "auto" }}>
-      <>
+      <Box height={{ min: "100vh" }}>
         {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
         <NavBar />
-        <Box as="main">{children}</Box>
+        <Main overflow="visible">{children}</Main>
         <Footer />
-      </>
+      </Box>
     </Grommet>
   )
 }

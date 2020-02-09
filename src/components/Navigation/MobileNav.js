@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Anchor, Box, Button, Layer } from "grommet"
-import { Close, Menu } from "grommet-icons"
+import { Close, Instagram, Menu } from "grommet-icons"
 import { NavItems } from "."
 import { PartialWidthSection } from "../../layouts/PartialWidth"
 
@@ -32,6 +32,17 @@ export const MobileNav = () => {
                   </Box>
                 </Anchor>
               ))}
+              <Box pad={{ vertical: "large" }} align="start">
+                <Button
+                  a11yTitle="Instagram"
+                  icon={<Instagram size="1.25em" color="dark-1" />}
+                  label="@inbtwnmag"
+                  href="https://www.instagram.com/inbtwnmag/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  plain
+                />
+              </Box>
             </PartialWidthSection>
           </Box>
         </Layer>

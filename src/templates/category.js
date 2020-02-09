@@ -14,11 +14,7 @@ function CategoryTemplate({ data: { allContentfulBlog }, pageContext }) {
         {size => (
           <>
             <Box gap="medium">
-              <Box
-                // background="light-1"
-                align="center"
-                border={{ side: "bottom", color: "light-3" }}
-              >
+              <Box align="center" border={{ side: "bottom", color: "light-3" }}>
                 <PartialWidthSection gap="medium">
                   <Box align="center">
                     <Heading margin="small" level={1}>
