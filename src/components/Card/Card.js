@@ -9,7 +9,7 @@ export const Card = ({
   height,
 }) => {
   const size = useContext(ResponsiveContext)
-  console.log(titleImage)
+
   return (
     <Box gap="small" margin={{ bottom: "medium" }}>
       <Box gap="small">
