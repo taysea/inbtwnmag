@@ -10,9 +10,8 @@ import PropTypes from "prop-types"
 // import { useStaticQuery, graphql } from "gatsby"
 import { Box, Grommet, Main } from "grommet"
 import { customTheme } from "../theme"
+import GlobalFonts from "../fonts/fonts"
 
-// import Header from "./header"
-// import "./layout.css"
 import { NavBar } from "."
 import { Footer } from "."
 
@@ -29,6 +28,7 @@ const Layout = ({ children }) => {
 
   return (
     <Grommet theme={customTheme} full style={{ height: "auto" }}>
+      <GlobalFonts />
       <Box height={{ min: "100vh" }}>
         {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
         <NavBar />

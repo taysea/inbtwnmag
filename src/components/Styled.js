@@ -1,17 +1,8 @@
-import styled, { createGlobalStyle } from "styled-components"
+import styled from "styled-components"
 import { Text } from "grommet"
 
-export default createGlobalStyle`
-    @font-face {
-        font-family: 'PT Serif';
-        src: local('PT Serif'),
-        url(/src/fonts/PTSerif.woff) format('woff');
-        font-style: normal;
-    }
-`
-
 export const BodyText = styled(Text)`
-  font-family: "PT Serif", sans-serif;
+  font-family: "PT Serif", serif;
   line-height: 1.75em;
   color: #000;
 `
