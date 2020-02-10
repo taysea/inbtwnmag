@@ -56,7 +56,7 @@ export const HeroFeature = ({
       <Box gridArea="content">
         <Box gap="small" margin={{ bottom: "large" }}>
           <CardAnchor to={slug}>
-            <Text size="2.5em">{title}</Text>
+            <Text size={size !== "small" ? "2.5em" : "1.5em"}>{title}</Text>
           </CardAnchor>
           <BodyText size="small">{description}</BodyText>
         </Box>
