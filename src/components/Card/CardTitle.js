@@ -14,11 +14,14 @@ export const CardAnchor = styled(Link)`
     text-decoration: underline dotted;
     text-decoration-color: #094533;
   }
+  width: 100%;
 `
 export const CardTitle = ({ slug, title, size, ...rest }) => (
   <CardAnchor to={slug}>
-    <Box {...rest} align="center">
-      <Text size={size || "large"}>{title}</Text>
+    <Box>
+      <Text size={size || "large"} {...rest}>
+        {title}
+      </Text>
     </Box>
   </CardAnchor>
 )

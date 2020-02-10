@@ -25,7 +25,7 @@ export const HalfWidthCard = ({
           {tags}
         </CategoryLink>
 
-        <CardTitle slug={slug} title={title} align="center" size="xlarge" />
+        <CardTitle slug={slug} title={title} textAlign="center" size="xlarge" />
 
         <Text size="small" color="dark-2">
           by {author.fullName} — {createdAt}
