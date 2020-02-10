@@ -17,7 +17,7 @@ export const CardAnchor = styled(Link)`
 `
 export const CardTitle = ({ slug, title, size, ...rest }) => (
   <CardAnchor to={slug}>
-    <Box {...rest}>
+    <Box {...rest} align="center">
       <Text size={size || "large"}>{title}</Text>
     </Box>
   </CardAnchor>
