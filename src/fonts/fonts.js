@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components"
-import PTSerif from "../fonts/PtSerif.woff"
+import PTSerif from "../fonts/PTSerif.woff"
 
 export default createGlobalStyle`
     @font-face {
