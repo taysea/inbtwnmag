@@ -2,7 +2,7 @@ import React from "react"
 import { Anchor, Box, Text, Image } from "grommet"
 import { CardTitle } from "."
 import { CardAnchor } from "./CardTitle"
-
+import { CategoryLink } from ".."
 export const HalfWidthCard = ({
   node: { title, author, slug, tags, titleImage, createdAt },
   height,
@@ -21,13 +21,9 @@ export const HalfWidthCard = ({
         </Box>
       </CardAnchor>
       <Box gap="small" align="center">
-        <Anchor
-          href={`/categories/${tags}`.toLowerCase()}
-          size="small"
-          color="#094533"
-        >
+        <CategoryLink to={`/categories/${tags}`.toLowerCase()} size="0.8em">
           {tags}
-        </Anchor>
+        </CategoryLink>
 
         <CardTitle slug={slug} title={title} align="center" size="xlarge" />
 

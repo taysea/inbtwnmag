@@ -1,8 +1,8 @@
 import React, { useContext } from "react"
-// import { Link } from "gatsby"
-import { Box, Anchor, Header, Image, ResponsiveContext } from "grommet"
+import { Link } from "gatsby"
+import { Box, Header, Image, ResponsiveContext } from "grommet"
 import { PartialWidthSection } from "../../layouts/PartialWidth"
-import logo from "../../assets/inbtwn.png"
+import logo from "../../../src/images/inbtwn.png"
 import { MobileNav, Nav } from "."
 
 export const NavBar = () => {
@@ -14,11 +14,11 @@ export const NavBar = () => {
     >
       <PartialWidthSection marginBottom="none">
         <Header height="xsmall">
-          <Anchor href="/">
-            <Box width="125px">
-              <Image src={logo} alt="inbtwn." fit="contain" margin="none" />
+          <Link to="/">
+            <Box width="125px" height="xxsmall" overflow="hidden">
+              <Image src={logo} alt="inbtwn." fit="contain" />
             </Box>
-          </Anchor>
+          </Link>
           {size !== "small" ? <Nav /> : <MobileNav />}
         </Header>
       </PartialWidthSection>

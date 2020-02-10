@@ -9,4 +9,5 @@ export const CategoryLink = styled(Link)`
     text-decoration: underline;
     text-decoration-color: #094533;
   }
+  ${props => props.size}
 `
