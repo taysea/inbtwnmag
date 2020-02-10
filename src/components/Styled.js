@@ -4,9 +4,8 @@ import { Text } from "grommet"
 export default createGlobalStyle`
     @font-face {
         font-family: 'PT Serif';
-        src: local('PT Serif')
+        src: local('PT Serif'),
         url(/src/fonts/PTSerif.woff) format('woff');
-        // font-weight: 300;
         font-style: normal;
     }
 `
