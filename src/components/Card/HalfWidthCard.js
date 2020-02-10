@@ -1,5 +1,5 @@
 import React from "react"
-import { Anchor, Box, Text, Image } from "grommet"
+import { Box, Text, Image } from "grommet"
 import { CardTitle } from "."
 import { CardAnchor } from "./CardTitle"
 import { CategoryLink } from ".."
