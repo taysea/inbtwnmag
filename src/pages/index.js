@@ -89,6 +89,9 @@ export const query = graphql`
             file {
               url
             }
+            fluid(quality: 50) {
+              ...GatsbyContentfulFluid_withWebp
+            }
           }
           description
           author {
@@ -119,6 +122,9 @@ export const query = graphql`
             file {
               url
             }
+            fluid(quality: 50) {
+              ...GatsbyContentfulFluid_withWebp
+            }
           }
           description
           author {
@@ -140,6 +146,9 @@ export const query = graphql`
             description
             file {
               url
+            }
+            fluid(quality: 50) {
+              ...GatsbyContentfulFluid_withWebp
             }
           }
           description

@@ -1,11 +1,13 @@
 import React from "react"
 import { Link } from "gatsby"
-import { Box, Image } from "grommet"
+import Img from "gatsby-image"
+import { Box } from "grommet"
 import { BodyText } from "../Styled"
 import { CardFooter, CardTitle } from "."
 
 export const Card = ({
   node: { title, author, slug, description, tags, titleImage, createdAt },
+  description: blogDescription,
   height,
 }) => {
   return (
@@ -17,18 +19,17 @@ export const Card = ({
             height={height || "250px"}
             margin={{ bottom: "small" }}
           >
-            <Image
-              fit="cover"
+            <Img
+              fluid={titleImage.fluid}
               alt={titleImage.description}
-              src={titleImage.file.url}
-              margin="none"
+              style={{ height: "100%" }}
             />
           </Box>
         </Link>
         <CardTitle slug={`/${slug}`} title={title} flex="grow" justify="end" />
       </Box>
 
-      <BodyText size="small">{description}</BodyText>
+      {blogDescription && <BodyText size="small">{description}</BodyText>}
       <CardFooter author={author} tags={tags} createdAt={createdAt} />
     </Box>
   )

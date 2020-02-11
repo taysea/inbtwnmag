@@ -42,7 +42,7 @@ function CategoryTemplate({ data: { allContentfulBlog }, pageContext }) {
               </Box>
               <PartialWidthSection>
                 <Grid
-                  columns={{ count: size !== "small" ? 3 : 1, size: "auto" }}
+                  columns={{ count: size !== "small" ? 4 : 1, size: "auto" }}
                   gap="medium"
                   justify="center"
                 >
@@ -50,6 +50,7 @@ function CategoryTemplate({ data: { allContentfulBlog }, pageContext }) {
                     <Card
                       node={{ ...node, slug: `blog/${node.slug}` }}
                       key={node.id}
+                      description={false}
                     />
                   ))}
                 </Grid>
@@ -74,6 +75,9 @@ export const query = graphql`
           titleImage {
             file {
               url
+            }
+            fluid(quality: 50) {
+              ...GatsbyContentfulFluid_withWebp
             }
           }
           description

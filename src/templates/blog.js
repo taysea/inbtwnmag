@@ -1,8 +1,9 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Box, Image, Text, ResponsiveContext } from "grommet"
+import { Box, Text, ResponsiveContext } from "grommet"
 import { PartialWidthSection } from "../layouts"
 import { BodyText, CardFooter } from "../components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
@@ -25,7 +26,11 @@ const BlogTemplate = ({ data }) => (
               pad={{ top: "medium" }}
             >
               <Box gap="medium" align="center">
-                <Text weight="bold" size="2.5em" textAlign="center">
+                <Text
+                  weight="bold"
+                  size={size !== "small" ? "2.5em" : "2em"}
+                  textAlign="center"
+                >
                   {data.contentfulBlog.title}
                 </Text>
                 <CardFooter
@@ -40,24 +45,40 @@ const BlogTemplate = ({ data }) => (
             height={size !== "small" ? "80vh" : "medium"}
             margin={{ bottom: "medium" }}
           >
-            <Image src={data.contentfulBlog.titleImage.file.url} fit="cover" />
+            <Img
+              fluid={data.contentfulBlog.titleImage.fluid}
+              alt={data.contentfulBlog.titleImage.description}
+              objectFit="cover"
+            />
           </Box>
           <PartialWidthSection>
             <Box width="large" gap="small" margin="auto">
               <BodyText>
                 {documentToReactComponents(data.contentfulBlog.body.json, {
-                  // renderMark: {
-                  //   [MARKS.BOLD]: text => <Bold>{text}</Bold>,
-                  // },
                   renderNode: {
-                    [BLOCKS.EMBEDDED_ASSET]: (node, children) => (
-                      <Box height={size === "small" ? "medium" : "large"}>
-                        <Image
-                          src={node.data.target.fields.file["en-US"].url}
-                          fit="cover"
-                        />
-                      </Box>
-                    ),
+                    [BLOCKS.EMBEDDED_ASSET]: node => {
+                      const image = node.data.target.fields.file["en-US"]
+                      const width = image.details.image.width
+                      return (
+                        <Box height={size === "small" ? "medium" : "large"}>
+                          <Img
+                            width={image.details.image.width}
+                            fluid={{
+                              aspectRatio: width / image.details.image.height,
+                              src: image.url + "?w=630&q=80",
+                              srcSet: ` 
+              ${image.url}?w=${width / 4}&&q=80 ${width / 4}w,
+              ${image.url}?w=${width / 2}&&q=80 ${width / 2}w,
+              ${image.url}?w=${width}&&q=80 ${width}w,
+              ${image.url}?w=${width * 1.5}&&q=80 ${width * 1.5}w,
+              ${image.url}?w=1000&&q=80 1000w,
+          `,
+                              sizes: "(max-width: 630px) 100vw, 630px",
+                            }}
+                          />
+                        </Box>
+                      )
+                    },
                   },
                 })}
               </BodyText>
@@ -87,8 +108,12 @@ export const query = graphql`
         json
       }
       titleImage {
+        description
         file {
           url
+        }
+        fluid(quality: 50) {
+          ...GatsbyContentfulFluid_withWebp
         }
       }
     }

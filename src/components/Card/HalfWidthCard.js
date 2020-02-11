@@ -1,5 +1,6 @@
 import React from "react"
-import { Box, Text, Image } from "grommet"
+import { Box, Text } from "grommet"
+import Img from "gatsby-image"
 import { CardTitle } from "."
 import { CardAnchor } from "./CardTitle"
 import { CategoryLink } from ".."
@@ -12,11 +13,10 @@ export const HalfWidthCard = ({
     <Box gap="medium">
       <CardAnchor to={slug}>
         <Box width="100%" height={height || "350px"}>
-          <Image
+          <Img
+            fluid={titleImage.fluid}
             alt={titleImage.description}
-            fit="cover"
-            src={titleImage.file.url}
-            margin="none"
+            style={{ height: "100%" }}
           />
         </Box>
       </CardAnchor>
