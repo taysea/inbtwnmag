@@ -1,53 +1,73 @@
 import React from "react"
-import { Anchor, Box, Footer as GrommetFooter, Text } from "grommet"
+import { Anchor, Box, Footer, Text } from "grommet"
 import { PartialWidthSection } from "../layouts"
 
-export const Footer = () => {
-  const textSize = "small"
+const data = [
+  ["Content", "Digital Issues", "Shop Prints"],
+  ["Social", "Instagram", "Facebook"],
+  ["Links", "About", "Contact", "Submit"],
+]
+const FooterAnchor = ({ ...rest }) => (
+  <Anchor href="/" size="small" color="white" {...rest} />
+)
+
+const FooterContent = () => {
+  return data.map(item => (
+    <Box gap="medium" key={item[0]} margin={{ bottom: "medium" }}>
+      <Text weight="bold" size="small" color="#676767">
+        {item[0]}
+      </Text>
+      <Box gap="small">
+        {[1, 2, 3].map(i => (
+          <FooterAnchor key={item[i]}>{item[i]}</FooterAnchor>
+        ))}
+      </Box>
+    </Box>
+  ))
+}
+
+const StyledFooter = () => {
+  const year = new Date().getFullYear()
+
   return (
     <Box
-      background="dark-1"
-      pad={{ top: "xlarge", bottom: "medium" }}
+      background="rgb(43,43,43)"
+      pad={{ vertical: "xlarge" }}
       margin={{ top: "medium" }}
     >
       <PartialWidthSection marginBottom="none">
-        <GrommetFooter direction="row-responsive" align="end">
-          <Text size={textSize}>&copy; 2020 inbtwn. Magazine</Text>
-          <Box direction="row" gap="large" align="start">
-            <Box gap="xsmall">
-              <Text size={textSize}>Get the magazine</Text>
-              <Anchor
-                size={textSize}
-                color="white"
-                href="https://issuu.com/inbtwnmag"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Read issues digitally
-              </Anchor>
-              <Anchor
-                size={textSize}
-                color="white"
-                href="https://www.magcloud.com/user/inbtwnmag"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Purchase prints
-              </Anchor>
+        <Box gap="large">
+          <Footer
+            direction="row-responsive"
+            background="rgb(43,43,43)"
+            align="start"
+          >
+            <Box gap="medium" width="medium">
+              <Text weight="bold" size="small" color="#676767">
+                inbtwn.
+              </Text>
+              <Box gap="small">
+                <Text weight="bold">founded in Los Angeles, CA.</Text>
+                <Text size="small" weight="bold">
+                  exploring the idea that we're constantly falling into and out
+                  of ourselves.
+                </Text>
+              </Box>
             </Box>
-            <Box gap="xsmall">
-              <Text size={textSize}>Contact Information</Text>
-              <Anchor
-                size={textSize}
-                color="white"
-                href="mailto:info@inbtwnmag.com"
-              >
-                info@inbtwnmag.com
-              </Anchor>
-            </Box>
+            <FooterContent />
+          </Footer>
+          <Box>
+            <Text size="small" color="#676767">
+              © inbtwn. {year}
+            </Text>
+            <Text size="small" color="#676767">
+              designed & developed by Taylor Seamans
+            </Text>
           </Box>
-        </GrommetFooter>
+        </Box>
       </PartialWidthSection>
     </Box>
   )
 }
+
+export { StyledFooter as Footer }
