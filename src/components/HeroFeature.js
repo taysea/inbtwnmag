@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
+import Img from "gatsby-image"
 import { Link } from "gatsby"
-import { Box, Grid, Text, Image, ResponsiveContext } from "grommet"
+import { Box, Grid, Text, ResponsiveContext } from "grommet"
 import { CardAnchor } from "./Card/CardTitle"
 import { CategoryLink } from "."
 import { BodyText } from "./Styled"
@@ -13,49 +14,28 @@ export const HeroFeature = ({
   return (
     <Grid
       rows={[size !== "small" ? "500px" : "medium", "auto"]}
-      columns={[
-        "auto",
-        "auto",
-        "auto",
-        "auto",
-        "auto",
-        "auto",
-        "auto",
-        "auto",
-        "auto",
-        "auto",
-        "auto",
-        "auto",
-      ]}
+      columns={["55%", "auto"]}
       gap="medium"
-      areas={[
-        {
-          name: "heroImage",
-          start: [0, 0],
-          end: size !== "small" ? [7, 0] : [11, 0],
-        },
-        {
-          name: "content",
-          start: size !== "small" ? [7, 0] : [0, 1],
-          end: size !== "small" ? [11, 0] : [11, 1],
-        },
-      ]}
+      areas={
+        size !== "small"
+          ? [["heroImage", "content"]]
+          : [["heroImage", "heroImage"], ["content", "content"]]
+      }
     >
       <Box gridArea="heroImage">
-        <Link to={`${slug}`}>
+        <Link to={`/${slug}`}>
           <Box width="100%" height={size !== "small" ? "500px" : "medium"}>
-            <Image
+            <Img
+              fluid={titleImage.fluid}
               alt={titleImage.description}
-              fit="cover"
-              src={titleImage.file.url}
-              margin="none"
+              style={{ height: "100%" }}
             />
           </Box>
         </Link>
       </Box>
       <Box gridArea="content">
         <Box gap="small" margin={{ bottom: "large" }}>
-          <CardAnchor to={slug}>
+          <CardAnchor to={`/${slug}`}>
             <Text size={size !== "small" ? "2.5em" : "1.5em"}>{title}</Text>
           </CardAnchor>
           <BodyText size="small">{description}</BodyText>

@@ -48,39 +48,44 @@ const BlogTemplate = ({ data }) => (
             <Img
               fluid={data.contentfulBlog.titleImage.fluid}
               alt={data.contentfulBlog.titleImage.description}
-              objectFit="cover"
+              style={{ height: "100%" }}
             />
           </Box>
           <PartialWidthSection>
             <Box width="large" gap="small" margin="auto">
               <BodyText>
-                {documentToReactComponents(data.contentfulBlog.body.json, {
-                  renderNode: {
-                    [BLOCKS.EMBEDDED_ASSET]: node => {
-                      const image = node.data.target.fields.file["en-US"]
-                      const width = image.details.image.width
-                      return (
-                        <Box height={size === "small" ? "medium" : "large"}>
-                          <Img
-                            width={image.details.image.width}
-                            fluid={{
-                              aspectRatio: width / image.details.image.height,
-                              src: image.url + "?w=630&q=80",
-                              srcSet: ` 
-              ${image.url}?w=${width / 4}&&q=80 ${width / 4}w,
-              ${image.url}?w=${width / 2}&&q=80 ${width / 2}w,
-              ${image.url}?w=${width}&&q=80 ${width}w,
-              ${image.url}?w=${width * 1.5}&&q=80 ${width * 1.5}w,
-              ${image.url}?w=1000&&q=80 1000w,
-          `,
-                              sizes: "(max-width: 630px) 100vw, 630px",
-                            }}
-                          />
-                        </Box>
-                      )
+                {documentToReactComponents(
+                  data.contentfulBlog.body.json,
+
+                  {
+                    renderNode: {
+                      [BLOCKS.EMBEDDED_ASSET]: node => {
+                        const image = node.data.target.fields.file["en-US"]
+                        const width = image.details.image.width
+                        return (
+                          <Box height={size === "small" ? "medium" : "large"}>
+                            <Img
+                              width={image.details.image.width}
+                              fluid={{
+                                aspectRatio: width / image.details.image.height,
+                                src: image.url + "?w=630&q=50",
+                                srcSet: `
+                      ${image.url}?w=${width / 4}&&q=50 ${width / 4}w,
+                      ${image.url}?w=${width / 2}&&q=50 ${width / 2}w,
+                      ${image.url}?w=${width}&&q=50 ${width}w,
+                      ${image.url}?w=${width * 1.5}&&q=50 ${width * 1.5}w,
+                      ${image.url}?w=1000&&q=50 1000w,
+                  `,
+                                sizes: "(max-width: 630px) 100vw, 630px",
+                              }}
+                              style={{ height: "100%" }}
+                            />
+                          </Box>
+                        )
+                      },
                     },
-                  },
-                })}
+                  }
+                )}
               </BodyText>
             </Box>
           </PartialWidthSection>
