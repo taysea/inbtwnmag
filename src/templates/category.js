@@ -50,7 +50,7 @@ function CategoryTemplate({ data: { allContentfulBlog }, pageContext }) {
                     <Card
                       node={{ ...node, slug: `blog/${node.slug}` }}
                       key={node.id}
-                      description={false}
+                      type="minimal"
                     />
                   ))}
                 </Grid>

@@ -2,9 +2,8 @@ import React, { useContext } from "react"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
 import { Box, Grid, Text, ResponsiveContext } from "grommet"
-import { CardAnchor } from "./Card/CardTitle"
+import { BodyText, CardAnchor } from "./Styled"
 import { CategoryLink } from "."
-import { BodyText } from "./Styled"
 
 export const HeroFeature = ({
   node: { title, author, slug, description, tags, titleImage, createdAt },

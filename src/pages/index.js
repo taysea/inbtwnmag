@@ -6,7 +6,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { HeroFeature } from "../components/HeroFeature"
 import { Card } from "../components/Card/"
-import { HalfWidthCard } from "../components/Card/HalfWidthCard"
 import { PartialWidthSection } from "../layouts/PartialWidth"
 
 const IndexPage = ({ data: { main, hero, second } }) => {
@@ -53,11 +52,12 @@ const IndexPage = ({ data: { main, hero, second } }) => {
                 gap="medium"
               >
                 {second.edges.map(({ node }) => (
-                  <HalfWidthCard
+                  <Card
                     node={{ ...node, slug: `/blog/${node.slug}` }}
                     key={node.id}
                     height="400px"
                     margin={{ bottom: "large" }}
+                    type="half-width"
                   />
                 ))}
               </Grid>

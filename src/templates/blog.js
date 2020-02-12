@@ -62,8 +62,16 @@ const BlogTemplate = ({ data }) => (
                       [BLOCKS.EMBEDDED_ASSET]: node => {
                         const image = node.data.target.fields.file["en-US"]
                         const width = image.details.image.width
+                        const height = image.details.image.height
+                        const aspectRatio = width / height
+                        const containerHeight =
+                          aspectRatio > 1 ? { max: "large" } : "large"
                         return (
-                          <Box height={size === "small" ? "medium" : "large"}>
+                          <Box
+                            height={
+                              size !== "small" ? containerHeight : "large"
+                            }
+                          >
                             <Img
                               width={image.details.image.width}
                               fluid={{
