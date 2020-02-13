@@ -23,19 +23,17 @@ const IndexPage = ({ data: { main, hero, second } }) => {
                     key={node.id}
                   />
                 ))}
-                {size === "small" && (
-                  <Box align="center" pad={{ vertical: "medium" }}>
-                    <Heading level={3}>Recent posts</Heading>
-                  </Box>
-                )}
                 <Grid
-                  columns={{ count: size !== "small" ? 3 : 1, size: "auto" }}
+                  columns={{ count: size !== "small" ? 3 : 2, size: "auto" }}
                   gap="medium"
+                  margin={size === "small" && { top: "large" }}
                 >
                   {main.edges.map(({ node }) => (
                     <Card
                       node={{ ...node, slug: `blog/${node.slug}` }}
                       key={node.id}
+                      type={size === "small" && "minimal"}
+                      height={size === "small" && "small"}
                     />
                   ))}
                 </Grid>
@@ -57,7 +55,7 @@ const IndexPage = ({ data: { main, hero, second } }) => {
                     key={node.id}
                     height="400px"
                     margin={{ bottom: "large" }}
-                    type="half-width"
+                    type={size !== "small" && "half-width"}
                   />
                 ))}
               </Grid>

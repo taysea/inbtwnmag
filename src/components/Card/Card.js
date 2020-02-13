@@ -7,7 +7,7 @@ import { CardFooter, CardTitle } from "."
 import { CategoryLink } from "../Links"
 import { CardAnchor } from "../Styled"
 
-const cardTypes = {
+export const cardTypes = {
   halfWidth: "half-width",
   minimal: "minimal",
 }
@@ -64,13 +64,23 @@ export const Card = ({
             </Box>
           </Link>
         </Box>
-        <CardTitle slug={`/${slug}`} title={title} flex="grow" justify="end" />
+        <CardTitle
+          slug={`/${slug}`}
+          title={title}
+          flex="grow"
+          justify="start"
+        />
       </Box>
 
       {type !== cardTypes.minimal && (
         <BodyText size="small">{description}</BodyText>
       )}
-      <CardFooter author={author} tags={tags} createdAt={createdAt} />
+      <CardFooter
+        author={author}
+        tags={tags}
+        createdAt={createdAt}
+        type={type}
+      />
     </Box>
   )
 }

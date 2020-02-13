@@ -42,7 +42,7 @@ function CategoryTemplate({ data: { allContentfulBlog }, pageContext }) {
               </Box>
               <PartialWidthSection>
                 <Grid
-                  columns={{ count: size !== "small" ? 4 : 1, size: "auto" }}
+                  columns={{ count: size !== "small" ? 4 : 2, size: "auto" }}
                   gap="medium"
                   justify="center"
                 >
@@ -51,6 +51,7 @@ function CategoryTemplate({ data: { allContentfulBlog }, pageContext }) {
                       node={{ ...node, slug: `blog/${node.slug}` }}
                       key={node.id}
                       type="minimal"
+                      height={size === "small" && "small"}
                     />
                   ))}
                 </Grid>

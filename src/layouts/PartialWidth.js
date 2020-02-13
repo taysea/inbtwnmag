@@ -9,7 +9,7 @@ export const PartialWidthSection = ({ direction, marginBottom, ...rest }) => {
       width="xlarge"
       margin={{ horizontal: "auto", bottom: marginBottom || "medium" }}
       direction={direction || "column"}
-      pad={size === "small" ? { horizontal: "medium" } : undefined}
+      pad={size === "small" ? { horizontal: "medium" } : "small"}
       {...rest}
     />
   )

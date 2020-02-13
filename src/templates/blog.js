@@ -65,11 +65,15 @@ const BlogTemplate = ({ data }) => (
                         const height = image.details.image.height
                         const aspectRatio = width / height
                         const containerHeight =
-                          aspectRatio > 1 ? { max: "large" } : "large"
+                          aspectRatio > 1
+                            ? { max: size !== "small" ? "large" : "medium" }
+                            : size !== "small"
+                            ? "large"
+                            : "medium"
                         return (
                           <Box
                             height={
-                              size !== "small" ? containerHeight : "large"
+                              size !== "small" ? containerHeight : "medium"
                             }
                           >
                             <Img
