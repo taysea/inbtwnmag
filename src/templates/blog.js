@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Box, Text, ResponsiveContext } from "grommet"
 import { PartialWidthSection } from "../layouts"
-import { BodyText, CardFooter } from "../components"
+import { AuthorBlogFooter, BodyText, CardFooter } from "../components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS } from "@contentful/rich-text-types"
 
@@ -99,6 +99,7 @@ const BlogTemplate = ({ data }) => (
                   }
                 )}
               </BodyText>
+              <AuthorBlogFooter author={data.contentfulBlog.author} />
             </Box>
           </PartialWidthSection>
         </>
@@ -117,7 +118,17 @@ export const query = graphql`
         description
       }
       author {
+        bio
         fullName
+        photo {
+          description
+          file {
+            url
+          }
+          fluid(quality: 50) {
+            ...GatsbyContentfulFluid_withWebp
+          }
+        }
         slug
       }
       createdAt(fromNow: true)
