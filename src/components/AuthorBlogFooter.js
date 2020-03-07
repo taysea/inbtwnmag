@@ -5,13 +5,15 @@ import { AuthorLink } from "."
 export const AuthorBlogFooter = ({ author }) => {
   return (
     <Box direction="row-responsive" gap="medium">
-      <Box round="full" width="xsmall" height="xsmall" overflow="hidden">
-        <Image
-          src={author.photo.file.url}
-          alt={author.photo.description}
-          fit="cover"
-        />
-      </Box>
+      {author.photo && (
+        <Box round="full" width="xsmall" height="xsmall" overflow="hidden">
+          <Image
+            src={author.photo.file.url}
+            alt={author.photo.description}
+            fit="cover"
+          />
+        </Box>
+      )}
       <Box gap="small">
         <Text weight="bold">
           by{" "}
@@ -19,7 +21,7 @@ export const AuthorBlogFooter = ({ author }) => {
             {author.fullName}
           </AuthorLink>
         </Text>
-        <Text>{author.bio}</Text>
+        {author.bio && <Text>{author.bio}</Text>}
       </Box>
     </Box>
   )
