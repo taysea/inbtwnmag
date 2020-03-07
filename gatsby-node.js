@@ -5,6 +5,8 @@ exports.createPages = ({ graphql, actions }) => {
   const aboutTemplate = path.resolve(`src/templates/about.js`)
   const blogTemplate = path.resolve(`src/templates/blog.js`)
   const categoryTemplate = path.resolve(`src/templates/category.js`)
+  const authorTemplate = path.resolve(`src/templates/author.js`)
+
   return graphql(`
     {
       blogQuery: allContentfulBlog {
@@ -16,6 +18,12 @@ exports.createPages = ({ graphql, actions }) => {
       }
       categoryQuery: allContentfulBlog {
         group(field: tags) {
+          fieldValue
+          totalCount
+        }
+      }
+      authorQuery: allContentfulBlog {
+        group(field: author___slug) {
           fieldValue
           totalCount
         }
@@ -32,7 +40,6 @@ exports.createPages = ({ graphql, actions }) => {
         component: blogTemplate,
         context: {
           slug: edge.node.slug,
-          tags: edge.node.tags,
         },
       })
     })
@@ -44,6 +51,17 @@ exports.createPages = ({ graphql, actions }) => {
         context: {
           tags: tag.fieldValue,
           totalCount: tag.totalCount,
+        },
+      })
+    })
+
+    result.data.authorQuery.group.forEach(author => {
+      createPage({
+        path: `/author/${author.fieldValue}`.toLowerCase(),
+        component: authorTemplate,
+        context: {
+          slug: author.fieldValue,
+          totalCount: author.totalCount,
         },
       })
     })

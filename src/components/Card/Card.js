@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 import { Box, Text } from "grommet"
 import { BodyText } from "../Styled"
 import { CardFooter, CardTitle } from "."
-import { CategoryLink } from "../Links"
+import { AuthorLink, CategoryLink } from "../Links"
 import { CardAnchor } from "../Styled"
 
 export const cardTypes = {
@@ -42,7 +42,11 @@ export const Card = ({
               size="xlarge"
             />
             <Text size="small" color="dark-2">
-              by {author.fullName} — {createdAt}
+              by{" "}
+              <AuthorLink to={`/author/${author.slug}`}>
+                {author.fullName}
+              </AuthorLink>{" "}
+              — {createdAt}
             </Text>
           </Box>
         </Box>

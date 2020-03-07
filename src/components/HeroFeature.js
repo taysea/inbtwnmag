@@ -3,7 +3,7 @@ import Img from "gatsby-image"
 import { Link } from "gatsby"
 import { Box, Grid, Text, ResponsiveContext } from "grommet"
 import { BodyText, CardAnchor } from "./Styled"
-import { CategoryLink } from "."
+import { AuthorLink, CategoryLink } from "."
 
 export const HeroFeature = ({
   node: { title, author, slug, description, tags, titleImage, createdAt },
@@ -41,7 +41,11 @@ export const HeroFeature = ({
         </Box>
         <Box flex="grow" justify="end">
           <Text size="xsmall" color="dark-2">
-            by {author.fullName} /{" "}
+            by{" "}
+            <AuthorLink to={`/author/${author.slug}`}>
+              {author.fullName}
+            </AuthorLink>{" "}
+            /{" "}
             <CategoryLink to={`/categories/${tags.toLowerCase()}`}>
               {tags}
             </CategoryLink>{" "}

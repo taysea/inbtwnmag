@@ -1,8 +1,9 @@
 import React, { useState } from "react"
-import { Anchor, Box, Button, Layer } from "grommet"
+import { Box, Button, Layer } from "grommet"
 import { Close, Instagram, Menu } from "grommet-icons"
 import { NavItems } from "."
 import { PartialWidthSection } from "../../layouts/PartialWidth"
+import { CategoryLink } from ".."
 
 export const MobileNav = () => {
   const [open, setOpen] = useState(false)
@@ -12,25 +13,25 @@ export const MobileNav = () => {
       {!open ? (
         <Button icon={<Menu />} onClick={() => setOpen(true)} />
       ) : (
-        <Layer full animation="fadeIn">
+        <Layer full>
           <Box fill background="white">
-            <Button
-              alignSelf="end"
-              icon={<Close />}
-              onClick={() => setOpen(false)}
-            />
+            <Box pad={{ right: "medium", top: "large" }}>
+              <Button
+                alignSelf="end"
+                icon={<Close />}
+                onClick={() => setOpen(false)}
+              />
+            </Box>
             <PartialWidthSection>
               {NavItems.map(item => (
-                <Anchor
+                <CategoryLink
                   key={item}
-                  color="dark-1"
-                  href={`/categories/${item.toLowerCase()}`}
-                  size="large"
+                  to={`/categories/${item.toLowerCase()}`}
                 >
                   <Box border={{ side: "bottom" }} pad={{ vertical: "large" }}>
                     {item}
                   </Box>
-                </Anchor>
+                </CategoryLink>
               ))}
               <Box pad={{ vertical: "large" }} align="start">
                 <Button
