@@ -4,7 +4,12 @@ import { AuthorLink } from "."
 
 export const AuthorBlogFooter = ({ author }) => {
   return (
-    <Box direction="row-responsive" gap="medium">
+    <Box
+      direction="row-responsive"
+      gap="medium"
+      border={{ side: "bottom" }}
+      pad={{ bottom: "medium" }}
+    >
       {author.photo && (
         <Box round="full" width="xsmall" height="xsmall" overflow="hidden">
           <Image
