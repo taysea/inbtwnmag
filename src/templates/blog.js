@@ -3,9 +3,14 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Box, Text, ResponsiveContext } from "grommet"
+import { Box, Heading, Text, ResponsiveContext } from "grommet"
 import { PartialWidthSection } from "../layouts"
-import { AuthorBlogFooter, BodyText, CardFooter } from "../components"
+import {
+  AuthorBlogFooter,
+  BodyText,
+  CardFooter,
+  RelatedBlogs,
+} from "../components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS } from "@contentful/rich-text-types"
 import { DiscussionEmbed } from "disqus-react"
@@ -111,6 +116,12 @@ const BlogTemplate = ({ data }) => {
                 <AuthorBlogFooter author={data.contentfulBlog.author} />
                 <DiscussionEmbed {...disqusConfig({ slug, title })} />
               </Box>
+              <Heading level={3}>You might like these too...</Heading>
+              <RelatedBlogs
+                authorSlug={data.contentfulBlog.author.slug}
+                tags={data.contentfulBlog.tags}
+                slug={data.contentfulBlog.slug}
+              />
             </PartialWidthSection>
           </>
         )}
@@ -122,6 +133,7 @@ const BlogTemplate = ({ data }) => {
 export const query = graphql`
   query blogQuery($slug: String!) {
     contentfulBlog(slug: { eq: $slug }) {
+      slug
       title
       tags
       seo {
