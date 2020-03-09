@@ -8,105 +8,116 @@ import { PartialWidthSection } from "../layouts"
 import { AuthorBlogFooter, BodyText, CardFooter } from "../components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS } from "@contentful/rich-text-types"
+import { DiscussionEmbed } from "disqus-react"
 
-const BlogTemplate = ({ data }) => (
-  <Layout>
-    <SEO
-      title={data.contentfulBlog.seo.title}
-      description={data.contentfulBlog.seo.description}
-    />
-    <ResponsiveContext.Consumer>
-      {size => (
-        <>
-          <PartialWidthSection marginBottom="large">
-            <Box
-              width="large"
-              gap="small"
-              margin="auto"
-              pad={{ top: "medium" }}
-            >
-              <Box gap="medium" align="center">
-                <Text
-                  weight="bold"
-                  size={size !== "small" ? "2.5em" : "2em"}
-                  textAlign="center"
-                >
-                  {data.contentfulBlog.title}
-                </Text>
-                <CardFooter
-                  author={data.contentfulBlog.author}
-                  tags={data.contentfulBlog.tags}
-                  createdAt={data.contentfulBlog.createdAt}
-                />
+export const disqusConfig = ({ slug, title }) => ({
+  shortname: process.env.GATSBY_DISQUS_NAME,
+  config: { identifier: slug, title },
+})
+
+const BlogTemplate = ({ data }) => {
+  const { slug, title } = data.contentfulBlog
+  return (
+    <Layout>
+      <SEO
+        title={data.contentfulBlog.seo.title}
+        description={data.contentfulBlog.seo.description}
+      />
+      <ResponsiveContext.Consumer>
+        {size => (
+          <>
+            <PartialWidthSection marginBottom="large">
+              <Box
+                width="large"
+                gap="medium"
+                margin="auto"
+                pad={{ top: "medium" }}
+              >
+                <Box gap="medium" align="center">
+                  <Text
+                    weight="bold"
+                    size={size !== "small" ? "2.5em" : "2em"}
+                    textAlign="center"
+                  >
+                    {data.contentfulBlog.title}
+                  </Text>
+                  <CardFooter
+                    author={data.contentfulBlog.author}
+                    tags={data.contentfulBlog.tags}
+                    createdAt={data.contentfulBlog.createdAt}
+                  />
+                </Box>
               </Box>
+            </PartialWidthSection>
+            <Box
+              height={size !== "small" ? "80vh" : "medium"}
+              margin={{ bottom: "medium" }}
+            >
+              <Img
+                fluid={data.contentfulBlog.titleImage.fluid}
+                alt={data.contentfulBlog.titleImage.description}
+                style={{ height: "100%" }}
+              />
             </Box>
-          </PartialWidthSection>
-          <Box
-            height={size !== "small" ? "80vh" : "medium"}
-            margin={{ bottom: "medium" }}
-          >
-            <Img
-              fluid={data.contentfulBlog.titleImage.fluid}
-              alt={data.contentfulBlog.titleImage.description}
-              style={{ height: "100%" }}
-            />
-          </Box>
-          <PartialWidthSection>
-            <Box width="large" gap="small" margin="auto">
-              <BodyText>
-                {documentToReactComponents(
-                  data.contentfulBlog.body.json,
+            <PartialWidthSection>
+              <Box width="large" gap="small" margin="auto">
+                <BodyText>
+                  {documentToReactComponents(
+                    data.contentfulBlog.body.json,
 
-                  {
-                    renderNode: {
-                      [BLOCKS.EMBEDDED_ASSET]: node => {
-                        const image = node.data.target.fields.file["en-US"]
-                        const width = image.details.image.width
-                        const height = image.details.image.height
-                        const aspectRatio = width / height
-                        const containerHeight =
-                          aspectRatio > 1
-                            ? { max: size !== "small" ? "large" : "medium" }
-                            : size !== "small"
-                            ? "large"
-                            : "medium"
-                        return (
-                          <Box
-                            height={
-                              size !== "small" ? containerHeight : "medium"
-                            }
-                          >
-                            <Img
-                              width={image.details.image.width}
-                              fluid={{
-                                aspectRatio: width / image.details.image.height,
-                                src: image.url + "?w=630&q=50",
-                                srcSet: `
+                    {
+                      renderNode: {
+                        [BLOCKS.EMBEDDED_ASSET]: node => {
+                          const image = node.data.target.fields.file["en-US"]
+                          const width = image.details.image.width
+                          const height = image.details.image.height
+                          const aspectRatio = width / height
+                          const containerHeight =
+                            aspectRatio > 1
+                              ? { max: size !== "small" ? "large" : "medium" }
+                              : size !== "small"
+                              ? "large"
+                              : "medium"
+                          return (
+                            <Box
+                              height={
+                                size !== "small" ? containerHeight : "medium"
+                              }
+                            >
+                              <Img
+                                width={image.details.image.width}
+                                fluid={{
+                                  aspectRatio:
+                                    width / image.details.image.height,
+                                  src: image.url + "?w=630&q=50",
+                                  srcSet: `
                       ${image.url}?w=${width / 4}&&q=50 ${width / 4}w,
                       ${image.url}?w=${width / 2}&&q=50 ${width / 2}w,
                       ${image.url}?w=${width}&&q=50 ${width}w,
                       ${image.url}?w=${width * 1.5}&&q=50 ${width * 1.5}w,
                       ${image.url}?w=1000&&q=50 1000w,
                   `,
-                                sizes: "(max-width: 630px) 100vw, 630px",
-                              }}
-                              style={{ height: "100%" }}
-                            />
-                          </Box>
-                        )
+                                  sizes: "(max-width: 630px) 100vw, 630px",
+                                }}
+                                style={{ height: "100%" }}
+                              />
+                            </Box>
+                          )
+                        },
                       },
-                    },
-                  }
-                )}
-              </BodyText>
-              <AuthorBlogFooter author={data.contentfulBlog.author} />
-            </Box>
-          </PartialWidthSection>
-        </>
-      )}
-    </ResponsiveContext.Consumer>
-  </Layout>
-)
+                    }
+                  )}
+                </BodyText>
+                <AuthorBlogFooter author={data.contentfulBlog.author} />
+                <DiscussionEmbed {...disqusConfig({ slug, title })} />
+              </Box>
+            </PartialWidthSection>
+          </>
+        )}
+      </ResponsiveContext.Consumer>
+    </Layout>
+  )
+}
 
 export const query = graphql`
   query blogQuery($slug: String!) {
