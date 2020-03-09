@@ -40,7 +40,7 @@ const IndexPage = ({ data: { main, hero, second } }) => {
               </Box>
             </PartialWidthSection>
             <PartialWidthSection>
-              <Box align="center" pad={{ vertical: "medium" }}>
+              <Box align="center" pad={{ bottom: "medium" }}>
                 <Heading level={2} size="small">
                   Trending posts
                 </Heading>

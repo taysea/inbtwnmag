@@ -11,14 +11,17 @@ const RelatedBlogsComponent = ({ blogs }) => {
       gap="medium"
       justify="center"
     >
-      {blogs.map(blog => (
-        <Card
-          node={{ ...blog.node, slug: `blog/${blog.node.slug}` }}
-          key={blog.node.id}
-          type="minimal"
-          height={size === "small" && "small"}
-        />
-      ))}
+      {blogs.map(
+        (blog, index) =>
+          index < 3 && (
+            <Card
+              node={{ ...blog.node, slug: `blog/${blog.node.slug}` }}
+              key={blog.node.id}
+              type="minimal"
+              height={size === "small" && "small"}
+            />
+          )
+      )}
     </Grid>
   )
 }

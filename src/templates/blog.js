@@ -15,13 +15,13 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS } from "@contentful/rich-text-types"
 import { DiscussionEmbed } from "disqus-react"
 
-export const disqusConfig = ({ slug, title }) => ({
-  shortname: process.env.GATSBY_DISQUS_NAME,
-  config: { identifier: slug, title },
-})
-
 const BlogTemplate = ({ data }) => {
-  const { slug, title } = data.contentfulBlog
+  const disqusShortname = process.env.GATSBY_DISQUS_NAME
+  const disqusConfig = {
+    url: data.contentfulBlog.slug,
+    identifier: data.contentfulBlog.id,
+    title: data.contentfulBlog.title,
+  }
   return (
     <Layout>
       <SEO
@@ -120,7 +120,10 @@ const BlogTemplate = ({ data }) => {
                   tags={data.contentfulBlog.tags}
                   slug={data.contentfulBlog.slug}
                 />
-                <DiscussionEmbed {...disqusConfig({ slug, title })} />
+                <DiscussionEmbed
+                  shortname={disqusShortname}
+                  config={disqusConfig}
+                />
               </Box>
             </PartialWidthSection>
           </>
