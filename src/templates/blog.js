@@ -33,12 +33,7 @@ const BlogTemplate = ({ data }) => {
         {size => (
           <>
             <PartialWidthSection marginBottom="large">
-              <Box
-                width="large"
-                gap="medium"
-                margin="auto"
-                pad={{ top: "medium" }}
-              >
+              <Box width="large" gap="medium" margin="auto">
                 <Box gap="medium" align="center">
                   <Text
                     weight="bold"
@@ -51,6 +46,7 @@ const BlogTemplate = ({ data }) => {
                     author={data.contentfulBlog.author}
                     tags={data.contentfulBlog.tags}
                     createdAt={data.contentfulBlog.createdAt}
+                    size="small"
                   />
                   <Share
                     url={`https://inbtwnmag.com/blog/${data.contentfulBlog.slug}`}
