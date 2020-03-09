@@ -16,9 +16,9 @@ import { BLOCKS } from "@contentful/rich-text-types"
 import { DiscussionEmbed } from "disqus-react"
 
 const BlogTemplate = ({ data }) => {
-  const disqusShortname = process.env.GATSBY_DISQUS_NAME
+  const disqusShortname = "inbtwnmag"
   const disqusConfig = {
-    url: data.contentfulBlog.slug,
+    url: `https://inbtwnmag.com/blog/${data.contentfulBlog.slug}`,
     identifier: data.contentfulBlog.id,
     title: data.contentfulBlog.title,
   }
