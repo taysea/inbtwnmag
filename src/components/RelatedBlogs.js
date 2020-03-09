@@ -55,7 +55,6 @@ export const RelatedBlogs = props => (
       }
     `}
     render={data => {
-      console.log(data)
       let relatedBlogs = []
       data.allContentfulBlog.edges.forEach(node => {
         if (
