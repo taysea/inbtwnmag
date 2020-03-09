@@ -10,6 +10,7 @@ import {
   BodyText,
   CardFooter,
   RelatedBlogs,
+  Share,
 } from "../components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS } from "@contentful/rich-text-types"
@@ -50,6 +51,9 @@ const BlogTemplate = ({ data }) => {
                     author={data.contentfulBlog.author}
                     tags={data.contentfulBlog.tags}
                     createdAt={data.contentfulBlog.createdAt}
+                  />
+                  <Share
+                    url={`https://inbtwnmag.com/blog/${data.contentfulBlog.slug}`}
                   />
                 </Box>
               </Box>
@@ -113,6 +117,9 @@ const BlogTemplate = ({ data }) => {
                     }
                   )}
                 </BodyText>
+                <Share
+                  url={`https://inbtwnmag.com/blog/${data.contentfulBlog.slug}`}
+                />
                 <AuthorBlogFooter author={data.contentfulBlog.author} />
                 <Heading level={3}>You might like these too...</Heading>
                 <RelatedBlogs
