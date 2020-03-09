@@ -7,7 +7,7 @@ const RelatedBlogsComponent = ({ blogs }) => {
   const size = useContext(ResponsiveContext)
   return (
     <Grid
-      columns={{ count: size !== "small" ? 4 : 2, size: "auto" }}
+      columns={{ count: size !== "small" ? 3 : 2, size: "auto" }}
       gap="medium"
       justify="center"
     >

@@ -114,14 +114,14 @@ const BlogTemplate = ({ data }) => {
                   )}
                 </BodyText>
                 <AuthorBlogFooter author={data.contentfulBlog.author} />
+                <Heading level={3}>You might like these too...</Heading>
+                <RelatedBlogs
+                  authorSlug={data.contentfulBlog.author.slug}
+                  tags={data.contentfulBlog.tags}
+                  slug={data.contentfulBlog.slug}
+                />
                 <DiscussionEmbed {...disqusConfig({ slug, title })} />
               </Box>
-              <Heading level={3}>You might like these too...</Heading>
-              <RelatedBlogs
-                authorSlug={data.contentfulBlog.author.slug}
-                tags={data.contentfulBlog.tags}
-                slug={data.contentfulBlog.slug}
-              />
             </PartialWidthSection>
           </>
         )}
