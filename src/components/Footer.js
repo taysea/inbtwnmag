@@ -3,23 +3,68 @@ import { Anchor, Box, Footer, Text } from "grommet"
 import { PartialWidthSection } from "../layouts"
 
 const data = [
-  ["Content", "Digital Issues", "Shop Prints"],
-  ["Social", "Instagram", "Facebook"],
-  ["Links", "About", "Contact"],
+  {
+    name: "Content",
+    items: [
+      {
+        label: "Digital Issues",
+        href: "https://issuu.com/inbtwnmag",
+        type: "external",
+      },
+      {
+        label: "Shop prints",
+        href: "https://www.magcloud.com/user/inbtwnmag",
+        type: "external",
+      },
+    ],
+  },
+  {
+    name: "Social",
+    items: [
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/inbtwnmag/",
+        type: "external",
+      },
+      {
+        label: "Facebook",
+        href: "https://www.facebook.com/inbtwnmag/",
+        type: "external",
+      },
+    ],
+  },
+  {
+    name: "Links",
+    items: [
+      { label: "About", href: "/about" },
+      { label: "Contact", href: "mailto:info@inbtwnmag.com" },
+    ],
+  },
 ]
-const FooterAnchor = ({ ...rest }) => (
-  <Anchor href="/" size="small" color="white" {...rest} />
+const FooterAnchor = ({ type, ...rest }) => (
+  <Anchor
+    size="small"
+    color="white"
+    target={type === "external" && "_blank"}
+    rel={type === "external" && "noopener noreferrer"}
+    {...rest}
+  />
 )
 
 const FooterContent = () => {
-  return data.map(item => (
-    <Box gap="medium" key={item[0]} margin={{ bottom: "medium" }}>
+  return data.map(i => (
+    <Box gap="medium" key={i.name} margin={{ bottom: "medium" }}>
       <Text weight="bold" size="small" color="#676767">
-        {item[0]}
+        {i.name}
       </Text>
       <Box gap="small">
-        {[1, 2].map(i => (
-          <FooterAnchor key={item[i]}>{item[i]}</FooterAnchor>
+        {i.items.map(item => (
+          <FooterAnchor
+            key={item.label}
+            href={item.href}
+            label={item.label}
+            type={item.type}
+          />
         ))}
       </Box>
     </Box>
