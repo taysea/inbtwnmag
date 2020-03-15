@@ -16,7 +16,7 @@ const IndexPage = ({ data: { main, hero, second } }) => {
         {size => (
           <>
             <PartialWidthSection>
-              <Box gap="medium">
+              <Box gap="medium" pad={{ top: "medium" }}>
                 {hero.edges.map(({ node }) => (
                   <HeroFeature
                     node={{ ...node, slug: `blog/${node.slug}` }}

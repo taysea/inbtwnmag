@@ -8,10 +8,7 @@ import { MobileNav, Nav } from "."
 export const NavBar = () => {
   const size = useContext(ResponsiveContext)
   return (
-    <Box
-      border={{ side: "bottom", color: "light-3" }}
-      margin={{ bottom: "large" }}
-    >
+    <Box border={{ side: "bottom", color: "light-3" }}>
       <PartialWidthSection marginBottom="none">
         <Header height="xsmall">
           <Link to="/">

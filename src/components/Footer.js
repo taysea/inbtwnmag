@@ -5,7 +5,7 @@ import { PartialWidthSection } from "../layouts"
 const data = [
   ["Content", "Digital Issues", "Shop Prints"],
   ["Social", "Instagram", "Facebook"],
-  ["Links", "About", "Contact", "Submit"],
+  ["Links", "About", "Contact"],
 ]
 const FooterAnchor = ({ ...rest }) => (
   <Anchor href="/" size="small" color="white" {...rest} />
@@ -18,7 +18,7 @@ const FooterContent = () => {
         {item[0]}
       </Text>
       <Box gap="small">
-        {[1, 2, 3].map(i => (
+        {[1, 2].map(i => (
           <FooterAnchor key={item[i]}>{item[i]}</FooterAnchor>
         ))}
       </Box>

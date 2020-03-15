@@ -33,7 +33,12 @@ const BlogTemplate = ({ data }) => {
         {size => (
           <>
             <PartialWidthSection marginBottom="large">
-              <Box width="large" gap="medium" margin="auto">
+              <Box
+                width="large"
+                gap="medium"
+                margin="auto"
+                pad={{ top: "large" }}
+              >
                 <Box gap="medium" align="center">
                   <Text
                     weight="bold"
