@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Box, Heading, Text, ResponsiveContext } from "grommet"
+import { Box, Heading, Image, Text, ResponsiveContext } from "grommet"
 import { PartialWidthSection } from "../layouts"
 import {
   AuthorBlogFooter,
@@ -63,11 +63,19 @@ const BlogTemplate = ({ data }) => {
               height={size !== "small" ? "80vh" : "medium"}
               margin={{ bottom: "medium" }}
             >
-              <Img
-                fluid={data.contentfulBlog.titleImage.fluid}
-                alt={data.contentfulBlog.titleImage.description}
-                style={{ height: "100%" }}
-              />
+              {data.contentfulBlog.titleImage.file.details.size <= 100000 ? (
+                <Image
+                  src={data.contentfulBlog.titleImage.file.url}
+                  alt={data.contentfulBlog.titleImage.description}
+                  fit="cover"
+                />
+              ) : (
+                <Img
+                  fluid={data.contentfulBlog.titleImage.fluid}
+                  alt={data.contentfulBlog.titleImage.description}
+                  style={{ height: "100%" }}
+                />
+              )}
             </Box>
             <PartialWidthSection>
               <Box width="large" gap="small" margin="auto">
@@ -172,6 +180,9 @@ export const query = graphql`
       titleImage {
         description
         file {
+          details {
+            size
+          }
           url
         }
         fluid(quality: 50) {
