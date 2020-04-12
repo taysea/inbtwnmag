@@ -41,7 +41,7 @@ const IndexPage = ({ data: { main, hero, second } }) => {
               </Box>
             </PartialWidthSection>
             <Box
-              height="medium"
+              height="small"
               background="#EAEAEA"
               pad={{ vertical: "small" }}
               margin={{ bottom: "large" }}

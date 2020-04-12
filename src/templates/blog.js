@@ -153,7 +153,7 @@ const BlogTemplate = ({ data }) => {
               </Box>
             </PartialWidthSection>
             <Box
-              height="medium"
+              height="small"
               background="#EAEAEA"
               pad={{ vertical: "small" }}
             >
