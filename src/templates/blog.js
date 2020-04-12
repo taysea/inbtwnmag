@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import GoogleAds from "../components/GoogleAds"
-import { Box, Heading, Image, Text, ResponsiveContext } from "grommet"
+import { Box, Image, Text, ResponsiveContext } from "grommet"
 import { PartialWidthSection } from "../layouts"
 import {
   AuthorBlogFooter,
@@ -140,7 +140,15 @@ const BlogTemplate = ({ data }) => {
                   url={`https://inbtwnmag.com/blog/${data.contentfulBlog.slug}`}
                 />
                 <AuthorBlogFooter author={data.contentfulBlog.author} />
-                <Heading level={3}>You might like these too...</Heading>
+                <Box
+                  pad={{ horizontal: "medium", vertical: "small" }}
+                  background="#EAEAEA"
+                  margin={{ vertical: "medium" }}
+                >
+                  <Text as="h2" margin="none">
+                    You might like these too...
+                  </Text>
+                </Box>
                 <RelatedBlogs
                   authorSlug={data.contentfulBlog.author.slug}
                   tags={data.contentfulBlog.tags}

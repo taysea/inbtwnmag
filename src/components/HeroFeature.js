@@ -13,7 +13,7 @@ export const HeroFeature = ({
   return (
     <Box background="#FFF" margin={{ bottom: "medium" }}>
       <Grid
-        rows={[size !== "small" ? "500px" : "medium", "auto"]}
+        rows={["auto", "auto"]}
         columns={size !== "small" ? ["55%", "auto"] : "100%"}
         areas={
           size !== "small"
