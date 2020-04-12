@@ -4,6 +4,7 @@ import { Box, Grid, ResponsiveContext, Text } from "grommet"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import GoogleAds from "../components/GoogleAds"
 import { HeroFeature } from "../components/HeroFeature"
 import { Card } from "../components/Card/"
 import { PartialWidthSection } from "../layouts/PartialWidth"
@@ -39,6 +40,16 @@ const IndexPage = ({ data: { main, hero, second } }) => {
                 </Grid>
               </Box>
             </PartialWidthSection>
+            <Box
+              height="medium"
+              background="#EAEAEA"
+              pad={{ vertical: "small" }}
+              margin={{ bottom: "large" }}
+            >
+              <PartialWidthSection marginBottom="none">
+                <GoogleAds slot="1974438094" />
+              </PartialWidthSection>
+            </Box>
             <PartialWidthSection>
               <Box
                 pad={{ horizontal: "medium", vertical: "small" }}
@@ -63,6 +74,15 @@ const IndexPage = ({ data: { main, hero, second } }) => {
                 ))}
               </Grid>
             </PartialWidthSection>
+            <Box
+              height="medium"
+              background="#EAEAEA"
+              pad={{ vertical: "small" }}
+            >
+              <PartialWidthSection marginBottom="none">
+                <GoogleAds slot="1974438094" />
+              </PartialWidthSection>
+            </Box>
           </>
         )}
       </ResponsiveContext.Consumer>
