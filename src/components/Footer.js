@@ -75,11 +75,7 @@ const StyledFooter = () => {
   const year = new Date().getFullYear()
 
   return (
-    <Box
-      background="rgb(43,43,43)"
-      pad={{ vertical: "xlarge" }}
-      margin={{ top: "medium" }}
-    >
+    <Box background="rgb(43,43,43)" pad={{ vertical: "xlarge" }}>
       <PartialWidthSection marginBottom="none">
         <Box gap="large">
           <Footer

@@ -11,48 +11,52 @@ export const HeroFeature = ({
   const size = useContext(ResponsiveContext)
 
   return (
-    <Grid
-      rows={[size !== "small" ? "500px" : "medium", "auto"]}
-      columns={["55%", "auto"]}
-      gap="medium"
-      areas={
-        size !== "small"
-          ? [["heroImage", "content"]]
-          : [["heroImage", "heroImage"], ["content", "content"]]
-      }
-    >
-      <Box gridArea="heroImage">
-        <Link to={`/${slug}`}>
-          <Box width="100%" height={size !== "small" ? "500px" : "medium"}>
-            <Img
-              fluid={titleImage.fluid}
-              alt={titleImage.description}
-              style={{ height: "100%" }}
-            />
+    <Box background="#FFF" margin={{ bottom: "medium" }}>
+      <Grid
+        rows={[size !== "small" ? "500px" : "medium", "auto"]}
+        columns={size !== "small" ? ["55%", "auto"] : "100%"}
+        areas={
+          size !== "small"
+            ? [["heroImage", "content"]]
+            : [
+                ["heroImage", "heroImage"],
+                ["content", "content"],
+              ]
+        }
+      >
+        <Box gridArea="heroImage">
+          <Link to={`/${slug}`}>
+            <Box width="100%" height={size !== "small" ? "500px" : "250px"}>
+              <Img
+                fluid={titleImage.fluid}
+                alt={titleImage.description}
+                style={{ height: "100%" }}
+              />
+            </Box>
+          </Link>
+        </Box>
+        <Box gridArea="content" pad="medium">
+          <Box gap="small" margin={{ bottom: "large" }}>
+            <CardAnchor to={`/${slug}`}>
+              <Text size={size !== "small" ? "2.5em" : "1.5em"}>{title}</Text>
+            </CardAnchor>
+            <BodyText size="small">{description}</BodyText>
           </Box>
-        </Link>
-      </Box>
-      <Box gridArea="content">
-        <Box gap="small" margin={{ bottom: "large" }}>
-          <CardAnchor to={`/${slug}`}>
-            <Text size={size !== "small" ? "2.5em" : "1.5em"}>{title}</Text>
-          </CardAnchor>
-          <BodyText size="small">{description}</BodyText>
+          <Box flex="grow" justify="end">
+            <Text size="xsmall" color="dark-2">
+              by{" "}
+              <AuthorLink to={`/author/${author.slug}`}>
+                {author.fullName}
+              </AuthorLink>{" "}
+              /{" "}
+              <CategoryLink to={`/categories/${tags.toLowerCase()}`}>
+                {tags}
+              </CategoryLink>{" "}
+              — {createdAt}
+            </Text>
+          </Box>
         </Box>
-        <Box flex="grow" justify="end">
-          <Text size="xsmall" color="dark-2">
-            by{" "}
-            <AuthorLink to={`/author/${author.slug}`}>
-              {author.fullName}
-            </AuthorLink>{" "}
-            /{" "}
-            <CategoryLink to={`/categories/${tags.toLowerCase()}`}>
-              {tags}
-            </CategoryLink>{" "}
-            — {createdAt}
-          </Text>
-        </Box>
-      </Box>
-    </Grid>
+      </Grid>
+    </Box>
   )
 }

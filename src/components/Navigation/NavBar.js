@@ -5,10 +5,10 @@ import { PartialWidthSection } from "../../layouts/PartialWidth"
 import logo from "../../../src/images/inbtwn.png"
 import { MobileNav, Nav } from "."
 
-export const NavBar = () => {
+export const NavBar = ({ ...rest }) => {
   const size = useContext(ResponsiveContext)
   return (
-    <Box border={{ side: "bottom", color: "light-3" }}>
+    <Box {...rest}>
       <PartialWidthSection marginBottom="none">
         <Header height="xsmall">
           <Link to="/">

@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, Grid, Heading, ResponsiveContext } from "grommet"
+import { Box, Grid, ResponsiveContext, Text } from "grommet"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -10,7 +10,7 @@ import { PartialWidthSection } from "../layouts/PartialWidth"
 
 const IndexPage = ({ data: { main, hero, second } }) => {
   return (
-    <Layout>
+    <Layout isNavPage>
       <SEO title="Home" />
       <ResponsiveContext.Consumer>
         {size => (
@@ -26,7 +26,7 @@ const IndexPage = ({ data: { main, hero, second } }) => {
                 <Grid
                   columns={{ count: size !== "small" ? 3 : 2, size: "auto" }}
                   gap="medium"
-                  margin={size === "small" && { top: "large" }}
+                  margin={size === "small" ? { top: "large" } : undefined}
                 >
                   {main.edges.map(({ node }) => (
                     <Card
@@ -40,10 +40,14 @@ const IndexPage = ({ data: { main, hero, second } }) => {
               </Box>
             </PartialWidthSection>
             <PartialWidthSection>
-              <Box align="center" pad={{ bottom: "medium" }}>
-                <Heading level={2} size="small">
-                  Trending posts
-                </Heading>
+              <Box
+                pad={{ horizontal: "medium", vertical: "small" }}
+                background="#EAEAEA"
+                margin={{ bottom: "medium" }}
+              >
+                <Text as="h2" margin="none">
+                  Here's what's popular right now
+                </Text>
               </Box>
               <Grid
                 columns={{ count: size !== "small" ? 2 : 1, size: "auto" }}
@@ -53,9 +57,8 @@ const IndexPage = ({ data: { main, hero, second } }) => {
                   <Card
                     node={{ ...node, slug: `/blog/${node.slug}` }}
                     key={node.id}
-                    height="400px"
-                    margin={{ bottom: "large" }}
-                    type={size !== "small" && "half-width"}
+                    margin={size !== "small" ? { bottom: "medium" } : undefined}
+                    type="half-width"
                   />
                 ))}
               </Grid>

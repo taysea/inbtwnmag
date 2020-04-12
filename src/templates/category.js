@@ -9,13 +9,18 @@ import { PartialWidthSection } from "../layouts"
 
 function CategoryTemplate({ data: { allContentfulBlog }, pageContext }) {
   return (
-    <Layout>
+    <Layout isNavPage>
       <ResponsiveContext.Consumer>
         {size => (
           <>
             <Box gap="medium">
-              <Box align="center" border={{ side: "bottom", color: "light-3" }}>
-                <PartialWidthSection gap="medium">
+              <Box
+                align="center"
+                border={{ side: "top", color: "light-3" }}
+                background="#FFF"
+                pad={{ top: "medium" }}
+              >
+                <PartialWidthSection gap="small">
                   <Box align="center">
                     <Text as="h1" size="2.5em" margin="small">
                       {pageContext.tags}

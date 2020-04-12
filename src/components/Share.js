@@ -16,7 +16,7 @@ import {
 export const Share = ({ url }) => {
   return (
     <Box direction="row" gap="small">
-      <FacebookShareButton url={console.log(url) || url}>
+      <FacebookShareButton url={url}>
         <FacebookIcon size={32} round />
       </FacebookShareButton>
       <TwitterShareButton url={url}>
