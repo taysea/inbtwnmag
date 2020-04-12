@@ -1,1 +1,8 @@
-export const NavItems = ["Photography", "Art", "Music", "Fashion", "Stories"]
+export const NavItems = [
+  "Photography",
+  "Art",
+  "Music",
+  "Fashion",
+  "Stories",
+  "About",
+]

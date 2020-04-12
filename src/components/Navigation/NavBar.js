@@ -10,14 +10,27 @@ export const NavBar = ({ ...rest }) => {
   return (
     <Box {...rest}>
       <PartialWidthSection marginBottom="none">
-        <Header height="xsmall">
-          <Link to="/">
-            <Box width="125px" height="xxsmall" overflow="hidden">
-              <Image src={logo} alt="inbtwn." fit="contain" />
+        {size !== "small" ? (
+          <Header justify="center" pad={{ vertical: "medium" }}>
+            <Box align="center" gap="medium" pad={{ top: "small" }}>
+              <Link to="/">
+                <Box width="small" height="xxsmall" overflow="hidden">
+                  <Image src={logo} alt="inbtwn." fit="contain" />
+                </Box>
+              </Link>
+              <Nav />
             </Box>
-          </Link>
-          {size !== "small" ? <Nav /> : <MobileNav />}
-        </Header>
+          </Header>
+        ) : (
+          <Header height="xsmall">
+            <Link to="/">
+              <Box width="125px" height="xxsmall" overflow="hidden">
+                <Image src={logo} alt="inbtwn." fit="contain" />
+              </Box>
+            </Link>
+            <MobileNav />
+          </Header>
+        )}
       </PartialWidthSection>
     </Box>
   )

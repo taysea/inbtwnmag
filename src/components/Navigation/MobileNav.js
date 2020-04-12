@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Box, Button, Keyboard, Layer } from "grommet"
+import { Box, Button, Keyboard, Layer, Text } from "grommet"
 import { Close, Instagram, Menu } from "grommet-icons"
 import { NavItems } from "."
 import { PartialWidthSection } from "../../layouts/PartialWidth"
@@ -23,19 +23,18 @@ export const MobileNav = () => {
                 />
               </Box>
               <PartialWidthSection>
-                {NavItems.map(item => (
-                  <CategoryLink
-                    key={item}
-                    to={`/categories/${item.toLowerCase()}`}
-                  >
-                    <Box
-                      border={{ side: "bottom" }}
-                      pad={{ vertical: "large" }}
+                <Box gap="large">
+                  {NavItems.map(item => (
+                    <CategoryLink
+                      key={item}
+                      to={`/categories/${item.toLowerCase()}`}
                     >
-                      {item}
-                    </Box>
-                  </CategoryLink>
-                ))}
+                      <Box pad="medium" background="#EAEAEA" align="center">
+                        <Text weight="bold">{item}</Text>
+                      </Box>
+                    </CategoryLink>
+                  ))}
+                </Box>
                 <Box pad={{ vertical: "large" }} align="start">
                   <Button
                     a11yTitle="Instagram"
