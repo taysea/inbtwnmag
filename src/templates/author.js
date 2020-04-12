@@ -9,7 +9,7 @@ import { PartialWidthSection } from "../layouts"
 
 function AuthorTemplate({ data: { allContentfulBlog }, pageContext }) {
   return (
-    <Layout>
+    <Layout isNavPage>
       <ResponsiveContext.Consumer>
         {size => (
           <>
