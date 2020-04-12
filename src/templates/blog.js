@@ -33,15 +33,6 @@ const BlogTemplate = ({ data }) => {
       <ResponsiveContext.Consumer>
         {size => (
           <>
-            <Box
-              height="small"
-              background="#EAEAEA"
-              pad={{ vertical: "small" }}
-            >
-              <PartialWidthSection marginBottom="none">
-                <GoogleAds slot="1974438094" />
-              </PartialWidthSection>
-            </Box>
             <PartialWidthSection marginBottom="large">
               <Box
                 width="large"
