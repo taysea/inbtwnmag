@@ -60,23 +60,32 @@ const BlogTemplate = ({ data }) => {
                 </Box>
               </Box>
             </PartialWidthSection>
-            <Box
-              height={size !== "small" ? "80vh" : "medium"}
-              margin={{ bottom: "medium" }}
-            >
-              {data.contentfulBlog.titleImage.file.details.size <= 100000 ? (
-                <Image
-                  src={data.contentfulBlog.titleImage.file.url}
-                  alt={data.contentfulBlog.titleImage.description}
-                  fit="cover"
-                />
-              ) : (
-                <Img
-                  fluid={data.contentfulBlog.titleImage.fluid}
-                  alt={data.contentfulBlog.titleImage.description}
-                  style={{ height: "100%" }}
-                />
-              )}
+            <Box>
+              <Box
+                height={size !== "small" ? "80vh" : "medium"}
+                margin={{ bottom: "medium" }}
+              >
+                {data.contentfulBlog.titleImage.file.details.size <= 100000 ? (
+                  <Image
+                    src={data.contentfulBlog.titleImage.file.url}
+                    alt={data.contentfulBlog.titleImage.description}
+                    fit="cover"
+                  />
+                ) : (
+                  <Img
+                    fluid={data.contentfulBlog.titleImage.fluid}
+                    alt={data.contentfulBlog.titleImage.description}
+                    style={{ height: "100%" }}
+                  />
+                )}
+              </Box>
+              <PartialWidthSection marginBottom="none" pad="none">
+                <Box width="large" margin="auto">
+                  <Text size="small">
+                    {data.contentfulBlog.titleImage.description}
+                  </Text>
+                </Box>
+              </PartialWidthSection>
             </Box>
             <PartialWidthSection>
               <Box width="large" gap="small" margin="auto">
@@ -88,6 +97,8 @@ const BlogTemplate = ({ data }) => {
                       renderNode: {
                         [BLOCKS.EMBEDDED_ASSET]: node => {
                           const image = node.data.target.fields.file["en-US"]
+                          const description =
+                            node.data.target.fields.description["en-US"]
                           const width = image.details.image.width
                           const height = image.details.image.height
                           const aspectRatio = width / height
@@ -98,28 +109,36 @@ const BlogTemplate = ({ data }) => {
                               ? "large"
                               : "medium"
                           return (
-                            <Box
-                              height={
-                                size !== "small" ? containerHeight : "medium"
-                              }
-                            >
-                              <Img
-                                width={image.details.image.width}
-                                fluid={{
-                                  aspectRatio:
-                                    width / image.details.image.height,
-                                  src: image.url + "?w=630&q=50",
-                                  srcSet: `
-                      ${image.url}?w=${width / 4}&&q=50 ${width / 4}w,
-                      ${image.url}?w=${width / 2}&&q=50 ${width / 2}w,
-                      ${image.url}?w=${width}&&q=50 ${width}w,
-                      ${image.url}?w=${width * 1.5}&&q=50 ${width * 1.5}w,
-                      ${image.url}?w=1000&&q=50 1000w,
-                  `,
-                                  sizes: "(max-width: 630px) 100vw, 630px",
-                                }}
-                                style={{ height: "100%" }}
-                              />
+                            <Box gap="small">
+                              <Box
+                                height={
+                                  size !== "small" ? containerHeight : "medium"
+                                }
+                              >
+                                <Img
+                                  width={image.details.image.width}
+                                  fluid={{
+                                    aspectRatio:
+                                      width / image.details.image.height,
+                                    src: image.url + "?w=630&q=50",
+                                    srcSet: `
+                        ${image.url}?w=${width / 4}&&q=50 ${width / 4}w,
+                        ${image.url}?w=${width / 2}&&q=50 ${width / 2}w,
+                        ${image.url}?w=${width}&&q=50 ${width}w,
+                        ${image.url}?w=${width * 1.5}&&q=50 ${width * 1.5}w,
+                        ${image.url}?w=1000&&q=50 1000w,
+                    `,
+                                    sizes: "(max-width: 630px) 100vw, 630px",
+                                  }}
+                                  style={{ height: "100%" }}
+                                />
+                              </Box>
+                              <Box>
+                                <Text size="small">
+                                  {data.contentfulBlog.showCaptions &&
+                                    description}
+                                </Text>
+                              </Box>
                             </Box>
                           )
                         },
@@ -207,6 +226,7 @@ export const query = graphql`
           ...GatsbyContentfulFluid_withWebp
         }
       }
+      showCaptions
     }
   }
 `
