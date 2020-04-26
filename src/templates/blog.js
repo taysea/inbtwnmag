@@ -98,6 +98,7 @@ const BlogTemplate = ({ data }) => {
                         [BLOCKS.EMBEDDED_ASSET]: node => {
                           const image = node.data.target.fields.file["en-US"]
                           const description =
+                            node.data.target.fields.description &&
                             node.data.target.fields.description["en-US"]
                           const width = image.details.image.width
                           const height = image.details.image.height
