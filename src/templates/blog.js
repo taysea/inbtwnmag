@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import GoogleAds from "../components/GoogleAds"
+// import GoogleAds from "../components/GoogleAds"
 import { Box, Image, Text, ResponsiveContext } from "grommet"
 import { PartialWidthSection } from "../layouts"
 import {
@@ -171,7 +171,7 @@ const BlogTemplate = ({ data }) => {
                 />
               </Box>
             </PartialWidthSection>
-            <Box
+            {/* <Box
               height="small"
               background="#EAEAEA"
               pad={{ vertical: "small" }}
@@ -179,7 +179,7 @@ const BlogTemplate = ({ data }) => {
               <PartialWidthSection marginBottom="none">
                 <GoogleAds slot="1974438094" />
               </PartialWidthSection>
-            </Box>
+            </Box> */}
           </>
         )}
       </ResponsiveContext.Consumer>
