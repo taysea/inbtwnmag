@@ -79,13 +79,15 @@ const BlogTemplate = ({ data }) => {
                   />
                 )}
               </Box>
-              <PartialWidthSection marginBottom="none" pad="none">
-                <Box width="large" margin="auto">
-                  <Text size="small">
-                    {data.contentfulBlog.titleImage.description}
-                  </Text>
-                </Box>
-              </PartialWidthSection>
+              {showCaptions && (
+                <PartialWidthSection marginBottom="none" pad="none">
+                  <Box width="large" margin="auto">
+                    <Text size="small">
+                      {data.contentfulBlog.titleImage.description}
+                    </Text>
+                  </Box>
+                </PartialWidthSection>
+              )}
             </Box>
             <PartialWidthSection>
               <Box width="large" gap="small" margin="auto">
