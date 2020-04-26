@@ -79,7 +79,7 @@ const BlogTemplate = ({ data }) => {
                   />
                 )}
               </Box>
-              {showCaptions && (
+              {data.contentfulBlog.showCaptions && (
                 <PartialWidthSection marginBottom="none" pad="none">
                   <Box width="large" margin="auto">
                     <Text size="small">
