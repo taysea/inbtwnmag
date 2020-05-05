@@ -11,7 +11,7 @@ import { PartialWidthSection } from "../layouts/PartialWidth"
 
 const IndexPage = ({ data: { main, hero, second } }) => {
   return (
-    <Layout isNavPage>
+    <Layout isNavPage isLanding>
       <SEO title="Home" />
       <ResponsiveContext.Consumer>
         {size => (

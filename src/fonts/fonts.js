@@ -1,12 +1,16 @@
 import { createGlobalStyle } from "styled-components"
-import PTSerif from "../fonts/PTSerif.woff"
-// import PTSerifBold from "../fonts/PT_Serif-Bold.woff"
+import TiemposBold from "../fonts/TiemposBold.woff"
+import TiemposRegular from "../fonts/TiemposRegular.woff"
 
 export default createGlobalStyle`
     @font-face {
-        font-family: 'PT Serif';
-        src: local('PT Serif'),
-        url(${PTSerif}) format('woff');
+        font-family: 'Tiempos';
+        src: url(${TiemposRegular}) format('woff');
         font-style: normal;
+    }
+    @font-face {
+        font-family: 'Tiempos';
+        src: url(${TiemposBold}) format('woff');
+        font-weight: bold;
     }
 `

@@ -92,62 +92,61 @@ const BlogTemplate = ({ data }) => {
             <PartialWidthSection>
               <Box width="large" gap="small" margin="auto">
                 <BodyText>
-                  {documentToReactComponents(
-                    data.contentfulBlog.body.json,
-
-                    {
-                      renderNode: {
-                        [BLOCKS.EMBEDDED_ASSET]: node => {
-                          const image = node.data.target.fields.file["en-US"]
-                          const description =
-                            node.data.target.fields.description &&
-                            node.data.target.fields.description["en-US"]
-                          const width = image.details.image.width
-                          const height = image.details.image.height
-                          const aspectRatio = width / height
-                          const containerHeight =
-                            aspectRatio > 1
-                              ? { max: size !== "small" ? "large" : "medium" }
-                              : size !== "small"
-                              ? "large"
-                              : "medium"
-                          return (
-                            <Box gap="small">
-                              <Box
-                                height={
-                                  size !== "small" ? containerHeight : "medium"
-                                }
-                              >
-                                <Img
-                                  width={image.details.image.width}
-                                  fluid={{
-                                    aspectRatio:
-                                      width / image.details.image.height,
-                                    src: image.url + "?w=630&q=50",
-                                    srcSet: `
+                  {documentToReactComponents(data.contentfulBlog.body.json, {
+                    renderNode: {
+                      [BLOCKS.EMBEDDED_ASSET]: node => {
+                        const image =
+                          node.data.target.fields &&
+                          node.data.target.fields.file["en-US"]
+                        const description =
+                          node.data.target.fields &&
+                          node.data.target.fields.description &&
+                          node.data.target.fields.description["en-US"]
+                        const width = image.details.image.width
+                        const height = image.details.image.height
+                        const aspectRatio = width / height
+                        const containerHeight =
+                          aspectRatio > 1
+                            ? { max: size !== "small" ? "large" : "medium" }
+                            : size !== "small"
+                            ? "large"
+                            : "medium"
+                        return (
+                          <Box gap="small">
+                            <Box
+                              height={
+                                size !== "small" ? containerHeight : "medium"
+                              }
+                            >
+                              <Img
+                                width={image.details.image.width}
+                                fluid={{
+                                  aspectRatio:
+                                    width / image.details.image.height,
+                                  src: image.url + "?w=630&q=50",
+                                  srcSet: `
                         ${image.url}?w=${width / 4}&&q=50 ${width / 4}w,
                         ${image.url}?w=${width / 2}&&q=50 ${width / 2}w,
                         ${image.url}?w=${width}&&q=50 ${width}w,
                         ${image.url}?w=${width * 1.5}&&q=50 ${width * 1.5}w,
                         ${image.url}?w=1000&&q=50 1000w,
                     `,
-                                    sizes: "(max-width: 630px) 100vw, 630px",
-                                  }}
-                                  style={{ height: "100%" }}
-                                />
-                              </Box>
-                              <Box>
-                                <Text size="small">
-                                  {data.contentfulBlog.showCaptions &&
-                                    description}
-                                </Text>
-                              </Box>
+                                  sizes: "(max-width: 630px) 100vw, 630px",
+                                }}
+                                style={{ height: "100%" }}
+                              />
                             </Box>
-                          )
-                        },
+                            <Box>
+                              <Text size="small">
+                                {data.contentfulBlog.showCaptions &&
+                                  description}
+                              </Text>
+                            </Box>
+                          </Box>
+                        )
                       },
-                    }
-                  )}
+                    },
+                  })}
                 </BodyText>
                 <Share
                   url={`https://inbtwnmag.com/blog/${data.contentfulBlog.slug}`}

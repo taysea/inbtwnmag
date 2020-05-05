@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { Text } from "grommet"
 
 export const BodyText = styled(Text)`
-  font-family: "PT Serif", serif;
+  font-family: "Tiempos", serif;
   line-height: 1.75em;
   color: #000;
 `

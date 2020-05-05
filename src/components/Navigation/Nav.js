@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { Box, Button, Text } from "grommet"
@@ -15,35 +15,52 @@ const NavLink = styled(Link)`
   }
 `
 
-export const Nav = () => (
-  <Box direction="row" gap="small">
-    <Box align="center" direction="row" background="#EAEAEA">
-      {NavItems.map(item => (
-        <NavLink
-          key={item}
-          to={
-            item !== "About"
-              ? `/categories/${item.toLowerCase()}`
-              : `/${item.toLowerCase()}`
-          }
-        >
-          <Button hoverIndicator="#8F37FE">
-            <Box pad={{ horizontal: "small", vertical: "xsmall" }}>
-              <Text size="small" weight="bold">
-                {item}
-              </Text>
-            </Box>
-          </Button>
-        </NavLink>
-      ))}
-    </Box>
-    {/* <Button
+const NavButton = ({ item }) => {
+  const [color, setColor] = useState("text")
+
+  return (
+    <Button
+      onMouseOver={() => setColor("#8F37FE")}
+      onFocus={() => {}}
+      onMouseOut={() => setColor("text")}
+      onBlur={() => {}}
+    >
+      <Box
+        pad={{ horizontal: "small", vertical: "xsmall" }}
+        // background="#EFEFEF"
+      >
+        <Text size="small" weight="bold" color={color}>
+          {item}
+        </Text>
+      </Box>
+    </Button>
+  )
+}
+export const Nav = () => {
+  return (
+    <Box direction="row" gap="small">
+      <Box align="center" direction="row" gap="xsmall">
+        {NavItems.map(item => (
+          <NavLink
+            key={item}
+            to={
+              item !== "About"
+                ? `/categories/${item.toLowerCase()}`
+                : `/${item.toLowerCase()}`
+            }
+          >
+            <NavButton item={item} />
+          </NavLink>
+        ))}
+      </Box>
+      {/* <Button
       a11yTitle="Instagram"
       icon={<Instagram size="1.25em" color="dark-1" />}
       href="https://www.instagram.com/inbtwnmag/"
       target="_blank"
       rel="noopener noreferrer"
     /> */}
-    {/* <Button a11yTitle="Search" icon={<Search size="1.25em" color="dark-1" />} /> */}
-  </Box>
-)
+      {/* <Button a11yTitle="Search" icon={<Search size="1.25em" color="dark-1" />} /> */}
+    </Box>
+  )
+}

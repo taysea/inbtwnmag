@@ -15,7 +15,7 @@ import GlobalFonts from "../fonts/fonts"
 import { NavBar } from "."
 import { Footer } from "."
 
-const Layout = ({ children, isNavPage }) => {
+const Layout = ({ children, isNavPage, isLanding }) => {
   // const data = useStaticQuery(graphql`
   //   query SiteTitleQuery {
   //     site {
@@ -31,7 +31,10 @@ const Layout = ({ children, isNavPage }) => {
       <GlobalFonts />
       <Box height={{ min: "100vh" }}>
         {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
-        <NavBar border={!isNavPage && { side: "bottom", color: "light-3" }} />
+        <NavBar
+          border={!isNavPage && { side: "bottom", color: "light-3" }}
+          isLanding={isLanding}
+        />
         <Main background={isNavPage && "#f5f5f5"} overflow="visible">
           {children}
         </Main>
@@ -44,6 +47,7 @@ const Layout = ({ children, isNavPage }) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   isNavPage: PropTypes.bool,
+  isLanding: PropTypes.bool,
 }
 
 export default Layout
