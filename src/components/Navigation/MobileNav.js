@@ -27,7 +27,11 @@ export const MobileNav = () => {
                   {NavItems.map(item => (
                     <CategoryLink
                       key={item}
-                      to={`/categories/${item.toLowerCase()}`}
+                      to={
+                        item !== "About"
+                          ? `/categories/${item.toLowerCase()}`
+                          : `/${item.toLowerCase()}`
+                      }
                     >
                       <Box pad="medium" background="#EAEAEA" align="center">
                         <Text weight="bold">{item}</Text>
