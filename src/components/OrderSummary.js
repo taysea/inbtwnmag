@@ -2,7 +2,13 @@ import React from "react"
 import { Box, Text } from "grommet"
 import { Checkout, CheckoutPreview } from "."
 
-export const OrderSummary = ({ detailedCart, cartItems, ...rest }) => {
+export const OrderSummary = ({
+  detailedCart,
+  cartItems,
+  stripePromise,
+  ...rest
+}) => {
+  console.log(cartItems)
   return (
     <Box gap="small" {...rest}>
       <Box pad="small" border={{ side: "bottom", color: "dark-3" }}>
@@ -11,7 +17,7 @@ export const OrderSummary = ({ detailedCart, cartItems, ...rest }) => {
         </Text>
       </Box>
       <CheckoutPreview cart={detailedCart} />
-      <Checkout cart={cartItems} />
+      <Checkout cart={cartItems} stripePromise={stripePromise} />
     </Box>
   )
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
+import styled from "styled-components"
 import ReactImageMagnify from "react-image-magnify"
 import {
   Anchor,
@@ -18,6 +19,10 @@ import favicon from "../images/favicon.ico"
 import { formatPrice } from "../utils"
 import { PartialWidthSection } from "../layouts"
 import LargeShirt from "../assets/design_finalalignment.jpg"
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`
 
 const InfoSection = ({ children, name }) => (
   <Box gap="small">
@@ -177,18 +182,20 @@ function ProductDetails({ location, data }) {
                       <Text>Add to cart</Text>
                     </MaterialButton>
                     {showCheckoutButton && (
-                      <MaterialButton
-                        variant="outlined"
-                        href="/cart"
-                        disableElevation
-                        style={{
-                          border: "2px solid #3e5170",
-                          color: "#3e5170",
-                          textTransform: "capitalize",
-                        }}
-                      >
-                        <Text>Proceed to checkout</Text>
-                      </MaterialButton>
+                      <StyledLink to="/cart">
+                        <MaterialButton
+                          variant="outlined"
+                          disableElevation
+                          style={{
+                            border: "2px solid #3e5170",
+                            color: "#3e5170",
+                            textTransform: "capitalize",
+                            width: "100%",
+                          }}
+                        >
+                          <Text>Proceed to checkout</Text>
+                        </MaterialButton>
+                      </StyledLink>
                     )}
                   </Box>
                   <InfoSection name="Details">

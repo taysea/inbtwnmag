@@ -135,6 +135,7 @@ function Cart({ data }) {
                 ))}
               </Box>
               <OrderSummary
+                stripePromise={stripePromise}
                 cartItems={cartItems}
                 detailedCart={cart}
                 width={
