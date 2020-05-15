@@ -28,7 +28,7 @@ export const MobileNav = () => {
                     <CategoryLink
                       key={item}
                       to={
-                        item !== "About"
+                        item !== "About" && item !== "Shop" && item !== "Cart"
                           ? `/categories/${item.toLowerCase()}`
                           : `/${item.toLowerCase()}`
                       }

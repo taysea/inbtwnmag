@@ -1,3 +1,6 @@
+require("dotenv").config()
+// const config = require("gatsby-plugin-config")
+
 module.exports = {
   siteMetadata: {
     title: `inbtwn.`,
@@ -25,6 +28,14 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/inbtwn-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-source-stripe`,
+      options: {
+        objects: ["Sku"],
+        secretKey: process.env.GATSBY_STRIPE_API_KEY,
+        downloadFiles: false,
       },
     },
     {

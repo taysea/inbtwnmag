@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { Box, Button, Text } from "grommet"
+import { Box, Text } from "grommet"
 // import { Instagram } from "grommet-icons"
 import { NavItems } from "."
 
@@ -11,7 +11,7 @@ const NavLink = styled(Link)`
   text-decoration: none;
   color: #111;
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 `
 
@@ -19,7 +19,7 @@ const NavButton = ({ item }) => {
   const [color, setColor] = useState("text")
 
   return (
-    <Button
+    <Box
       onMouseOver={() => setColor("#8F37FE")}
       onFocus={() => {}}
       onMouseOut={() => setColor("text")}
@@ -33,25 +33,28 @@ const NavButton = ({ item }) => {
           {item}
         </Text>
       </Box>
-    </Button>
+    </Box>
   )
 }
 export const Nav = () => {
   return (
     <Box direction="row" gap="small">
       <Box align="center" direction="row" gap="xsmall">
-        {NavItems.map(item => (
-          <NavLink
-            key={item}
-            to={
-              item !== "About"
-                ? `/categories/${item.toLowerCase()}`
-                : `/${item.toLowerCase()}`
-            }
-          >
-            <NavButton item={item} />
-          </NavLink>
-        ))}
+        {NavItems.map(
+          item =>
+            item !== "Cart" && (
+              <NavLink
+                key={item}
+                to={
+                  item !== "About" && item !== "Shop"
+                    ? `/categories/${item.toLowerCase()}`
+                    : `/${item.toLowerCase()}`
+                }
+              >
+                <NavButton item={item} />
+              </NavLink>
+            )
+        )}
       </Box>
       {/* <Button
       a11yTitle="Instagram"
