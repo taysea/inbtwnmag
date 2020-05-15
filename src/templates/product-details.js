@@ -94,7 +94,7 @@ function ProductDetails({ location, data }) {
   return (
     <Layout location={location} height>
       <Helmet
-        title={`${data.allStripeSku.edges[0].node.product.name} | Postcard Boy`}
+        title={`${data.allStripeSku.edges[0].node.product.name} | inbtwn.`}
       >
         <link rel="icon" href={favicon} />
       </Helmet>
