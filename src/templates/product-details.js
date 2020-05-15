@@ -233,14 +233,14 @@ function ProductDetails({ location, data }) {
                   </InfoSection>
                   <InfoSection name="Shipping + Returns">
                     <Text size="small">
-                      We ship anywhere within the US, but if you are outside of
-                      the US and are interested, please email us at{" "}
+                      We ship anywhere within the US. If you are outside of the
+                      US, email us at{" "}
                       <Anchor
                         label="info@inbtwnmag.com"
                         href="mailto:info@inbtwnmag.com"
                         color="#094533"
                       />
-                      , and we will sort things out for you.{" "}
+                      , and we'll help you with your order.{" "}
                     </Text>
                     <Text size="small">All sales are final.</Text>
                   </InfoSection>
