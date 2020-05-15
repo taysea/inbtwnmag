@@ -32,8 +32,8 @@ const OrderConfirmation = () => {
         <Box width={{ max: "large" }} gap="medium">
           <Box gap="medium">
             <Text weight="bold" size="xxlarge" margin={{ bottom: "medium" }}>
-              Thank you for your purchase and for helping us support One Fair
-              Wage Emergency Fund.
+              Thank you for your purchase and for helping us support Feeding
+              America.
             </Text>
             <BodyText>
               You should be receiving an email confirmation of your payment. An
