@@ -8,6 +8,9 @@ import { FormSubtract, FormAdd } from "grommet-icons"
 import { getCart, setCart } from "../utils"
 import { OrderSummary } from "../components"
 import { PartialWidthSection } from "../layouts"
+import { loadStripe } from "@stripe/stripe-js"
+
+const stripePromise = loadStripe("pk_live_3YKDw9oL7l1LwRwLe36TgNAQ00228odXZO")
 
 const createCart = (cartItems, data) => {
   let visualCart = []
