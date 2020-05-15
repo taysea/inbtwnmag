@@ -41,7 +41,7 @@ export const NavBar = ({ isLanding, ...rest }) => {
               </Text>
             </Box>
             <Box align="center">
-              <StyledLink to="/shop/falling-falling-into-and-out-of-myself-t-shirt-covid-19-relief-fundraiser">
+              <StyledLink to="/shop/falling-into-and-out-of-myself-t-shirt-covid-19-relief-fundraiser">
                 <Text size="small" weight="bold">
                   Buy a "Falling Into and Out Of Myself" shirt
                 </Text>
