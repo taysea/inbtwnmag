@@ -18,7 +18,7 @@ export const Checkout = class extends React.Component {
       billingAddressCollection: "required",
       shippingAddressCollection: { allowedCountries: ["US"] },
       successUrl: `${window.location.origin}/order-confirmation`,
-      cancelUrl: `${window.location.origin}/cart`,
+      cancelUrl: `${window.location.origin}/shop/falling-falling-into-and-out-of-myself-t-shirt-covid-19-relief-fundraiser`,
     })
 
     if (error) {
