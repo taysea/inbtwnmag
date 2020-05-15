@@ -208,18 +208,23 @@ function ProductDetails({ location, data }) {
                     <Text size="small">
                       All proceeds will go to{" "}
                       <Anchor
-                        label="One Fair Wage Emergency Fund"
-                        href="https://ofwemergencyfund.org/"
+                        label="Feeding America"
+                        href="https://www.feedingamerica.org/"
                         target="_blank"
                         color="#094533"
                       />{" "}
-                      which is providing money to restaurant workers, gig
-                      workers and other hourly workers who are facing
-                      unprecedented economic hardship from the coronavirus
-                      crisis. This funding is available to qualifying
-                      individuals, regardless of their citizenship status,
-                      meaning that those who cannot receive government relief
-                      can receive funding through One Fair Wage.
+                      which provides meals to a network of over 200 food banks
+                      across the US and advocates for food and nutrition
+                      programs in government emergency response plans. Every $1
+                      donated helps provide at least 10 meals to a family in
+                      need.
+                    </Text>
+                    <Text size="small">
+                      Many of those relying on food banks are among those
+                      disproportionately affected by job distrutpions, lack of
+                      paid sick leave, and other ripple effects of the
+                      coronavirus. With so much economic hardship occurring,
+                      access to food should not be among those worries.
                     </Text>
                   </InfoSection>
                   <InfoSection name="Content + Care">
