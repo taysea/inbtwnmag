@@ -99,39 +99,71 @@ function Cart({ data }) {
                   </Text>
                 </Box>
                 {cart.map(item => (
-                  <Grid
-                    columns={["xsmall", "small", "auto", "flex"]}
-                    gap="medium"
-                  >
-                    <Box height="xsmall">
-                      <Image src={item.image} fit="cover" />
-                    </Box>
-                    <Box justify="center">
-                      <Text size="small">{item.product.name}</Text>
-                      <Text size="xsmall">Size: {item.attributes.name}</Text>
-                    </Box>
-                    <Box direction="row" align="center" gap="xsmall">
-                      <Box pad="xsmall" round="full"></Box>
-                      <IconButton
-                        onClick={() =>
-                          removeFromStoredCart(cartItems[item.cartIndex])
-                        }
-                      >
-                        <FormSubtract />
-                      </IconButton>
-                      <Text>{item.quantity}</Text>
+                  <>
+                    <Grid
+                      columns={["xsmall", "small", "auto", "flex"]}
+                      gap="medium"
+                    >
+                      <Box height="xsmall">
+                        <Image src={item.image} fit="cover" />
+                      </Box>
+                      <Box justify="center">
+                        <Text size="small">{item.product.name}</Text>
+                        <Text size="xsmall">Size: {item.attributes.name}</Text>
+                      </Box>
+                      {size !== "small" && (
+                        <Box direction="row" align="center" gap="xsmall">
+                          <Box pad="xsmall" round="full"></Box>
+                          <IconButton
+                            onClick={() =>
+                              removeFromStoredCart(cartItems[item.cartIndex])
+                            }
+                          >
+                            <FormSubtract />
+                          </IconButton>
+                          <Text>{item.quantity}</Text>
 
-                      <IconButton
-                        onClick={
-                          item.quantity < 10
-                            ? () => addToStoredCart(cartItems[item.cartIndex])
-                            : undefined
-                        }
-                      >
-                        <FormAdd color={item.quantity < 10 ? "text" : "#CCC"} />
-                      </IconButton>
-                    </Box>
-                  </Grid>
+                          <IconButton
+                            onClick={
+                              item.quantity < 10
+                                ? () =>
+                                    addToStoredCart(cartItems[item.cartIndex])
+                                : undefined
+                            }
+                          >
+                            <FormAdd
+                              color={item.quantity < 10 ? "text" : "#CCC"}
+                            />
+                          </IconButton>
+                        </Box>
+                      )}
+                    </Grid>
+                    {size === "small" && (
+                      <Box direction="row" align="center" gap="xsmall">
+                        <Box pad="xsmall" round="full"></Box>
+                        <IconButton
+                          onClick={() =>
+                            removeFromStoredCart(cartItems[item.cartIndex])
+                          }
+                        >
+                          <FormSubtract />
+                        </IconButton>
+                        <Text>{item.quantity}</Text>
+
+                        <IconButton
+                          onClick={
+                            item.quantity < 10
+                              ? () => addToStoredCart(cartItems[item.cartIndex])
+                              : undefined
+                          }
+                        >
+                          <FormAdd
+                            color={item.quantity < 10 ? "text" : "#CCC"}
+                          />
+                        </IconButton>
+                      </Box>
+                    )}
+                  </>
                 ))}
               </Box>
               <OrderSummary
