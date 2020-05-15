@@ -221,7 +221,7 @@ function ProductDetails({ location, data }) {
                     </Text>
                     <Text size="small">
                       Many of those relying on food banks are among those
-                      disproportionately affected by job distrutpions, lack of
+                      disproportionately affected by job disruptions, lack of
                       paid sick leave, and other ripple effects of the
                       coronavirus. With so much economic hardship occurring,
                       access to food should not be among those worries.
