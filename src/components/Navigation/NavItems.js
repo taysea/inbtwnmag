@@ -5,6 +5,6 @@ export const NavItems = [
   "Fashion",
   "Stories",
   "About",
-  "Shop",
-  "Cart",
+  // "Shop",
+  // "Cart",
 ]

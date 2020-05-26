@@ -1,18 +1,18 @@
 import React, { useContext } from "react"
-import styled from "styled-components"
+// import styled from "styled-components"
 import { Link } from "gatsby"
-import { Box, Header, Image, ResponsiveContext, Stack, Text } from "grommet"
+import { Box, Header, Image, ResponsiveContext } from "grommet"
 import { PartialWidthSection } from "../../layouts/PartialWidth"
 import logo from "../../../src/images/inbtwn.png"
 import { MobileNav, Nav } from "."
-import { Cart } from "grommet-icons"
+// import { Cart } from "grommet-icons"
 import { getCart } from "../../utils"
-const StyledLink = styled(Link)`
-  color: white;
-  &:visited {
-    color: white;
-  }
-`
+// const StyledLink = styled(Link)`
+//   color: white;
+//   &:visited {
+//     color: white;
+//   }
+// `
 const getCartQuantity = cart => {
   let quantity = 0
   cart.forEach(item => (quantity += item.quantity))
@@ -26,7 +26,7 @@ export const NavBar = ({ isLanding, ...rest }) => {
   const cartQuantity = getCartQuantity(cartItems)
   return (
     <Box {...rest}>
-      <Box background="#094533">
+      {/* <Box background="#094533">
         <PartialWidthSection marginBottom="none">
           <Box
             direction="row-responsive"
@@ -49,7 +49,7 @@ export const NavBar = ({ isLanding, ...rest }) => {
             </Box>
           </Box>
         </PartialWidthSection>
-      </Box>
+      </Box> */}
       <PartialWidthSection marginBottom="none">
         {size !== "small" ? (
           <Header pad={{ vertical: "medium" }}>
@@ -60,7 +60,7 @@ export const NavBar = ({ isLanding, ...rest }) => {
             </Link>
             <Box direction="row" gap="small">
               <Nav />
-              <Link to="/cart">
+              {/* <Link to="/cart">
                 <Stack anchor="top-right">
                   <Box pad="xsmall">
                     <Cart size="medium" color="black" />
@@ -77,7 +77,7 @@ export const NavBar = ({ isLanding, ...rest }) => {
                     undefined
                   )}
                 </Stack>
-              </Link>
+              </Link> */}
             </Box>
           </Header>
         ) : (
