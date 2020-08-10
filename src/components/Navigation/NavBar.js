@@ -6,24 +6,24 @@ import { PartialWidthSection } from "../../layouts/PartialWidth"
 import logo from "../../../src/images/inbtwn.png"
 import { MobileNav, Nav } from "."
 // import { Cart } from "grommet-icons"
-import { getCart } from "../../utils"
+// import { getCart } from "../../utils"
 // const StyledLink = styled(Link)`
 //   color: white;
 //   &:visited {
 //     color: white;
 //   }
 // `
-const getCartQuantity = cart => {
-  let quantity = 0
-  cart.forEach(item => (quantity += item.quantity))
+// const getCartQuantity = cart => {
+//   let quantity = 0
+//   cart.forEach(item => (quantity += item.quantity))
 
-  return quantity
-}
+//   return quantity
+// }
 
 export const NavBar = ({ isLanding, ...rest }) => {
   const size = useContext(ResponsiveContext)
-  const cartItems = getCart()
-  const cartQuantity = getCartQuantity(cartItems)
+  // const cartItems = getCart()
+  // const cartQuantity = getCartQuantity(cartItems)
   return (
     <Box {...rest}>
       {/* <Box background="#094533">

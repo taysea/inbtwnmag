@@ -49,6 +49,7 @@ const BlogTemplate = ({ data }) => {
                     {data.contentfulBlog.title}
                   </Text>
                   <CardFooter
+                    artist={data.contentfulBlog.artist}
                     author={data.contentfulBlog.author}
                     tags={data.contentfulBlog.tags}
                     createdAt={data.contentfulBlog.createdAt}
@@ -210,6 +211,10 @@ export const query = graphql`
             ...GatsbyContentfulFluid_withWebp
           }
         }
+        slug
+      }
+      artist {
+        fullName
         slug
       }
       createdAt(fromNow: true)

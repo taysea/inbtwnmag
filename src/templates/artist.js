@@ -7,7 +7,7 @@ import Layout from "../components/layout"
 // import SEO from "../components"
 import { PartialWidthSection } from "../layouts"
 
-function AuthorTemplate({ data: { allContentfulBlog }, pageContext }) {
+function ArtistTemplate({ data: { allContentfulBlog }, pageContext }) {
   return (
     <Layout isNavPage>
       <ResponsiveContext.Consumer>
@@ -15,17 +15,17 @@ function AuthorTemplate({ data: { allContentfulBlog }, pageContext }) {
           <>
             <Box gap="medium">
               <Box
-                align="center"
                 background="white"
+                align="center"
                 border={{ side: "bottom", color: "light-3" }}
               >
                 <PartialWidthSection gap="medium">
                   <Box align="center">
                     <Text as="h1" size="2.5em" margin="small">
-                      {allContentfulBlog.edges[0].node.author.fullName}
+                      {allContentfulBlog.edges[0].node.artist.fullName}
                     </Text>
-                    {allContentfulBlog.edges[0].node.author.bio && (
-                      <Text>{allContentfulBlog.edges[0].node.author.bio}</Text>
+                    {allContentfulBlog.edges[0].node.artist.bio && (
+                      <Text>{allContentfulBlog.edges[0].node.artist.bio}</Text>
                     )}
                   </Box>
                   {/* <Box direction="row" justify="center">
@@ -72,8 +72,8 @@ function AuthorTemplate({ data: { allContentfulBlog }, pageContext }) {
 }
 
 export const query = graphql`
-  query authorQuery($slug: String!) {
-    allContentfulBlog(filter: { author: { slug: { eq: $slug } } }) {
+  query artistQuery($slug: String!) {
+    allContentfulBlog(filter: { artist: { slug: { eq: $slug } } }) {
       edges {
         node {
           id
@@ -94,10 +94,15 @@ export const query = graphql`
             fullName
             slug
           }
+          artist {
+            bio
+            fullName
+            slug
+          }
           createdAt(fromNow: true)
         }
       }
     }
   }
 `
-export default AuthorTemplate
+export default ArtistTemplate

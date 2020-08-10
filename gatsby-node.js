@@ -6,6 +6,7 @@ exports.createPages = ({ graphql, actions }) => {
   const blogTemplate = path.resolve(`src/templates/blog.js`)
   const categoryTemplate = path.resolve(`src/templates/category.js`)
   const authorTemplate = path.resolve(`src/templates/author.js`)
+  const artistTemplate = path.resolve(`src/templates/artist.js`)
   // const orderConfirmationTemplate = path.resolve(
   //   `src/templates/order-confirmation.js`
   // )
@@ -31,6 +32,12 @@ exports.createPages = ({ graphql, actions }) => {
       }
       authorQuery: allContentfulBlog {
         group(field: author___slug) {
+          fieldValue
+          totalCount
+        }
+      }
+      artistQuery: allContentfulBlog {
+        group(field: artist___slug) {
           fieldValue
           totalCount
         }
@@ -116,6 +123,17 @@ exports.createPages = ({ graphql, actions }) => {
         context: {
           slug: author.fieldValue,
           totalCount: author.totalCount,
+        },
+      })
+    })
+
+    result.data.artistQuery.group.forEach(artist => {
+      createPage({
+        path: `/artist/${artist.fieldValue}`.toLowerCase(),
+        component: artistTemplate,
+        context: {
+          slug: artist.fieldValue,
+          totalCount: artist.totalCount,
         },
       })
     })

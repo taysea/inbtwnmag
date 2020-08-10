@@ -4,6 +4,7 @@ import { AuthorLink } from ".."
 import { cardTypes } from "."
 
 export const CardFooter = ({
+  artist,
   author,
   tags,
   createdAt,
@@ -14,6 +15,8 @@ export const CardFooter = ({
   <Box
     flex="grow"
     justify={type !== cardTypes.minimal ? "end" : "start"}
+    gap="xsmall"
+    align={artist && "center"}
     {...rest}
   >
     <Text size={size || "xsmall"} color="dark-2">
@@ -24,5 +27,11 @@ export const CardFooter = ({
       </CategoryLink>{" "} */}
       — {createdAt}
     </Text>
+    {artist && (
+      <Text size={size || "xsmall"} color="dark-2">
+        artwork by{" "}
+        <AuthorLink to={`/artist/${artist.slug}`}>{artist.fullName}</AuthorLink>
+      </Text>
+    )}
   </Box>
 )
