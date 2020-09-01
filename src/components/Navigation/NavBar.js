@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 // import styled from "styled-components"
 import { Link } from "gatsby"
-import { Box, Header, Image, ResponsiveContext } from "grommet"
+import { Anchor, Box, Header, Image, ResponsiveContext, Text } from "grommet"
 import { PartialWidthSection } from "../../layouts/PartialWidth"
 import logo from "../../../src/images/inbtwn.png"
 import { MobileNav, Nav } from "."
@@ -26,7 +26,7 @@ export const NavBar = ({ isLanding, ...rest }) => {
   // const cartQuantity = getCartQuantity(cartItems)
   return (
     <Box {...rest}>
-      {/* <Box background="#094533">
+      <Box background="#094533">
         <PartialWidthSection marginBottom="none">
           <Box
             direction="row-responsive"
@@ -37,19 +37,23 @@ export const NavBar = ({ isLanding, ...rest }) => {
           >
             <Box align="center">
               <Text size="small" weight="bold">
-                Want to help support COVID-19 Relief Funds?{" "}
+                Submit to ISSUE 10 (togetherness) now!
               </Text>
             </Box>
             <Box align="center">
-              <StyledLink to="/shop/falling-into-and-out-of-myself-t-shirt-covid-19-relief-fundraiser">
-                <Text size="small" weight="bold">
-                  Buy a "Falling Into and Out Of Myself" shirt
-                </Text>
-              </StyledLink>
+              <Anchor
+                color="white"
+                size="small"
+                weight="bold"
+                style={{ textDecoration: "underline" }}
+                href="mailto:info@inbtwnmag.com?subject=Submission for ISSUE 10"
+              >
+                Email your work to info@inbtwnmag.com
+              </Anchor>
             </Box>
           </Box>
         </PartialWidthSection>
-      </Box> */}
+      </Box>
       <PartialWidthSection marginBottom="none">
         {size !== "small" ? (
           <Header pad={{ vertical: "medium" }}>
