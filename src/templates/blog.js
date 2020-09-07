@@ -82,7 +82,11 @@ const BlogTemplate = ({ data }) => {
               </Box>
               {data.contentfulBlog.showCaptions && (
                 <PartialWidthSection marginBottom="none" pad="none">
-                  <Box width="large" margin="auto">
+                  <Box
+                    width="large"
+                    margin="auto"
+                    pad={{ horizontal: size !== "small" ? "large" : "medium" }}
+                  >
                     <Text size="small">
                       {data.contentfulBlog.titleImage.description}
                     </Text>
@@ -91,7 +95,12 @@ const BlogTemplate = ({ data }) => {
               )}
             </Box>
             <PartialWidthSection>
-              <Box width="large" gap="small" margin="auto">
+              <Box
+                width="large"
+                gap="small"
+                pad={{ horizontal: size !== "small" ? "large" : undefined }}
+                margin="auto"
+              >
                 <BodyText>
                   {documentToReactComponents(data.contentfulBlog.body.json, {
                     renderNode: {
