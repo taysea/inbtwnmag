@@ -25,9 +25,8 @@ const IndexPage = ({ data: { main, hero, second } }) => {
                   />
                 ))}
                 <Grid
-                  columns={{ count: size !== "small" ? 3 : 2, size: "auto" }}
-                  gap="medium"
-                  margin={size === "small" ? { top: "large" } : undefined}
+                  columns={{ count: size !== "small" ? 3 : 1, size: "auto" }}
+                  gap={size !== "small" ? "large" : "medium"}
                 >
                   {main.edges.map(({ node }) => (
                     <Card

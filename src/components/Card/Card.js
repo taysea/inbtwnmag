@@ -1,8 +1,8 @@
 import React from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import Img from "gatsby-image"
 import { Box, Stack, Text } from "grommet"
-import { BodyText } from "../Styled"
+// import { BodyText } from "../Styled"
 import { CardFooter, CardTitle } from "."
 import { CardAnchor } from "../Styled"
 

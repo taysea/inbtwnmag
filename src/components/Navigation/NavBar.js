@@ -1,19 +1,10 @@
 import React, { useContext } from "react"
 // import styled from "styled-components"
 import { Link } from "gatsby"
-import {
-  Anchor,
-  Box,
-  Button,
-  Header,
-  Image,
-  ResponsiveContext,
-  Text,
-} from "grommet"
+import { Anchor, Box, Header, Image, ResponsiveContext, Text } from "grommet"
 import { PartialWidthSection } from "../../layouts/PartialWidth"
 import logo from "../../../src/images/inbtwn.png"
 import { MobileNav, Nav } from "."
-import { Menu } from "grommet-icons"
 
 // import { Cart } from "grommet-icons"
 // import { getCart } from "../../utils"

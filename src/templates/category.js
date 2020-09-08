@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, Grid, ResponsiveContext, Text } from "grommet"
+import { Box, Grid, ResponsiveContext } from "grommet"
 import { Card } from "../components/Card"
 
 import Layout from "../components/layout"
