@@ -51,7 +51,6 @@ function AuthorTemplate({ data: { allContentfulBlog }, pageContext }) {
                 <Grid
                   columns={{ count: size !== "small" ? 4 : 2, size: "auto" }}
                   gap="medium"
-                  justify="center"
                 >
                   {allContentfulBlog.edges.map(({ node }) => (
                     <Card
