@@ -54,6 +54,7 @@ const BlogTemplate = ({ data }) => {
                     tags={data.contentfulBlog.tags}
                     createdAt={data.contentfulBlog.createdAt}
                     size="small"
+                    blog
                   />
                   <Share
                     url={`https://inbtwnmag.com/blog/${data.contentfulBlog.slug}`}

@@ -7,6 +7,7 @@ import { CategoryLink } from "../Links"
 export const CardFooter = ({
   artist,
   author,
+  blog,
   tags,
   createdAt,
   size,
@@ -21,10 +22,13 @@ export const CardFooter = ({
     {...rest}
   >
     <Text size={size || "xsmall"} color="dark-2">
-      {/* <AuthorLink to={`/author/${author.slug}`}>{author.fullName}</AuthorLink>{" "} */}
-      <CategoryLink to={`/categories/${tags}`.toLowerCase()}>
-        {tags}
-      </CategoryLink>
+      {blog ? (
+        <AuthorLink to={`/author/${author.slug}`}>{author.fullName}</AuthorLink>
+      ) : (
+        <CategoryLink to={`/categories/${tags}`.toLowerCase()}>
+          {tags}
+        </CategoryLink>
+      )}
       {" — "}
       {createdAt}
     </Text>
