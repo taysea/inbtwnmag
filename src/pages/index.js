@@ -17,7 +17,7 @@ const IndexPage = ({ data: { main, hero, second } }) => {
         {size => (
           <>
             <PartialWidthSection>
-              <Box gap="medium" pad={{ top: "medium" }}>
+              <Box gap="medium">
                 {hero.edges.map(({ node }) => (
                   <HeroFeature
                     node={{ ...node, slug: `blog/${node.slug}` }}
@@ -52,12 +52,14 @@ const IndexPage = ({ data: { main, hero, second } }) => {
             </Box> */}
             <PartialWidthSection>
               <Box
+                direction="row"
                 pad={{ horizontal: "medium", vertical: "small" }}
-                background="#EAEAEA"
+                justify="center"
+                // background="#EAEAEA"
                 margin={{ bottom: "medium" }}
               >
                 <Text as="h2" margin="none">
-                  Here's what's popular right now
+                  Popular articles
                 </Text>
               </Box>
               <Grid

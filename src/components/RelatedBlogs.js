@@ -9,7 +9,6 @@ const RelatedBlogsComponent = ({ blogs }) => {
     <Grid
       columns={{ count: size !== "small" ? 3 : 2, size: "auto" }}
       gap="medium"
-      justify="center"
     >
       {blogs.map(
         (blog, index) =>

@@ -15,8 +15,10 @@ export const CardAnchor = styled(Link)`
     color: inherit;
   }
   &:hover {
-    text-decoration: underline dotted;
-    text-decoration-color: #094533;
+    span {
+      opacity: 0.4;
+      transition-duration: 0.4s;
+    }
   }
   width: 100%;
 `

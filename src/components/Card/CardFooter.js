@@ -2,6 +2,7 @@ import React from "react"
 import { Box, Text } from "grommet"
 import { AuthorLink } from ".."
 import { cardTypes } from "."
+import { CategoryLink } from "../Links"
 
 export const CardFooter = ({
   artist,
@@ -13,19 +14,19 @@ export const CardFooter = ({
   ...rest
 }) => (
   <Box
-    flex="grow"
+    // flex="grow"
     justify={type !== cardTypes.minimal ? "end" : "start"}
     gap="xsmall"
     align={artist && "center"}
     {...rest}
   >
     <Text size={size || "xsmall"} color="dark-2">
-      by{" "}
-      <AuthorLink to={`/author/${author.slug}`}>{author.fullName}</AuthorLink>{" "}
-      {/* <CategoryLink to={`/categories/${tags}`.toLowerCase()}>
+      {/* <AuthorLink to={`/author/${author.slug}`}>{author.fullName}</AuthorLink>{" "} */}
+      <CategoryLink to={`/categories/${tags}`.toLowerCase()}>
         {tags}
-      </CategoryLink>{" "} */}
-      — {createdAt}
+      </CategoryLink>
+      {" — "}
+      {createdAt}
     </Text>
     {artist && (
       <Text size={size || "xsmall"} color="dark-2">

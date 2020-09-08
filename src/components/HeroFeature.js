@@ -40,15 +40,17 @@ export const HeroFeature = ({
             <CardAnchor to={`/${slug}`}>
               <Text size={size !== "small" ? "2.5em" : "1.5em"}>{title}</Text>
             </CardAnchor>
-            <BodyText size="small">{description}</BodyText>
+            <Text size="small" weight="bold">
+              {description}
+            </Text>
           </Box>
           <Box flex="grow" justify="end">
             <Text size="xsmall" color="dark-2">
-              by{" "}
+              {/* by{" "}
               <AuthorLink to={`/author/${author.slug}`}>
                 {author.fullName}
               </AuthorLink>{" "}
-              /{" "}
+              /{" "} */}
               <CategoryLink to={`/categories/${tags.toLowerCase()}`}>
                 {tags}
               </CategoryLink>{" "}

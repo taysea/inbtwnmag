@@ -13,7 +13,7 @@ function CategoryTemplate({ data: { allContentfulBlog }, pageContext }) {
       <ResponsiveContext.Consumer>
         {size => (
           <>
-            <Box gap="medium">
+            <Box>
               <Box
                 align="center"
                 border={{ side: "top", color: "light-3" }}
@@ -21,11 +21,11 @@ function CategoryTemplate({ data: { allContentfulBlog }, pageContext }) {
                 pad={{ top: "medium" }}
               >
                 <PartialWidthSection gap="small">
-                  <Box align="center">
+                  {/* <Box align="center">
                     <Text as="h1" size="2.5em" margin="small">
                       {pageContext.tags}
                     </Text>
-                  </Box>
+                  </Box> */}
                   {/* <Box direction="row" justify="center">
                     <Box width="xsmall">
                       <Text size="small" color="dark-2" weight="bold">
@@ -49,7 +49,6 @@ function CategoryTemplate({ data: { allContentfulBlog }, pageContext }) {
                 <Grid
                   columns={{ count: size !== "small" ? 4 : 2, size: "auto" }}
                   gap="medium"
-                  justify="center"
                 >
                   {allContentfulBlog.edges.map(({ node }) => (
                     <Card

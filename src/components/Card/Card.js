@@ -4,7 +4,6 @@ import Img from "gatsby-image"
 import { Box, Stack, Text } from "grommet"
 import { BodyText } from "../Styled"
 import { CardFooter, CardTitle } from "."
-import { CategoryLink } from "../Links"
 import { CardAnchor } from "../Styled"
 
 export const cardTypes = {
@@ -84,7 +83,7 @@ export const Card = ({
                 {title}
               </Text>
               <Text color="#FFF" size="small">
-                by {author.fullName} — {createdAt}
+                {createdAt}
               </Text>
             </Box>
           </Stack>
@@ -95,45 +94,51 @@ export const Card = ({
 
   return (
     <Box gap="small" margin={{ bottom: "medium" }} background="#FFF">
-      <Box gap="small">
-        <Box margin={{ bottom: "small" }}>
-          <Link to={`/${slug}`}>
-            <Box width="100%" height={height || "250px"}>
-              <Img
-                fluid={titleImage.fluid}
-                alt={titleImage.description}
-                style={{ height: "100%" }}
-              />
+      <CardAnchor to={slug}>
+        <Box gap="small">
+          <Box gap="small">
+            <Box margin={{ bottom: "small" }}>
+              {/* <Link to={`/${slug}`}> */}
+              <Box width="100%" height={height || "250px"}>
+                <Img
+                  fluid={titleImage.fluid}
+                  alt={titleImage.description}
+                  style={{ height: "100%" }}
+                />
+              </Box>
+              {/* </Link> */}
             </Box>
-          </Link>
-        </Box>
-        <Box>
-          <Box pad={{ horizontal: "medium" }}>
+            <Box>
+              {/* <Box>
             <CategoryLink to={`/categories/${tags}`.toLowerCase()} size="small">
               {tags}
             </CategoryLink>
+          </Box> */}
+              <CardTitle
+                slug={`/${slug}`}
+                title={title}
+                flex="grow"
+                justify="start"
+                // pad={{ horizontal: "medium" }}
+              />
+            </Box>
           </Box>
-          <CardTitle
-            slug={`/${slug}`}
-            title={title}
-            flex="grow"
-            justify="start"
-            pad={{ horizontal: "medium" }}
-          />
-        </Box>
-      </Box>
 
-      {type !== cardTypes.minimal && (
-        <Box pad={{ horizontal: "medium" }}>
-          <BodyText size="small">{description}</BodyText>
+          {type !== cardTypes.minimal && (
+            <Box>
+              <Text size="small" weight="bold">
+                {description}
+              </Text>
+            </Box>
+          )}
         </Box>
-      )}
+      </CardAnchor>
       <CardFooter
         author={author}
         tags={tags}
         createdAt={createdAt}
         type={type}
-        pad={{ horizontal: "medium", bottom: "medium" }}
+        // pad={{ horizontal: "medium", bottom: "medium" }}
       />
     </Box>
   )
