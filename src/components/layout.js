@@ -35,9 +35,7 @@ const Layout = ({ children, isNavPage, isLanding }) => {
           border={!isNavPage && { side: "bottom", color: "light-3" }}
           isLanding={isLanding}
         />
-        <Main background={isNavPage && "#f5f5f5"} overflow="visible">
-          {children}
-        </Main>
+        <Main overflow="auto">{children}</Main>
         <Footer />
       </Box>
     </Grommet>

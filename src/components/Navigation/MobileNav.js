@@ -1,9 +1,21 @@
 import React, { useState } from "react"
-import { Box, Button, Keyboard, Layer, Text } from "grommet"
+import styled from "styled-components"
+import { Anchor, Box, Button, Keyboard, Layer, Text } from "grommet"
 import { Close, Instagram, Menu } from "grommet-icons"
 import { NavItems } from "."
 import { PartialWidthSection } from "../../layouts/PartialWidth"
 import { CategoryLink } from ".."
+
+const StyledAnchor = styled(Anchor)`
+  font-weight: bold;
+  text-decoration: none;
+  color: #094533;
+  &:hover {
+    text-decoration: underline;
+    text-decoration-color: #094533;
+  }
+  font-size: ${props => props.size};
+`
 
 export const MobileNav = () => {
   const [open, setOpen] = useState(false)
@@ -33,13 +45,22 @@ export const MobileNav = () => {
                           : `/${item.toLowerCase()}`
                       }
                     >
-                      <Box pad="medium" background="#EAEAEA" align="center">
+                      <Box pad="medium" align="center">
                         <Text weight="bold">{item}</Text>
                       </Box>
                     </CategoryLink>
                   ))}
-                </Box>
-                <Box pad={{ vertical: "large" }} align="start">
+                  <StyledAnchor
+                    label="Magazine"
+                    href="https://issuu.com/inbtwnmag"
+                    target="_blank"
+                    rel="noopener"
+                    alignSelf="center"
+                  >
+                    <Box pad="medium" align="center">
+                      <Text weight="bold">Magazine</Text>
+                    </Box>
+                  </StyledAnchor>
                   <Button
                     a11yTitle="Instagram"
                     icon={<Instagram size="1.25em" color="dark-1" />}

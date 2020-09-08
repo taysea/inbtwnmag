@@ -1,12 +1,22 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { Box, Text } from "grommet"
+import { Anchor, Box, Text } from "grommet"
 // import { Instagram } from "grommet-icons"
 import { NavItems } from "."
 
 const NavLink = styled(Link)`
-  font-weight: 600;
+  font-weight: bold;
+  font-size: 0.8em;
+  text-decoration: none;
+  color: #111;
+  &:hover {
+    text-decoration: none;
+  }
+`
+
+const StyledAnchor = styled(Anchor)`
+  font-weight: bold;
   font-size: 0.8em;
   text-decoration: none;
   color: #111;
@@ -39,10 +49,11 @@ const NavButton = ({ item }) => {
 export const Nav = () => {
   return (
     <Box direction="row" gap="small">
-      <Box align="center" direction="row" gap="xsmall">
+      <Box align="center" direction="row" gap="medium">
         {NavItems.map(
           item =>
-            item !== "Cart" && (
+            item !== "Cart" &&
+            item !== "Magazine" && (
               <NavLink
                 key={item}
                 to={
@@ -55,6 +66,12 @@ export const Nav = () => {
               </NavLink>
             )
         )}
+        <StyledAnchor
+          label="Magazine"
+          href="https://issuu.com/inbtwnmag"
+          target="_blank"
+          rel="noopener"
+        />
       </Box>
       {/* <Button
       a11yTitle="Instagram"
