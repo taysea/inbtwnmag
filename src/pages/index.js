@@ -95,7 +95,9 @@ export const query = graphql`
   {
     hero: allContentfulBlog(
       filter: {
-        slug: { eq: "coco-fernandez-takes-us-into-her-world-of-form-and-color" }
+        slug: {
+          eq: "quarantining-through-dance-interview-with-morgan-amirah-burns"
+        }
       }
     ) {
       edges {
@@ -126,7 +128,9 @@ export const query = graphql`
     main: allContentfulBlog(
       limit: 6
       filter: {
-        slug: { ne: "coco-fernandez-takes-us-into-her-world-of-form-and-color" }
+        slug: {
+          ne: "quarantining-through-dance-interview-with-morgan-amirah-burns"
+        }
       }
     ) {
       edges {
