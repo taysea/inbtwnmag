@@ -96,7 +96,7 @@ export const query = graphql`
     hero: allContentfulBlog(
       filter: {
         slug: {
-          eq: "quarantining-through-dance-interview-with-morgan-amirah-burns"
+          eq: "quarantining-through-dance-interview-with-aaron-samuel-davis"
         }
       }
     ) {
@@ -129,7 +129,7 @@ export const query = graphql`
       limit: 6
       filter: {
         slug: {
-          ne: "quarantining-through-dance-interview-with-morgan-amirah-burns"
+          ne: "quarantining-through-dance-interview-with-aaron-samuel-davis"
         }
       }
     ) {
