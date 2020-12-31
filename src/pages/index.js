@@ -96,7 +96,7 @@ export const query = graphql`
     hero: allContentfulBlog(
       filter: {
         slug: {
-          eq: "quarantining-through-dance-interview-with-aaron-samuel-davis"
+          eq: "daniel-arnold-reflects-on-2020-new-york-and-his-makeshift-bird-feeder"
         }
       }
     ) {
@@ -129,7 +129,7 @@ export const query = graphql`
       limit: 6
       filter: {
         slug: {
-          ne: "quarantining-through-dance-interview-with-aaron-samuel-davis"
+          ne: "daniel-arnold-reflects-on-2020-new-york-and-his-makeshift-bird-feeder"
         }
       }
     ) {

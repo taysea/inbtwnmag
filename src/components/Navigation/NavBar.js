@@ -27,7 +27,7 @@ export const NavBar = ({ isLanding, ...rest }) => {
   // const cartQuantity = getCartQuantity(cartItems)
   return (
     <Box {...rest}>
-      <Box background="#094533">
+      {/* <Box background="#094533">
         <PartialWidthSection marginBottom="none">
           <Box
             direction="row-responsive"
@@ -54,7 +54,7 @@ export const NavBar = ({ isLanding, ...rest }) => {
             </Box>
           </Box>
         </PartialWidthSection>
-      </Box>
+      </Box> */}
       <PartialWidthSection marginBottom="none">
         {size !== "small" ? (
           <Header pad={{ vertical: "medium" }} direction="column">
