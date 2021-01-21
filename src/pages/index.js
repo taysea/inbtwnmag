@@ -94,11 +94,7 @@ export default IndexPage
 export const query = graphql`
   {
     hero: allContentfulBlog(
-      filter: {
-        slug: {
-          eq: "daniel-arnold-reflects-on-2020-new-york-and-his-makeshift-bird-feeder"
-        }
-      }
+      filter: { slug: { eq: "the-world-according-to-tyler-mcgillivary" } }
     ) {
       edges {
         node {
@@ -127,11 +123,7 @@ export const query = graphql`
 
     main: allContentfulBlog(
       limit: 6
-      filter: {
-        slug: {
-          ne: "daniel-arnold-reflects-on-2020-new-york-and-his-makeshift-bird-feeder"
-        }
-      }
+      filter: { slug: { ne: "the-world-according-to-tyler-mcgillivary" } }
     ) {
       edges {
         node {

@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 // import styled from "styled-components"
 import { Link } from "gatsby"
-import { Anchor, Box, Header, Image, ResponsiveContext, Text } from "grommet"
+import { Box, Header, Image, ResponsiveContext } from "grommet"
 import { PartialWidthSection } from "../../layouts/PartialWidth"
 import logo from "../../../src/images/inbtwn.png"
 import { MobileNav, Nav } from "."
