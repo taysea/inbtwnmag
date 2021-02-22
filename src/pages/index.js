@@ -94,7 +94,11 @@ export default IndexPage
 export const query = graphql`
   {
     hero: allContentfulBlog(
-      filter: { slug: { eq: "the-world-according-to-tyler-mcgillivary" } }
+      filter: {
+        slug: {
+          eq: "janie-korn-on-her-wax-candles-introversion-and-a-devious-can-of-beans"
+        }
+      }
     ) {
       edges {
         node {
@@ -123,7 +127,11 @@ export const query = graphql`
 
     main: allContentfulBlog(
       limit: 6
-      filter: { slug: { ne: "the-world-according-to-tyler-mcgillivary" } }
+      filter: {
+        slug: {
+          ne: "janie-korn-on-her-wax-candles-introversion-and-a-devious-can-of-beans"
+        }
+      }
     ) {
       edges {
         node {

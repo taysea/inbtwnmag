@@ -27,7 +27,7 @@ const Layout = ({ children, isNavPage, isLanding }) => {
   // `)
 
   return (
-    <Grommet theme={customTheme} full style={{ height: "auto" }}>
+    <Grommet theme={customTheme} full style={{ height: "auto", width: "100%" }}>
       <GlobalFonts />
       <Box height={{ min: "100vh" }}>
         {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
