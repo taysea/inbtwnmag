@@ -52,7 +52,7 @@ function CategoryTemplate({ data: { allContentfulBlog }, pageContext }) {
                 >
                   {allContentfulBlog.edges.map(({ node }) => (
                     <Card
-                      node={{ ...node, slug: `blog/${node.slug}` }}
+                      node={{ ...node, slug: `/blog/${node.slug}` }}
                       key={node.id}
                       type="minimal"
                       height={size === "small" && "small"}
