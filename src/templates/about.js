@@ -38,7 +38,7 @@ const AboutTemplate = () => {
               they relate to.
             </Text>
             <BodyText>
-              Founded in 2017 as a small summmer project, inbtwn. has expanded
+              Founded in 2017 as a small summer project, inbtwn. has expanded
               into a publication that features work from artists globally. Over
               the past couple years, inbtwn. has expanded its platforms to
               include print magazines, release parties, and the inbtwn. website.
