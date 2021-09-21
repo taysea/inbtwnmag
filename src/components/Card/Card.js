@@ -126,7 +126,7 @@ export const Card = ({
 
           {type !== cardTypes.minimal && (
             <Box>
-              <Text size="small" weight="bold">
+              <Text size="small" weight={500}>
                 {description}
               </Text>
             </Box>

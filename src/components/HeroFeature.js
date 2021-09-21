@@ -40,7 +40,7 @@ export const HeroFeature = ({
             <CardAnchor to={`/${slug}`}>
               <Text size={size !== "small" ? "2.5em" : "1.5em"}>{title}</Text>
             </CardAnchor>
-            <Text size="small" weight="bold">
+            <Text size="small" weight={500}>
               {description}
             </Text>
           </Box>
