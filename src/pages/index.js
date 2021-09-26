@@ -95,9 +95,7 @@ export const query = graphql`
   {
     hero: allContentfulBlog(
       filter: {
-        slug: {
-          eq: "janie-korn-on-her-wax-candles-introversion-and-a-devious-can-of-beans"
-        }
+        slug: { eq: "new-yorks-peter-pan-street-photographer-sara-messinger" }
       }
     ) {
       edges {
@@ -128,9 +126,7 @@ export const query = graphql`
     main: allContentfulBlog(
       limit: 6
       filter: {
-        slug: {
-          ne: "janie-korn-on-her-wax-candles-introversion-and-a-devious-can-of-beans"
-        }
+        slug: { ne: "new-yorks-peter-pan-street-photographer-sara-messinger" }
       }
     ) {
       edges {
