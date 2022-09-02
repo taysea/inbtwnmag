@@ -22,6 +22,7 @@ const StyledAnchor = styled(Anchor)`
   color: #111;
   &:hover {
     text-decoration: none;
+    color: #8f37fe;
   }
 `
 
@@ -35,10 +36,7 @@ const NavButton = ({ item }) => {
       onMouseOut={() => setColor("text")}
       onBlur={() => {}}
     >
-      <Box
-        pad={{ horizontal: "small", vertical: "xsmall" }}
-        // background="#EFEFEF"
-      >
+      <Box pad={{ horizontal: "small", vertical: "xsmall" }}>
         <Text size="small" weight="bold" color={color}>
           {item}
         </Text>

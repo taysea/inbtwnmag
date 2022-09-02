@@ -16,8 +16,8 @@ export const CardAnchor = styled(Link)`
   }
   &:hover {
     span {
-      opacity: 0.4;
-      transition-duration: 0.4s;
+      opacity: 0.6;
+      transition-duration: 0.2s;
     }
   }
   width: 100%;
