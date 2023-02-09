@@ -14,7 +14,7 @@ const IndexPage = ({ data: { main, hero, second } }) => {
     <Layout isNavPage isLanding>
       <SEO title="Home" />
       <ResponsiveContext.Consumer>
-        {size => (
+        {(size) => (
           <>
             <PartialWidthSection>
               <Box gap="medium">
@@ -94,9 +94,7 @@ export default IndexPage
 export const query = graphql`
   {
     hero: allContentfulBlog(
-      filter: {
-        slug: { eq: "new-yorks-peter-pan-street-photographer-sara-messinger" }
-      }
+      filter: { slug: { eq: "the-world-according-to-tyler-mcgillivary" } }
     ) {
       edges {
         node {
@@ -125,9 +123,7 @@ export const query = graphql`
 
     main: allContentfulBlog(
       limit: 6
-      filter: {
-        slug: { ne: "new-yorks-peter-pan-street-photographer-sara-messinger" }
-      }
+      filter: { slug: { ne: "the-world-according-to-tyler-mcgillivary" } }
     ) {
       edges {
         node {

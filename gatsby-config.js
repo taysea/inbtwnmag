@@ -31,14 +31,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-stripe`,
-      options: {
-        objects: ["Sku"],
-        secretKey: process.env.GATSBY_STRIPE_API_KEY,
-        downloadFiles: false,
-      },
-    },
-    {
       resolve: `gatsby-transformer-remark`,
       options: {
         // plugins: [

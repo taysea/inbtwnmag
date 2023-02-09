@@ -42,24 +42,8 @@ exports.createPages = ({ graphql, actions }) => {
           totalCount
         }
       }
-      productQuery: allStripeSku(sort: { fields: [price] }) {
-        edges {
-          node {
-            id
-            currency
-            price
-            attributes {
-              name
-            }
-            product {
-              id
-              name
-            }
-          }
-        }
-      }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
       throw result.errors
     }
@@ -95,7 +79,7 @@ exports.createPages = ({ graphql, actions }) => {
     //   })
     // })
 
-    result.data.blogQuery.edges.forEach(edge => {
+    result.data.blogQuery.edges.forEach((edge) => {
       createPage({
         path: `/blog/${edge.node.slug}`,
         component: blogTemplate,
@@ -105,7 +89,7 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
 
-    result.data.categoryQuery.group.forEach(tag => {
+    result.data.categoryQuery.group.forEach((tag) => {
       createPage({
         path: `/categories/${tag.fieldValue}`.toLowerCase(),
         component: categoryTemplate,
@@ -116,7 +100,7 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
 
-    result.data.authorQuery.group.forEach(author => {
+    result.data.authorQuery.group.forEach((author) => {
       createPage({
         path: `/author/${author.fieldValue}`.toLowerCase(),
         component: authorTemplate,
@@ -127,7 +111,7 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
 
-    result.data.artistQuery.group.forEach(artist => {
+    result.data.artistQuery.group.forEach((artist) => {
       createPage({
         path: `/artist/${artist.fieldValue}`.toLowerCase(),
         component: artistTemplate,

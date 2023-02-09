@@ -9,8 +9,6 @@
     "@contentful/rich-text-types": "^13.4.0",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.3.0",
     "@material-ui/core": "^4.9.14",
-    "@stripe/react-stripe-js": "^1.1.2",
-    "@stripe/stripe-js": "^1.5.0",
     "babel-plugin-styled-components": "^1.10.6",
     "disqus-react": "^1.0.7",
     "dotenv": "^8.2.0",
@@ -26,7 +24,6 @@
     "gatsby-remark-images-contentful": "^2.1.31",
     "gatsby-source-contentful": "^2.1.44",
     "gatsby-source-filesystem": "^2.1.28",
-    "gatsby-source-stripe": "^3.0.7",
     "gatsby-transformer-remark": "^2.6.50",
     "gatsby-transformer-sharp": "^2.2.19",
     "grommet": "^2.17.5",
@@ -37,7 +34,6 @@
     "react-helmet": "^5.2.1",
     "react-image-magnify": "^2.7.4",
     "react-share": "^4.0.1",
-    "react-stripe-checkout": "^2.6.3",
     "styled-components": "^4.4.0"
   },
   "devDependencies": {
