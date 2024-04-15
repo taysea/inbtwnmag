@@ -39,8 +39,8 @@ const AboutTemplate = () => {
               Founded in 2017 as a small summer project, inbtwn. has expanded
               into a publication that features work from artists globally. Over
               the past couple years, inbtwn. has expanded its platforms to
-              include print magazines, release parties, and the inbtwn. website.
-              While inbtwn. is primarily a publication, these other platforms
+              include print magazines, this website, and release parties. While
+              inbtwn. is primarily a print publication, these other platforms
               allow us to collaborate more with artists and our readers.
             </BodyText>
             <BodyText>
@@ -48,15 +48,8 @@ const AboutTemplate = () => {
               and editor-in-chief, Taylor Seamans. However, she works with
               various friends for photo shoots, interviews, and graphic design.
               We are always open to collaborations or submissions. If you are
-              interested in contributing to the magazine, please email us at{" "}
-              <Anchor
-                target="_blank"
-                href="mailto:info@inbtwnmag.com"
-                color="#094533"
-              >
-                info@inbtwnmag.com
-              </Anchor>
-              .
+              interested in contributing to the magazine, please email us at
+              info@inbtwnmag.com.
             </BodyText>
           </Box>
           <Box gap="small">

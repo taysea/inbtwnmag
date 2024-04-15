@@ -3,11 +3,12 @@ import styled from "styled-components"
 
 export const CategoryLink = styled(Link)`
   font-weight: 600;
-  text-decoration: none;
-  color: #094533;
+  text-decoration: underline;
+  text-decoration-color: #134097;
+  color: #134097;
+  transition: text-decoration 0.5s ease-in-out;
   &:hover {
-    text-decoration: underline;
-    text-decoration-color: #094533;
+    text-decoration: none;
   }
   font-size: ${props => props.size};
 `

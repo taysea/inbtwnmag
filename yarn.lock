@@ -7712,26 +7712,19 @@ gray-matter@^4.0.2:
     section-matter "^1.0.0"
     strip-bom-string "^1.0.0"
 
-grommet-icons@^4.3.0, grommet-icons@^4.8.0:
-  version "4.9.0"
-  resolved "https://registry.yarnpkg.com/grommet-icons/-/grommet-icons-4.9.0.tgz#ec1719b8ffc4895375d293cb2334ec50d6ae58a9"
-  integrity sha512-+wfO9vZxH8MJGGf/N8Myyyub9+3nCy/V6Rmk7gwohgnniM1d7nVRViuvhmE80OD+NyTpcCElGW8USD32l9AQ3A==
-  dependencies:
-    grommet-styles "^0.2.0"
-
-grommet-styles@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/grommet-styles/-/grommet-styles-0.2.0.tgz#b2eac2b7e2747cb523434d21728ce5234f8ce4f4"
-  integrity sha512-0OMSYuGeyifYKpg4Gv2HzL8rUdd0ddnJ5LbCBKgDuloC71XIwr9g/Fxa6rs737MbPV7OZ4pEm4wvrjH4epzf1A==
+grommet-icons@^4.10.0, grommet-icons@^4.3.0:
+  version "4.12.1"
+  resolved "https://registry.yarnpkg.com/grommet-icons/-/grommet-icons-4.12.1.tgz#780aa7cd59c5586f642f221bdb5c6becd04ad000"
+  integrity sha512-LhOP6BkDAGiSNcUOfsGGRo+AKD6zWOXeNeusY1WYvKplAR6mKCAQfH7Nig2Buc/v5zadKSko2NDtCQqwJaME0Q==
 
 grommet@^2.17.5:
-  version "2.29.1"
-  resolved "https://registry.yarnpkg.com/grommet/-/grommet-2.29.1.tgz#f150e3951495548e2761dfbb62047548f77fdb5a"
-  integrity sha512-FuFrAELCTQTpn1lYpb1Czv0g9mOvhU2aoE2f8WhU2nNwcufFQSZytn2m/Yz3+eZ/17RSWHrvpv+OZ1HA/n1jKQ==
+  version "2.36.1"
+  resolved "https://registry.yarnpkg.com/grommet/-/grommet-2.36.1.tgz#c0123793517c3d94383fbbc31fd3f41fab7891b1"
+  integrity sha512-zfL8ylQ7QqBSBRzAgsKRCuns2h3hn/ZaZuxaPJrUCuGZ0KU1dv6/kU3X4OwrKxRP+81l3RRDBp4gJyLKFjZ39g==
   dependencies:
-    grommet-icons "^4.8.0"
+    grommet-icons "^4.10.0"
     hoist-non-react-statics "^3.2.0"
-    markdown-to-jsx "^7.1.5"
+    markdown-to-jsx "^7.2.0"
     prop-types "^15.8.1"
 
 gud@^1.0.0:
@@ -9813,10 +9806,10 @@ markdown-table@^2.0.0:
   dependencies:
     repeat-string "^1.0.0"
 
-markdown-to-jsx@^7.1.5:
-  version "7.1.9"
-  resolved "https://registry.yarnpkg.com/markdown-to-jsx/-/markdown-to-jsx-7.1.9.tgz#1ffae0cda07c189163d273bd57a5b8f8f8745586"
-  integrity sha512-x4STVIKIJR0mGgZIZ5RyAeQD7FEZd5tS8m/htbcVGlex32J+hlSLj+ExrHCxP6nRKF1EKbcO7i6WhC1GtOpBlA==
+markdown-to-jsx@^7.2.0:
+  version "7.4.7"
+  resolved "https://registry.yarnpkg.com/markdown-to-jsx/-/markdown-to-jsx-7.4.7.tgz#740ee7ec933865ef5cc683a0992797685a75e2ee"
+  integrity sha512-0+ls1IQZdU6cwM1yu0ZjjiVWYtkbExSyUIFU2ZeDIFuZM1W42Mh4OlJ4nb4apX4H8smxDHRdFaoIVJGwfv5hkg==
 
 md5-file@^5.0.0:
   version "5.0.0"

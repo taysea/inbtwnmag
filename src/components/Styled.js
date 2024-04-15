@@ -14,11 +14,5 @@ export const CardAnchor = styled(Link)`
   :visited {
     color: inherit;
   }
-  &:hover {
-    span {
-      opacity: 0.6;
-      transition-duration: 0.2s;
-    }
-  }
   width: 100%;
 `

@@ -1,6 +1,7 @@
 import React from "react"
+import styled from "styled-components"
 import { graphql } from "gatsby"
-import { Box, Grid, ResponsiveContext, Text } from "grommet"
+import { Box, Grid, Heading, ResponsiveContext, Text } from "grommet"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -9,68 +10,85 @@ import { HeroFeature } from "../components/HeroFeature"
 import { Card } from "../components/Card/"
 import { PartialWidthSection } from "../layouts/PartialWidth"
 
-const IndexPage = ({ data: { main, hero, second } }) => {
+const MasonryGrid = styled(Grid)`
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  .grid-item: nth-child(7n+1) {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .grid-item: nth-child(7n+2) {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+
+  .grid-item: nth-child(7n+4) {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+
+  .grid-item: nth-child(7n+5) {
+    grid-column: span 3;
+    grid-row: span 1;
+  }
+`
+
+const IndexPage = ({ data: { main, hero, second, secondFeature } }) => {
   return (
     <Layout isNavPage isLanding>
       <SEO title="Home" />
       <ResponsiveContext.Consumer>
-        {(size) => (
+        {size => (
           <>
+            {hero.edges.map(({ node }) => (
+              <HeroFeature
+                node={{ ...node, slug: `blog/${node.slug}` }}
+                key={node.id}
+              />
+            ))}
             <PartialWidthSection>
-              <Box gap="medium">
-                {hero.edges.map(({ node }) => (
-                  <HeroFeature
-                    node={{ ...node, slug: `blog/${node.slug}` }}
-                    key={node.id}
-                  />
-                ))}
+              <Box gap="medium" pad={{ vertical: "medium" }}>
                 <Grid
-                  columns={{ count: size !== "small" ? 3 : 1, size: "auto" }}
-                  gap={size !== "small" ? "large" : "medium"}
+                  columns={
+                    size !== "small" ? ["auto", "auto", "auto"] : ["auto"]
+                  }
+                  gap="large"
                 >
                   {main.edges.map(({ node }) => (
                     <Card
                       node={{ ...node, slug: `blog/${node.slug}` }}
                       key={node.id}
-                      type={size === "small" && "minimal"}
+                      type="minimal"
                       height={size === "small" && "small"}
                     />
                   ))}
                 </Grid>
               </Box>
             </PartialWidthSection>
-            {/* <Box
-              height="small"
-              background="#EAEAEA"
-              pad={{ vertical: "small" }}
-              margin={{ bottom: "large" }}
-            >
-              <PartialWidthSection marginBottom="none">
-                <GoogleAds slot="1974438094" />
-              </PartialWidthSection>
-            </Box> */}
+            {secondFeature.edges.map(({ node }) => (
+              <HeroFeature
+                node={{ ...node, slug: `blog/${node.slug}` }}
+                key={node.id}
+              />
+            ))}
             <PartialWidthSection>
-              <Box
-                direction="row"
-                pad={{ horizontal: "medium", vertical: "small" }}
-                justify="center"
-                // background="#EAEAEA"
-                margin={{ bottom: "medium" }}
-              >
-                <Text as="h2" margin="none">
-                  Popular articles
-                </Text>
+              <Box pad={{ bottom: "medium" }}>
+                <Heading level={2} margin="none" weight={500}>
+                  Featured stories
+                </Heading>
               </Box>
               <Grid
-                columns={{ count: size !== "small" ? 2 : 1, size: "auto" }}
-                gap="medium"
+                columns={
+                  size !== "small" ? ["flex", "flex", "flex", "flex"] : ["auto"]
+                }
+                gap="large"
               >
                 {second.edges.map(({ node }) => (
                   <Card
                     node={{ ...node, slug: `/blog/${node.slug}` }}
                     key={node.id}
                     margin={size !== "small" ? { bottom: "medium" } : undefined}
-                    type="half-width"
+                    type="minimal"
                   />
                 ))}
               </Grid>
@@ -120,7 +138,35 @@ export const query = graphql`
         }
       }
     }
-
+    secondFeature: allContentfulBlog(
+      filter: {
+        slug: { eq: "coco-fernandez-takes-us-into-her-world-of-form-and-color" }
+      }
+    ) {
+      edges {
+        node {
+          id
+          slug
+          tags
+          title
+          titleImage {
+            description
+            file {
+              url
+            }
+            fluid(quality: 50) {
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
+          description
+          author {
+            fullName
+            slug
+          }
+          createdAt(fromNow: true)
+        }
+      }
+    }
     main: allContentfulBlog(
       limit: 6
       filter: { slug: { ne: "the-world-according-to-tyler-mcgillivary" } }
@@ -149,7 +195,7 @@ export const query = graphql`
         }
       }
     }
-    second: allContentfulBlog(limit: 4, skip: 7) {
+    second: allContentfulBlog(limit: 8, skip: 19) {
       edges {
         node {
           id

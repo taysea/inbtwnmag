@@ -55,19 +55,18 @@ export const NavBar = ({ isLanding, ...rest }) => {
           </Box>
         </PartialWidthSection>
       </Box> */}
-      <PartialWidthSection marginBottom="none">
+
+      <Header align="center" pad={{ horizontal: "medium", vertical: "medium" }}>
+        <Link to="/">
+          <Box width="125px" overflow="hidden">
+            <Image src={logo} alt="inbtwn." fit="contain" />
+          </Box>
+        </Link>
+
         {size !== "small" ? (
-          <Header pad={{ vertical: "medium" }} direction="column">
-            <Box direction="row" justify="between">
-              <Link to="/">
-                <Box width="175px" height="xxsmall" overflow="hidden">
-                  <Image src={logo} alt="inbtwn." fit="contain" />
-                </Box>
-              </Link>
-            </Box>
-            <Box direction="row" gap="small">
-              <Nav />
-              {/* <Link to="/cart">
+          <Box direction="row" gap="small">
+            <Nav />
+            {/* <Link to="/cart">
                 <Stack anchor="top-right">
                   <Box pad="xsmall">
                     <Cart size="medium" color="black" />
@@ -85,19 +84,11 @@ export const NavBar = ({ isLanding, ...rest }) => {
                   )}
                 </Stack>
               </Link> */}
-            </Box>
-          </Header>
+          </Box>
         ) : (
-          <Header height="xsmall">
-            <Link to="/">
-              <Box width="125px" height="xxsmall" overflow="hidden">
-                <Image src={logo} alt="inbtwn." fit="contain" />
-              </Box>
-            </Link>
-            <MobileNav />
-          </Header>
+          <MobileNav />
         )}
-      </PartialWidthSection>
+      </Header>
     </Box>
   )
 }

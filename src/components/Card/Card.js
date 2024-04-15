@@ -19,7 +19,7 @@ export const Card = ({
 }) => {
   if (type === cardTypes.halfWidth) {
     return (
-      <CardAnchor to={slug}>
+      <CardAnchor to={slug} className={rest.className}>
         <Box gap="small" background="#FFF" {...rest}>
           <Stack>
             <Box width="100%" height={height || "350px"}>

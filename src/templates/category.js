@@ -22,7 +22,7 @@ function CategoryTemplate({ data: { allContentfulBlog }, pageContext }) {
               >
                 <PartialWidthSection gap="small">
                   <Box align="center">
-                    <Text as="h1" size="2.5em" margin="small">
+                    <Text as="h1" size="2.5em" margin="small" weight={500}>
                       {pageContext.tags}
                     </Text>
                   </Box>

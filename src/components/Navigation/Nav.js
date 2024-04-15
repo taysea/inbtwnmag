@@ -22,7 +22,7 @@ const StyledAnchor = styled(Anchor)`
   color: #111;
   &:hover {
     text-decoration: none;
-    color: #8f37fe;
+    color: ${props => props.theme.global.colors.navy};
   }
 `
 
@@ -31,7 +31,7 @@ const NavButton = ({ item }) => {
 
   return (
     <Box
-      onMouseOver={() => setColor("#8F37FE")}
+      onMouseOver={() => setColor("navy")}
       onFocus={() => {}}
       onMouseOut={() => setColor("text")}
       onBlur={() => {}}
@@ -44,6 +44,7 @@ const NavButton = ({ item }) => {
     </Box>
   )
 }
+
 export const Nav = () => {
   return (
     <Box direction="row" gap="small">

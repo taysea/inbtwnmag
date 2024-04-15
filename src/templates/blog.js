@@ -42,7 +42,7 @@ const BlogTemplate = ({ data }) => {
               >
                 <Box gap="medium" align="center">
                   <Text
-                    weight="bold"
+                    weight={500}
                     size={size !== "small" ? "2.5em" : "2em"}
                     textAlign="center"
                   >
@@ -163,13 +163,9 @@ const BlogTemplate = ({ data }) => {
                   url={`https://inbtwnmag.com/blog/${data.contentfulBlog.slug}`}
                 />
                 <AuthorBlogFooter author={data.contentfulBlog.author} />
-                <Box
-                  pad={{ horizontal: "medium", vertical: "small" }}
-                  background="#EAEAEA"
-                  margin={{ vertical: "medium" }}
-                >
-                  <Text as="h2" margin="none">
-                    You might like these too...
+                <Box pad={{ vertical: "small" }}>
+                  <Text as="h2" margin="none" weight={500} size="large">
+                    More stories
                   </Text>
                 </Box>
                 <RelatedBlogs
@@ -177,21 +173,12 @@ const BlogTemplate = ({ data }) => {
                   tags={data.contentfulBlog.tags}
                   slug={data.contentfulBlog.slug}
                 />
-                <DiscussionEmbed
+                {/* <DiscussionEmbed
                   shortname={disqusShortname}
                   config={disqusConfig}
-                />
+                /> */}
               </Box>
             </PartialWidthSection>
-            {/* <Box
-              height="small"
-              background="#EAEAEA"
-              pad={{ vertical: "small" }}
-            >
-              <PartialWidthSection marginBottom="none">
-                <GoogleAds slot="1974438094" />
-              </PartialWidthSection>
-            </Box> */}
           </>
         )}
       </ResponsiveContext.Consumer>

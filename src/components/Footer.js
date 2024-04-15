@@ -1,13 +1,14 @@
 import React from "react"
-import { Anchor, Box, Footer, Text } from "grommet"
+import { Anchor, Box, Footer, Image, Text } from "grommet"
 import { PartialWidthSection } from "../layouts"
+import logo from "../images/inbtwn_neg.png"
 
 const data = [
   {
     name: "Content",
     items: [
       {
-        label: "Digital Issues",
+        label: "Digital issues",
         href: "https://issuu.com/inbtwnmag",
         type: "external",
       },
@@ -19,7 +20,7 @@ const data = [
     ],
   },
   {
-    name: "Social",
+    name: "Follow us",
     items: [
       {
         label: "Instagram",
@@ -54,7 +55,7 @@ const FooterAnchor = ({ type, ...rest }) => (
 const FooterContent = () => {
   return data.map(i => (
     <Box gap="medium" key={i.name} margin={{ bottom: "medium" }}>
-      <Text weight="bold" size="small" color="#676767">
+      <Text weight="bold" size="small" color="text-weak">
         {i.name}
       </Text>
       <Box gap="small">
@@ -75,21 +76,22 @@ const StyledFooter = () => {
   const year = new Date().getFullYear()
 
   return (
-    <Box background="rgb(43,43,43)" pad={{ vertical: "xlarge" }}>
+    <Box
+      background={{ dark: true, color: "background" }}
+      pad={{ vertical: "xlarge" }}
+    >
       <PartialWidthSection marginBottom="none">
         <Box gap="large">
-          <Footer
-            direction="row-responsive"
-            background="rgb(43,43,43)"
-            align="start"
-          >
+          <Footer direction="row-responsive" align="start">
             <Box gap="medium" width="medium">
-              <Text weight="bold" size="small" color="#676767">
-                inbtwn.
-              </Text>
+              <Box width="125px" overflow="hidden">
+                <Image src={logo} alt="inbtwn." fit="contain" />
+              </Box>
               <Box gap="small">
-                <Text weight="bold">founded in Los Angeles, CA.</Text>
-                <Text size="small" weight="bold">
+                <Text size="small" weight={500}>
+                  founded in Los Angeles, CA.
+                </Text>
+                <Text size="small" weight={500}>
                   exploring the idea that we're constantly falling into and out
                   of ourselves.
                 </Text>
@@ -98,10 +100,10 @@ const StyledFooter = () => {
             <FooterContent />
           </Footer>
           <Box>
-            <Text size="small" color="#676767">
+            <Text size="xsmall" weight={500} color="text-weak">
               © inbtwn. {year}
             </Text>
-            <Text size="small" color="#676767">
+            <Text size="xsmall" weight={500} color="text-weak">
               designed & developed by Taylor Seamans
             </Text>
           </Box>
