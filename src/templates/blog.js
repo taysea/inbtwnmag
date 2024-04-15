@@ -42,7 +42,7 @@ const BlogTemplate = ({ data }) => {
               >
                 <Box gap="medium" align="center">
                   <Text
-                    weight={500}
+                    weight="bold"
                     size={size !== "small" ? "2.5em" : "2em"}
                     textAlign="center"
                   >
