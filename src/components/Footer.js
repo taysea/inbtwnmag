@@ -36,18 +36,15 @@ const data = [
   },
   {
     name: "Links",
-    items: [
-      { label: "About", href: "/about" },
-      { label: "Contact", href: "mailto:info@inbtwnmag.com" },
-    ],
+    items: [{ label: "About", href: "/about" }],
   },
 ]
 const FooterAnchor = ({ type, ...rest }) => (
   <Anchor
     size="small"
     color="white"
-    target={type === "external" && "_blank"}
-    rel={type === "external" && "noopener noreferrer"}
+    target={type === "external" ? "_blank" : undefined}
+    rel={type === "external" ? "noopener noreferrer" : undefined}
     {...rest}
   />
 )

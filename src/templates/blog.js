@@ -15,15 +15,15 @@ import {
 } from "../components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS } from "@contentful/rich-text-types"
-import { DiscussionEmbed } from "disqus-react"
+// import { DiscussionEmbed } from "disqus-react"
 
 const BlogTemplate = ({ data }) => {
-  const disqusShortname = "inbtwnmag"
-  const disqusConfig = {
-    url: `https://inbtwnmag.com/blog/${data.contentfulBlog.slug}`,
-    identifier: data.contentfulBlog.id,
-    title: data.contentfulBlog.title,
-  }
+  // const disqusShortname = "inbtwnmag"
+  // const disqusConfig = {
+  //   url: `https://inbtwnmag.com/blog/${data.contentfulBlog.slug}`,
+  //   identifier: data.contentfulBlog.id,
+  //   title: data.contentfulBlog.title,
+  // }
   return (
     <Layout>
       <SEO
