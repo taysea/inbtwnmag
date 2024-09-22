@@ -61,7 +61,7 @@ export const RelatedBlogs = props => (
       data.allContentfulBlog.edges.forEach(node => {
         if (
           (node.node.tags === props.tags ||
-            node.node.author.slug === props.authorSlug) &&
+            node.node.author?.slug === props.authorSlug) &&
           node.node.slug !== props.slug
         ) {
           relatedBlogs.push(node)
