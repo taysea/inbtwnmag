@@ -1,5 +1,8 @@
-require("dotenv").config()
 // const config = require("gatsby-plugin-config")
+
+require("dotenv").config({ path: `.env` }) // load defaults
+require("dotenv").config({ path: `.env.${process.env.NODE_ENV}` }) // override if exists
+
 
 module.exports = {
   siteMetadata: {
@@ -50,8 +53,8 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `cd48ka0wd1kd`,
-        accessToken: `8ZYOCTeHNc8CWVPg4nymk4J3gb9xD6p6Nmlc4Wup5ac`,
+        spaceId: process.env.GATSBY_CONTENTFUL_SPACE_ID,
+        accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN,
       },
     },
     {
