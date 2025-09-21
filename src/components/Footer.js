@@ -27,11 +27,11 @@ const data = [
         href: "https://www.instagram.com/inbtwnmag/",
         type: "external",
       },
-      {
-        label: "Facebook",
-        href: "https://www.facebook.com/inbtwnmag/",
-        type: "external",
-      },
+      // {
+      //   label: "Facebook",
+      //   href: "https://www.facebook.com/inbtwnmag/",
+      //   type: "external",
+      // },
     ],
   },
   {

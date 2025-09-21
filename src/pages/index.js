@@ -112,7 +112,7 @@ export default IndexPage
 export const query = graphql`
   {
     hero: allContentfulBlog(
-      filter: { slug: { eq: "the-world-according-to-tyler-mcgillivary" } }
+      filter: { slug: { eq: "bahati-simoens-how-her-childhood-her-mothers-life-and-todays-society" } }
     ) {
       edges {
         node {
@@ -169,7 +169,7 @@ export const query = graphql`
     }
     main: allContentfulBlog(
       limit: 6
-      filter: { slug: { ne: "the-world-according-to-tyler-mcgillivary" } }
+      filter: { slug: { ne: "bahati-simoens-how-her-childhood-her-mothers-life-and-todays-society" } }
     ) {
       edges {
         node {

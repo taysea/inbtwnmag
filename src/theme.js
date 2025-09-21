@@ -24,12 +24,21 @@ export const customTheme = deepMerge(grommet, {
     },
   },
   button: {
+    padding: {
+      horizontal: '16px',
+    },
+    gap: '6px',
     border: {
       color: "#000",
     },
+    hover: {
+      border:{ 
+        size: '2px',
+      },
+    },
     extend: ({ hasLabel }) => `font-weight: 500;
     &:hover svg {
-      ${hasLabel ? `transform: translateX(10px);` : ``}
+      ${hasLabel ? `transform: translateX(5px);` : ``}
       transition: 0.5s cubic-bezier(0.2, 0.0, 0, 1.0);
     }
     `,

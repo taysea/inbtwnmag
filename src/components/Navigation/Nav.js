@@ -16,8 +16,8 @@ const NavLink = styled(Link)`
 `
 
 const StyledAnchor = styled(Anchor)`
-  font-weight: bold;
-  font-size: 0.8em;
+  font-weight: 500;
+  font-size: ${props => props.theme.text.small.size};
   text-decoration: none;
   color: #111;
   &:hover {
@@ -37,7 +37,7 @@ const NavButton = ({ item }) => {
       onBlur={() => {}}
     >
       <Box pad={{ horizontal: "small", vertical: "xsmall" }}>
-        <Text size="small" weight="bold" color={color}>
+        <Text size="small" weight={500} color={color}>
           {item}
         </Text>
       </Box>

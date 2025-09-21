@@ -56,7 +56,7 @@ export const NavBar = ({ isLanding, ...rest }) => {
         </PartialWidthSection>
       </Box> */}
 
-      <Header align="center" pad={{ horizontal: "medium", vertical: "medium" }}>
+      <Header align="center" pad={{ horizontal: "medium", vertical: "small" }}>
         <Link to="/">
           <Box width="125px" overflow="hidden">
             <Image src={logo} alt="inbtwn." fit="contain" />
