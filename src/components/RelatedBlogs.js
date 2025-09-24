@@ -14,7 +14,7 @@ const RelatedBlogsComponent = ({ blogs }) => {
         (blog, index) =>
           index < 3 && (
             <Card
-              node={{ ...blog.node, slug: `blog/${blog.node.slug}` }}
+              node={{ ...blog.node, slug: `/blog/${blog.node.slug}` }}
               key={blog.node.id}
               type="minimal"
               height={size === "small" && "small"}
