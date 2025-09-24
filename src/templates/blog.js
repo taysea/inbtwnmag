@@ -18,7 +18,7 @@ import { BLOCKS, INLINES } from "@contentful/rich-text-types"
 // import { DiscussionEmbed } from "disqus-react"
 
 const BlogBody = ({ body, showCaptions, description }) => {
-  if (!body?.raw) return 'no blog'
+  if (!body?.raw) return undefined
 
   let document
   try {
@@ -43,14 +43,16 @@ const BlogBody = ({ body, showCaptions, description }) => {
 
         const image = getImage(asset.gatsbyImageData)
         if (image) {
-          return (<Box gap="small">
-            <GatsbyImage image={image} alt={asset.description || ""} />
-            <Box>
-              <Text size="small">
-                {showCaptions ?
-                  asset.description : undefined}
-              </Text>
-            </Box></Box>)
+          return (
+            <Box gap="small">
+              <GatsbyImage image={image} alt={asset.description || ""} />
+              <Box>
+                <Text size="small">
+                  {showCaptions ? asset.description : undefined}
+                </Text>
+              </Box>
+            </Box>
+          )
         }
         if (asset.file?.url) {
           return <img src={asset.file.url} alt={asset.description || ""} />
@@ -164,7 +166,10 @@ const BlogTemplate = ({ data }) => {
                 margin="auto"
               >
                 <BodyText>
-                  <BlogBody body={data.contentfulBlog.body} showCaptions={data.contentfulBlog.showCaptions} />
+                  <BlogBody
+                    body={data.contentfulBlog.body}
+                    showCaptions={data.contentfulBlog.showCaptions}
+                  />
                 </BodyText>
                 <Share
                   url={`https://inbtwnmag.com/blog/${data.contentfulBlog.slug}`}
@@ -226,7 +231,11 @@ export const query = graphql`
           ... on ContentfulAsset {
             contentful_id
             __typename
-            gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED, quality: 50)
+            gatsbyImageData(
+              layout: CONSTRAINED
+              placeholder: BLURRED
+              quality: 50
+            )
             description
           }
         }
