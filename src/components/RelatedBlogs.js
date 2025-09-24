@@ -41,9 +41,11 @@ export const RelatedBlogs = props => (
                 file {
                   url
                 }
-                fluid(quality: 50) {
-                  ...GatsbyContentfulFluid_withWebp
-                }
+                gatsbyImageData(
+                  layout: CONSTRAINED
+                  quality: 50
+                  placeholder: BLURRED
+                )
               }
               description
               author {

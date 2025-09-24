@@ -1,6 +1,6 @@
 import React from "react"
 // import { Link } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Box, Stack, Text } from "grommet"
 // import { BodyText } from "../Styled"
 import { CardFooter, CardTitle } from "."
@@ -17,17 +17,18 @@ export const Card = ({
   type,
   ...rest
 }) => {
+  const image = getImage(titleImage.gatsbyImageData)
   if (type === cardTypes.halfWidth) {
     return (
       <CardAnchor to={slug} className={rest.className}>
         <Box gap="small" background="#FFF" {...rest}>
           <Stack>
             <Box width="100%" height={height || "350px"}>
-              <Img
-                fluid={titleImage.fluid}
+              {image ? <GatsbyImage
+                image={image}
                 alt={titleImage.description}
                 style={{ height: "100%" }}
-              />
+              /> : null}
             </Box>
             <Box
               background={{ color: "#000", opacity: 0.5 }}
@@ -65,11 +66,11 @@ export const Card = ({
             <Box margin={{ bottom: "small" }}>
               {/* <Link to={`/${slug}`}> */}
               <Box width="100%" height={height || "250px"}>
-                <Img
-                  fluid={titleImage.fluid}
+                {image ? <GatsbyImage
+                  image={image}
                   alt={titleImage.description}
                   style={{ height: "100%" }}
-                />
+                /> : null}
               </Box>
               {/* </Link> */}
             </Box>
@@ -84,7 +85,7 @@ export const Card = ({
                 title={title}
                 flex="grow"
                 justify="start"
-                // pad={{ horizontal: "medium" }}
+              // pad={{ horizontal: "medium" }}
               />
             </Box>
           </Box>
@@ -103,7 +104,7 @@ export const Card = ({
         tags={tags}
         createdAt={createdAt}
         type={type}
-        // pad={{ horizontal: "medium", bottom: "medium" }}
+      // pad={{ horizontal: "medium", bottom: "medium" }}
       />
     </Box>
   )

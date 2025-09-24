@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 import { Box, Button, Grid, Text, ResponsiveContext, Stack } from "grommet"
 import { CardAnchor } from "./Styled"
@@ -11,16 +11,16 @@ export const HeroFeature = ({
   node: { title, author, slug, description, tags, titleImage, createdAt },
 }) => {
   const size = useContext(ResponsiveContext)
-
+  const image = getImage(titleImage.gatsbyImageData)
   return (
     <Box margin={{ bottom: "medium" }}>
       <Stack guidingChild="last">
         <Box width="100%" height="100%" overflow="hidden">
-          <Img
-            fluid={titleImage.fluid}
+          {image ? <GatsbyImage
+            image={image}
             alt={titleImage.description}
             style={{ height: "100%" }}
-          />
+          /> : null}
         </Box>
         <PartialWidthSection justify="center">
           <Grid
@@ -30,9 +30,9 @@ export const HeroFeature = ({
               size !== "small"
                 ? [["content", "heroImage"]]
                 : [
-                    ["heroImage", "heroImage"],
-                    ["content", "content"],
-                  ]
+                  ["heroImage", "heroImage"],
+                  ["content", "content"],
+                ]
             }
             margin={{ vertical: "large" }}
           >

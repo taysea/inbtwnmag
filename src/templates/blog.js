@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 // import GoogleAds from "../components/GoogleAds"
@@ -14,8 +14,69 @@ import {
   Share,
 } from "../components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { BLOCKS } from "@contentful/rich-text-types"
+import { BLOCKS, INLINES } from "@contentful/rich-text-types"
 // import { DiscussionEmbed } from "disqus-react"
+
+const BlogBody = ({ body, showCaptions, description }) => {
+  if (!body?.raw) return 'no blog'
+
+  let document
+  try {
+    document = JSON.parse(body.raw)
+  } catch (e) {
+    console.error("Failed to parse Contentful rich text:", e)
+    return null
+  }
+
+  const referencesMap = {}
+  body.references?.forEach(ref => {
+    if (ref?.contentful_id) {
+      referencesMap[ref.contentful_id] = ref
+    }
+  })
+
+  const options = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: node => {
+        const asset = referencesMap[node.data.target.sys.id]
+        if (!asset) return null
+
+        const image = getImage(asset.gatsbyImageData)
+        if (image) {
+          return (<Box gap="small">
+            <GatsbyImage image={image} alt={asset.description || ""} />
+            <Box>
+              <Text size="small">
+                {showCaptions ?
+                  asset.description : undefined}
+              </Text>
+            </Box></Box>)
+        }
+        if (asset.file?.url) {
+          return <img src={asset.file.url} alt={asset.description || ""} />
+        }
+        return null
+      },
+
+      [BLOCKS.EMBEDDED_ENTRY]: node => {
+        const entry = referencesMap[node.data.target.sys.id]
+        if (!entry) return null
+
+        if (entry.__typename === "ContentfulBlog") {
+          return (
+            <div className="embedded-blog">
+              <a href={`/blog/${entry.slug}`}>{entry.title}</a>
+            </div>
+          )
+        }
+
+        return null
+      },
+    },
+  }
+
+  return <>{documentToReactComponents(document, options)}</>
+}
 
 const BlogTemplate = ({ data }) => {
   // const disqusShortname = "inbtwnmag"
@@ -74,8 +135,8 @@ const BlogTemplate = ({ data }) => {
                     fit="cover"
                   />
                 ) : (
-                  <Img
-                    fluid={data.contentfulBlog.titleImage.fluid}
+                  <GatsbyImage
+                    image={getImage(data.contentfulBlog.titleImage)}
                     alt={data.contentfulBlog.titleImage.description}
                     style={{ height: "100%" }}
                   />
@@ -103,61 +164,7 @@ const BlogTemplate = ({ data }) => {
                 margin="auto"
               >
                 <BodyText>
-                  {documentToReactComponents(data.contentfulBlog.body.json, {
-                    renderNode: {
-                      [BLOCKS.EMBEDDED_ASSET]: node => {
-                        const image =
-                          node.data.target.fields &&
-                          node.data.target.fields.file["en-US"]
-                        const description =
-                          node.data.target.fields &&
-                          node.data.target.fields.description &&
-                          node.data.target.fields.description["en-US"]
-                        const width = image.details.image.width
-                        const height = image.details.image.height
-                        const aspectRatio = width / height
-                        const containerHeight =
-                          aspectRatio > 1
-                            ? { max: size !== "small" ? "large" : "medium" }
-                            : size !== "small"
-                            ? "large"
-                            : "medium"
-                        return (
-                          <Box gap="small">
-                            <Box
-                              height={
-                                size !== "small" ? containerHeight : "medium"
-                              }
-                            >
-                              <Img
-                                width={image.details.image.width}
-                                fluid={{
-                                  aspectRatio:
-                                    width / image.details.image.height,
-                                  src: image.url + "?w=630&q=50",
-                                  srcSet: `
-                        ${image.url}?w=${width / 4}&&q=50 ${width / 4}w,
-                        ${image.url}?w=${width / 2}&&q=50 ${width / 2}w,
-                        ${image.url}?w=${width}&&q=50 ${width}w,
-                        ${image.url}?w=${width * 1.5}&&q=50 ${width * 1.5}w,
-                        ${image.url}?w=1000&&q=50 1000w,
-                    `,
-                                  sizes: "(max-width: 630px) 100vw, 630px",
-                                }}
-                                style={{ height: "100%" }}
-                              />
-                            </Box>
-                            <Box>
-                              <Text size="small">
-                                {data.contentfulBlog.showCaptions &&
-                                  description}
-                              </Text>
-                            </Box>
-                          </Box>
-                        )
-                      },
-                    },
-                  })}
+                  <BlogBody body={data.contentfulBlog.body} showCaptions={data.contentfulBlog.showCaptions} />
                 </BodyText>
                 <Share
                   url={`https://inbtwnmag.com/blog/${data.contentfulBlog.slug}`}
@@ -204,9 +211,7 @@ export const query = graphql`
           file {
             url
           }
-          fluid(quality: 50) {
-            ...GatsbyContentfulFluid_withWebp
-          }
+          gatsbyImageData(layout: FULL_WIDTH, quality: 50, placeholder: BLURRED)
         }
         slug
       }
@@ -216,7 +221,15 @@ export const query = graphql`
       }
       createdAt(fromNow: true)
       body {
-        json
+        raw
+        references {
+          ... on ContentfulAsset {
+            contentful_id
+            __typename
+            gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED, quality: 50)
+            description
+          }
+        }
       }
       titleImage {
         description
@@ -226,9 +239,7 @@ export const query = graphql`
           }
           url
         }
-        fluid(quality: 50) {
-          ...GatsbyContentfulFluid_withWebp
-        }
+        gatsbyImageData(layout: FULL_WIDTH, quality: 50, placeholder: BLURRED)
       }
       showCaptions
     }

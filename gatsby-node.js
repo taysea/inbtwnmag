@@ -1,5 +1,12 @@
 const path = require(`path`)
 
+const slugify = (str) =>
+  str
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, '-') // replace spaces & special chars with dash
+    .replace(/^-+|-+$/g, '')     // remove leading/trailing dashes
+    
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   const aboutTemplate = path.resolve(`src/templates/about.js`)
@@ -90,8 +97,9 @@ exports.createPages = ({ graphql, actions }) => {
     })
 
     result.data.categoryQuery.group.forEach((tag) => {
+      const slug = slugify(tag.fieldValue);
       createPage({
-        path: `/categories/${tag.fieldValue}`.toLowerCase(),
+        path: `/categories/${slug}`.toLowerCase(),
         component: categoryTemplate,
         context: {
           tags: tag.fieldValue,
@@ -101,22 +109,24 @@ exports.createPages = ({ graphql, actions }) => {
     })
 
     result.data.authorQuery.group.forEach((author) => {
+      const slug = slugify(author.fieldValue);
       createPage({
-        path: `/author/${author.fieldValue}`.toLowerCase(),
+        path: `/author/${slug}`.toLowerCase(),
         component: authorTemplate,
         context: {
-          slug: author.fieldValue,
+          slug: slug,
           totalCount: author.totalCount,
         },
       })
     })
 
     result.data.artistQuery.group.forEach((artist) => {
+      const slug = slugify(artist.fieldValue);
       createPage({
-        path: `/artist/${artist.fieldValue}`.toLowerCase(),
+        path: `/artist/${slug}`.toLowerCase(),
         component: artistTemplate,
         context: {
-          slug: artist.fieldValue,
+          slug: slug,
           totalCount: artist.totalCount,
         },
       })

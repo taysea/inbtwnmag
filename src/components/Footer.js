@@ -5,7 +5,7 @@ import logo from "../images/inbtwn_neg.png"
 
 const data = [
   {
-    name: "Content",
+    name: "Magazine",
     items: [
       {
         label: "Digital issues",
@@ -20,7 +20,7 @@ const data = [
     ],
   },
   {
-    name: "Follow us",
+    name: "Social",
     items: [
       {
         label: "Instagram",
