@@ -47,7 +47,11 @@ const BlogBody = ({ body, showCaptions, description }) => {
             <Box gap="small">
               <GatsbyImage image={image} alt={asset.description || ""} />
               <Box>
-                <Text size="small">
+                <Text
+                  size="small"
+                  color="text-weak"
+                  style={{ fontFamily: "Avenir Next, sans-serif" }}
+                >
                   {showCaptions ? asset.description : undefined}
                 </Text>
               </Box>
@@ -105,7 +109,7 @@ const BlogTemplate = ({ data }) => {
               >
                 <Box gap="medium" align="center">
                   <Text
-                    weight="bold"
+                    weight={500}
                     size={size !== "small" ? "2.5em" : "2em"}
                     textAlign="center"
                   >

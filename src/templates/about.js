@@ -49,7 +49,7 @@ const AboutTemplate = () => {
               various friends for photo shoots, interviews, and graphic design.
               We are always open to collaborations or submissions. If you are
               interested in contributing to the magazine, please email us at
-              info@inbtwnmag.com.
+              info [at] inbtwnmag [dot] com.
             </BodyText>
           </Box>
           <Box gap="small">

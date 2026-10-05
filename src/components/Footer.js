@@ -7,11 +7,11 @@ const data = [
   {
     name: "Magazine",
     items: [
-      {
-        label: "Digital issues",
-        href: "https://issuu.com/inbtwnmag",
-        type: "external",
-      },
+      // {
+      //   label: "Digital issues",
+      //   href: "https://issuu.com/inbtwnmag",
+      //   type: "external",
+      // },
       {
         label: "Shop prints",
         href: "https://www.magcloud.com/user/inbtwnmag",
@@ -89,7 +89,7 @@ const StyledFooter = () => {
                   founded in Los Angeles, CA.
                 </Text>
                 <Text size="small" weight={500}>
-                  exploring the idea that we're constantly falling into and out
+                  Exploring the idea that we're constantly falling into and out
                   of ourselves.
                 </Text>
               </Box>
@@ -101,7 +101,7 @@ const StyledFooter = () => {
               © inbtwn. {year}
             </Text>
             <Text size="xsmall" weight={500} color="text-weak">
-              designed & developed by Taylor Seamans
+              Designed & developed by Taylor Seamans
             </Text>
           </Box>
         </Box>

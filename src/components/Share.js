@@ -4,13 +4,11 @@ import {
   EmailShareButton,
   FacebookShareButton,
   LinkedinShareButton,
-  PocketShareButton,
-  TwitterShareButton,
+  XShareButton,
   EmailIcon,
   FacebookIcon,
   LinkedinIcon,
-  PocketIcon,
-  TwitterIcon,
+  XIcon,
 } from "react-share"
 
 export const Share = ({ url }) => {
@@ -19,18 +17,15 @@ export const Share = ({ url }) => {
       <FacebookShareButton url={url}>
         <FacebookIcon size={32} round />
       </FacebookShareButton>
-      <TwitterShareButton url={url}>
-        <TwitterIcon size={32} round />
-      </TwitterShareButton>
+      <XShareButton url={url}>
+        <XIcon size={32} round />
+      </XShareButton>
       <LinkedinShareButton url={url}>
         <LinkedinIcon size={32} round />
       </LinkedinShareButton>
       <EmailShareButton url={url}>
         <EmailIcon size={32} round />
       </EmailShareButton>
-      <PocketShareButton url={url}>
-        <PocketIcon size={32} round />
-      </PocketShareButton>
     </Box>
   )
 }
