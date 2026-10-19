@@ -67,7 +67,7 @@ export const Nav = () => {
         )}
         <StyledAnchor
           label="Magazine"
-          href="https://issuu.com/inbtwnmag"
+          href="https://www.magcloud.com/user/inbtwnmag"
           target="_blank"
           rel="noopener"
         />
